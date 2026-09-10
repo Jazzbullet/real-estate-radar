@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#091018">
+<meta name="description" content="Investment-first real estate radar for Istanbul: profile fit, maps, photos, yield, fair value and risk flags.">
+<title>Real Estate Investment Radar — Istanbul</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<style>
+:root{
+ --bg:#081019;--panel:#0f1925;--panel2:#132131;--panel3:#182a3d;--text:#f2f6fb;--muted:#94a7ba;
+ --line:#26394e;--accent:#6da9ff;--good:#50d890;--warn:#ffc45f;--bad:#ff6b73;--watch:#a4b8ff;
+ --shadow:0 18px 50px rgba(0,0,0,.24);--safe:calc(12px + env(safe-area-inset-bottom));
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#081019,#0a111b 35%,#080d14);color:var(--text);
+ font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Arial,sans-serif;padding-bottom:var(--safe)}
+a{color:inherit}.wrap{max-width:1260px;margin:auto;padding:0 16px}
+header{padding:22px 0 8px}.kicker{color:var(--accent);font-size:11px;font-weight:850;letter-spacing:.14em;text-transform:uppercase}
+h1{font-size:clamp(30px,6vw,58px);line-height:.98;letter-spacing:-.045em;margin:8px 0 12px;max-width:980px}
+.sub{color:var(--muted);font-size:14px;line-height:1.55;max-width:920px}
+.topnav{position:sticky;top:0;z-index:50;background:rgba(8,16,25,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(55,78,103,.65)}
+.tabs{max-width:1260px;margin:auto;padding:8px 16px;display:flex;gap:6px;overflow:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}.tabbtn{border:1px solid var(--line);background:#0e1823;color:#b7c6d5;padding:10px 14px;border-radius:999px;white-space:nowrap;font-weight:800;font-size:13px;cursor:pointer}
+.tabbtn.active{background:#e9f2ff;color:#07111d;border-color:#e9f2ff}
+.page{display:none}.page.active{display:block}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:18px 0}
+.stat{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:14px}
+.stat b{font-size:22px;display:block;letter-spacing:-.03em}.stat span{color:var(--muted);font-size:11px}
+.filters{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:12px 0 16px}
+select,input,textarea,button{font:inherit}
+select,input[type=text],input[type=number],input[type=password],textarea{
+ width:100%;background:#101c29;border:1px solid var(--line);border-radius:12px;color:var(--text);padding:11px 10px;font-size:14px;outline:none
+}
+input:focus,select:focus,textarea:focus{border-color:#5079a8;box-shadow:0 0 0 3px rgba(109,169,255,.1)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);transition:.18s}
+.card:hover{transform:translateY(-2px);border-color:#436184}
+.cardmedia{height:206px;display:grid;grid-template-columns:2fr 1fr;gap:2px;background:#172433;position:relative;cursor:pointer}
+.cardmedia.one{grid-template-columns:1fr}.cardmedia .mainimg,.cardmedia .thumbcol img{width:100%;height:100%;object-fit:cover;display:block;background:#1a2938}
+.thumbcol{display:grid;grid-template-rows:1fr 1fr;gap:2px;min-width:0}.thumbcol img{min-height:0}
+.noimg{height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;color:#a8b8c8;background:linear-gradient(135deg,#162738,#101a25);font-size:12px;line-height:1.4}
+.photo-tag{position:absolute;bottom:10px;left:10px;padding:6px 9px;border-radius:999px;background:rgba(6,13,20,.82);backdrop-filter:blur(8px);font-size:10px;font-weight:800}
+.photo-count{position:absolute;bottom:10px;right:10px;padding:6px 9px;border-radius:999px;background:rgba(6,13,20,.82);font-size:10px;font-weight:800}
+.cardhead{padding:14px 15px 8px}.row{display:flex;align-items:center;justify-content:space-between;gap:8px}.badges{display:flex;gap:6px;flex-wrap:wrap}
+.badge{border:1px solid var(--line);border-radius:999px;padding:5px 8px;background:#111d2a;font-size:10px;font-weight:850}
+.buy{color:var(--good)}.neg{color:var(--warn)}.watch{color:var(--watch)}.pass{color:var(--bad)}
+.price{font-size:28px;font-weight:900;letter-spacing:-.045em;margin:9px 0 2px}.try{font-size:11px;color:var(--muted)}
+.title{font-size:17px;font-weight:820;line-height:1.16;margin:8px 0}
+.fitline{display:flex;gap:9px;align-items:center;margin:10px 0}.fitbar{height:6px;border-radius:999px;background:#26384a;flex:1;overflow:hidden}.fitbar i{height:100%;display:block;background:linear-gradient(90deg,#6da9ff,#4eda93)}
+.fitnum{font-size:11px;font-weight:900}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.metric{background:#0e1823;padding:10px}.metric b{font-size:13px;display:block}.metric span{font-size:9px;color:var(--muted)}
+.cardbody{padding:12px 15px 15px}.chips{display:flex;gap:6px;flex-wrap:wrap}.chip{padding:5px 8px;border-radius:999px;background:#18283a;color:#c7d4e1;font-size:10px}
+.note{font-size:12px;color:var(--muted);line-height:1.45;margin-top:9px}.hard{color:#ff9097;font-weight:800}
+.card-actions{display:flex;gap:8px;margin-top:12px}.smallbtn,.primarybtn,.secondarybtn,.dangerbtn{
+ border:0;border-radius:13px;padding:11px 13px;font-weight:850;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center
+}
+.smallbtn{background:#17283b;color:#d6e4f2;font-size:12px;flex:1}.primarybtn{background:#edf4ff;color:#07111d}.secondarybtn{background:#17283b;color:#e0eaf5;border:1px solid var(--line)}.dangerbtn{background:#32171b;color:#ffc0c4;border:1px solid #61363b}
+.section-title{font-size:24px;letter-spacing:-.035em;margin:20px 0 7px}.section-sub{font-size:13px;color:var(--muted);line-height:1.5;max-width:900px}
+.mapwrap{background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden;margin:14px 0;box-shadow:var(--shadow)}
+#global-map,#asset-map{height:min(68vh,720px);min-height:430px;background:#13202e}
+.maptoolbar{padding:12px 14px;background:#0d1722;border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.mapstate{font-size:12px;color:var(--muted)}.mapstate b{color:#dce8f5}
+.leaflet-container{font-family:inherit;background:#101820}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#0d1722;color:#eef5fc}.leaflet-popup-content{width:250px!important;margin:10px}
+.popimg{width:100%;height:145px;object-fit:cover;border-radius:11px;background:#1c2a39;margin-bottom:8px}.poptitle{font-weight:850;font-size:13px;line-height:1.28}.popprice{font-weight:900;font-size:19px;margin:4px 0}.popmeta{color:#a8b8c9;font-size:11px;line-height:1.4}
+.pinwrap{width:34px;height:38px}.pin{width:29px;height:29px;border-radius:50% 50% 50% 0;background:#ff5e58;border:3px solid white;box-shadow:0 5px 14px rgba(0,0,0,.5);transform:rotate(-45deg);position:relative}.pin:after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:white;top:8px;left:8px}
+.profile-layout{display:grid;grid-template-columns:1fr .78fr;gap:14px;margin:14px 0 28px}.panel{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:22px;padding:16px}
+.panel h3{margin:0 0 6px;font-size:18px}.panel p{margin:0 0 12px;color:var(--muted);font-size:12px;line-height:1.45}
+.formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.field label{display:block;font-size:10px;color:#a8bbcd;font-weight:750;margin:0 0 5px}
+.field.wide{grid-column:1/-1}.checkgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-top:8px}.check{display:flex;gap:8px;align-items:center;background:#101d2a;border:1px solid var(--line);border-radius:12px;padding:9px 10px;font-size:11px}.check input{width:auto}
+.weightgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.weightrow{display:grid;grid-template-columns:1fr 72px;gap:8px;align-items:center;font-size:11px;color:#c9d7e4}
+.actionrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.actionrow>*{flex:1;min-width:160px}
+.profile-result{background:#0a141e;border:1px solid var(--line);border-radius:16px;padding:12px;margin-top:12px}
+.profile-result b{font-size:16px}.profile-result .mini{color:var(--muted);font-size:11px;line-height:1.4}
+.searchprompt{width:100%;min-height:270px;resize:vertical;line-height:1.45}
+.keyrow{display:grid;grid-template-columns:1fr auto;gap:8px}.keyhelp{font-size:10px;color:#8fa2b6;line-height:1.45;margin-top:7px}
+.sourcebox{background:#0d1824;border:1px solid var(--line);border-radius:14px;padding:11px;margin-top:10px;font-size:11px;color:#a9b9c9;line-height:1.45}
+.modal{position:fixed;inset:0;background:rgba(2,6,10,.78);display:none;align-items:flex-end;justify-content:center;z-index:100}.modal.open{display:flex}
+.sheet{width:min(100%,980px);height:min(95vh,1100px);background:#080f17;border:1px solid var(--line);border-radius:28px 28px 0 0;padding:18px;padding-bottom:calc(28px + env(safe-area-inset-bottom));overflow:auto}
+.close{position:sticky;top:0;float:right;z-index:3;width:40px;height:40px;border-radius:999px;border:1px solid var(--line);background:#1a2938;color:white;font-size:21px;cursor:pointer}
+.detailgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:14px}.box{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:13px;margin:10px 0}.box h3{font-size:13px;margin:0 0 9px}.moneygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.money{background:#0a141e;border-radius:12px;padding:10px}.money b{display:block;font-size:16px}.money small{color:var(--muted);font-size:9px}
+.gallery{display:flex;gap:7px;overflow:auto;scroll-snap-type:x mandatory;margin:10px 0 12px}.gallery img{width:min(78vw,470px);height:280px;object-fit:cover;border-radius:16px;scroll-snap-align:start;background:#162535}
+.mapnotice{background:#101d2a;border:1px solid #29435e;border-radius:13px;padding:9px 10px;color:#adbed0;font-size:10px;line-height:1.4;margin-top:8px}
+.btnrow{display:flex;gap:8px;margin-top:9px}.btnrow a{flex:1;text-align:center;text-decoration:none}
+footer{padding:26px 0 44px;color:#8094a8;font-size:10px;line-height:1.5}.footlinks{display:flex;gap:12px;margin-top:7px}
+.toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);background:#edf4ff;color:#07111d;border-radius:999px;padding:10px 14px;font-weight:850;font-size:12px;opacity:0;pointer-events:none;transition:.2s;z-index:200}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:900px){
+ .stats{grid-template-columns:repeat(2,1fr)}.filters{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.profile-layout,.detailgrid{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr}.field.wide{grid-column:auto}.checkgrid{grid-template-columns:1fr}.weightgrid{grid-template-columns:1fr}
+ .cardmedia{height:225px}.gallery img{height:240px}.sheet{height:97vh}.metrics{grid-template-columns:repeat(2,1fr)}#global-map,#asset-map{min-height:470px;height:67vh}
+}
+@media(max-width:430px){.wrap{padding:0 12px}.tabs{padding-left:12px;padding-right:12px}.stats{gap:7px}.stat{padding:12px}.filters{gap:6px}.cardmedia{height:216px}.price{font-size:27px}}
+</style>
+</head>
+<body>
+<div class="topnav">
+ <div class="tabs">
+  <button class="tabbtn active" data-tab="objects">Объекты</button>
+  <button class="tabbtn" data-tab="map">Карта</button>
+  <button class="tabbtn" data-tab="profile">Инвест-профиль</button>
+ </div>
+</div>
+
+<main class="wrap">
+<header>
+ <div class="kicker">Investment Profile 1.0 · v2.0 · Istanbul</div>
+ <h1>Real Estate Investment Radar</h1>
+ <div class="sub">Рабочий каталог инвестиционных квартир: фото из оригинальных объявлений, профиль-fit, Fair Value, аренда, hard-risk flags и Google Maps при подключенном ключе. Цены и объявления требуют повторной проверки перед оффером.</div>
+</header>
+
+<section id="page-objects" class="page active">
+ <div class="stats">
+  <div class="stat"><b id="count">–</b><span>кандидатов после фильтра</span></div>
+  <div class="stat"><b id="avg">–</b><span>средняя цена</span></div>
+  <div class="stat"><b id="yield">–</b><span>средний gross yield</span></div>
+  <div class="stat"><b id="fitavg">–</b><span>средний Profile Fit</span></div>
+  <div class="stat"><b id="top">–</b><span>лучший Profile Fit</span></div>
+ </div>
+ <div class="filters">
+  <select id="country"><option value="">Все страны</option></select>
+  <select id="city"><option value="">Все города</option></select>
+  <select id="district"><option value="">Все районы</option></select>
+  <select id="decision"><option value="">Все решения</option><option>BUY</option><option>NEGOTIATE</option><option>WATCH</option><option>PASS</option></select>
+  <select id="sort"><option value="fit">Profile Fit ↓</option><option value="score">Investment Score ↓</option><option value="price">Цена $ ↑</option><option value="yield">Gross yield ↓</option><option value="sqm">$/м² ↑</option></select>
+  <input id="search" type="text" placeholder="Поиск: Marmaray, 2+1…">
+ </div>
+ <div class="grid" id="grid"></div>
+</section>
+
+<section id="page-map" class="page">
+ <h2 class="section-title">Карта объектов</h2>
+ <div class="section-sub">Точки отражают точность, которую раскрывает источник. Если портал показывает только mahalle, pin является приблизительным. На desktop — наведите на marker; на iPhone — tap.</div>
+ <div class="mapwrap">
+  <div class="maptoolbar"><div class="mapstate" id="map-state">Карта загружается…</div><button class="secondarybtn" id="fit-map-btn">Показать все видимые объекты</button></div>
+  <div id="global-map"></div>
+ </div>
+</section>
+
+<section id="page-profile" class="page">
+ <h2 class="section-title">Investment Profile</h2>
+ <div class="section-sub">Поля ниже загружены из Investment Profile 1.0. Изменения сохраняются только в вашем браузере и не меняют исходный Google Doc. Нажмите «Применить» — текущий каталог немедленно пересчитается и переранжируется.</div>
+ <div class="profile-layout">
+  <div class="panel">
+   <h3>Параметры отбора</h3><p>Hard filters и ключевые экономические ограничения.</p>
+   <div class="formgrid">
+    <div class="field"><label>Макс. бюджет, USD</label><input id="p_budget" type="number" min="50000" step="5000"></div>
+    <div class="field"><label>Горизонт, лет</label><input id="p_horizon" type="number" min="1" max="15" step="1"></div>
+    <div class="field"><label>Площадь min, м²</label><input id="p_area_min" type="number" min="20" step="5"></div>
+    <div class="field"><label>Площадь max, м²</label><input id="p_area_max" type="number" min="30" step="5"></div>
+    <div class="field"><label>Этаж min</label><input id="p_floor_min" type="number" min="0" max="50"></div>
+    <div class="field"><label>Этаж max</label><input id="p_floor_max" type="number" min="1" max="80"></div>
+    <div class="field"><label>Цель net yield, %</label><input id="p_net_target" type="number" min="0" max="20" step=".1"></div>
+    <div class="field"><label>Мин. приемлемый net yield, %</label><input id="p_net_min" type="number" min="0" max="20" step=".1"></div>
+    <div class="field"><label>Цель роста USD min, %</label><input id="p_growth_min" type="number" min="0" max="200" step="1"></div>
+    <div class="field"><label>Цель роста USD max, %</label><input id="p_growth_max" type="number" min="0" max="200" step="1"></div>
+    <div class="field"><label>Макс. просадка USD, %</label><input id="p_drawdown" type="number" min="0" max="50" step="1"></div>
+    <div class="field"><label>Целевая ликвидность, мес.</label><input id="p_liquidity" type="number" min="1" max="36" step="1"></div>
+    <div class="field"><label>Макс. transaction costs, %</label><input id="p_costs" type="number" min="0" max="30" step="1"></div>
+    <div class="field"><label>Макс. срок до сдачи, мес.</label><input id="p_completion" type="number" min="0" max="60" step="1"></div>
+    <div class="field"><label>Макс. management fee, % аренды</label><input id="p_management" type="number" min="0" max="50" step="1"></div>
+    <div class="field"><label>Предпочтительный возраст дома, лет</label><input id="p_age" type="number" min="0" max="50" step="1"></div>
+   </div>
+   <div class="checkgrid">
+    <label class="check"><input id="p_room11" type="checkbox">1+1 разрешено</label>
+    <label class="check"><input id="p_room21" type="checkbox">2+1 разрешено</label>
+    <label class="check"><input id="p_asian" type="checkbox">Азиатская сторона — приоритет</label>
+    <label class="check"><input id="p_water" type="checkbox">Море / набережная — приоритет</label>
+    <label class="check"><input id="p_parking" type="checkbox">Паркинг желателен</label>
+    <label class="check"><input id="p_green" type="checkbox">Зелень / прогулки желательны</label>
+    <label class="check"><input id="p_gym" type="checkbox">Gym желателен</label>
+    <label class="check"><input id="p_pool" type="checkbox">Pool желателен</label>
+    <label class="check"><input id="p_eq_hard" type="checkbox">Earthquake / structural = hard filter</label>
+    <label class="check"><input id="p_tapu_hard" type="checkbox">Tapu / legal defect = hard filter</label>
+   </div>
+   <div class="actionrow">
+    <button class="primarybtn" id="apply-profile">Применить и пересчитать</button>
+    <button class="secondarybtn" id="reset-profile">Вернуть Profile 1.0</button>
+   </div>
+   <div class="profile-result" id="profile-summary"></div>
+  </div>
+
+  <div>
+   <div class="panel">
+    <h3>Вес Investment Score</h3><p>Исходные веса из Profile 1.0. Можно менять для сценарного анализа.</p>
+    <div class="weightgrid">
+     <div class="weightrow"><span>Capital Growth</span><input id="w_growth" type="number" min="0" max="100"></div>
+     <div class="weightrow"><span>Location & Infrastructure</span><input id="w_location" type="number" min="0" max="100"></div>
+     <div class="weightrow"><span>Price vs Fair Value</span><input id="w_value" type="number" min="0" max="100"></div>
+     <div class="weightrow"><span>Liquidity</span><input id="w_liquidity" type="number" min="0" max="100"></div>
+     <div class="weightrow"><span>Building / EQ / Developer</span><input id="w_risk" type="number" min="0" max="100"></div>
+     <div class="weightrow"><span>Rental Economics</span><input id="w_rental" type="number" min="0" max="100"></div>
+     <div class="weightrow"><span>Personal Use</span><input id="w_personal" type="number" min="0" max="100"></div>
+    </div>
+    <div class="sourcebox">Сумма весов: <b id="weight-sum">100%</b>. Если сумма не 100%, сайт автоматически нормализует веса при расчёте.</div>
+   </div>
+
+   <div class="panel" style="margin-top:14px">
+    <h3>Google Maps JavaScript API</h3>
+    <p>Ключ не записывается в GitHub и хранится только в localStorage этого браузера. Если ключ отсутствует или не работает, сайт использует спутниковый fallback.</p>
+    <div class="keyrow"><input id="maps-key" type="password" autocomplete="off" placeholder="Google Maps browser API key"><button class="primarybtn" id="save-maps-key">Подключить</button></div>
+    <div class="keyhelp">Для production-ключа используйте Website / HTTP referrer restriction для домена GitHub Pages и API restriction только на Maps JavaScript API. Для Google Maps Platform нужен корректный Cloud project/API key и billing.</div>
+    <div class="actionrow"><button class="secondarybtn" id="clear-maps-key">Удалить ключ из браузера</button></div>
+    <div class="sourcebox" id="maps-status">Google Maps key: не настроен.</div>
+   </div>
+
+   <div class="panel" style="margin-top:14px">
+    <h3>Новый рыночный поиск</h3>
+    <p>GitHub Pages — статический сайт, поэтому он не должен делать вид, что сам сканирует интернет. Здесь формируется точный поисковый бриф по изменённому профилю.</p>
+    <textarea id="search-prompt" class="searchprompt" readonly></textarea>
+    <div class="actionrow"><button class="primarybtn" id="generate-search">Сформировать новый поиск</button><button class="secondarybtn" id="copy-search">Скопировать запрос</button></div>
+   </div>
+  </div>
+ </div>
+ <div class="sourcebox">Источник профиля: <a href="https://docs.google.com/document/d/11LMJDhzSpdIch2NSSUuGq-YW2pH7hQelBuUSvnRx9ZM" target="_blank" rel="noopener">Investment Profile 1.0 — Real Estate ↗</a></div>
+</section>
+
+<footer>
+ Данные объявлений — для предварительного инвестиционного скрининга. Заявления продавцов не считаются подтверждёнными фактами. Перед BUY обязательны legal + technical DD, проверка Tapu/Iskan/обременений/aidat и независимая earthquake/structural оценка конкретного здания.
+ <div class="footlinks"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+</footer>
+</main>
+
+<div class="modal" id="modal"><div class="sheet" id="sheet"></div></div>
+<div class="toast" id="toast">Готово</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+const P=[{"id":"M01","country":"Турция","city":"Стамбул","district":"Maltepe","micro":"Altıntepe","title":"Altıntepe — Stein 2+1, sahil/Marmaray","price_try":8950000,"price_usd":184612,"gross":80,"net":70,"sqm_usd":2308,"rooms":"2+1","floor":"1","age":"6 лет","rent_try":60000,"rent_usd":1238,"gross_yield":8.0,"net_yield":6.0,"decision":"NEGOTIATE","score":86,"fair_try":9000000,"fair_usd":185644,"good_usd":171720,"excellent_usd":157797,"growth":"18–25% USD / 2–3 года","liquidity":"Высокая","seismic":"Повышенное внимание у побережья: грунт / liquefaction / tsunami context. Обязательна проверка parcel + soil report + конструкции.","transit":["Marmaray Küçükyalı","M4 Küçükyalı","D100 / minibüs"],"route":"Marmaray → Ayrılık Çeşmesi / Söğütlüçeşme; далее Kadıköy / европейская сторона","parks":["Maltepe Sahil Parkı","Küçükyalı sahil yürüyüş yolu","50. Yıl Parkı"],"poi":["Hilltown AVM","İstanbul Ticaret Üniversitesi Küçükyalı Kampüsü","Bostancı sahili"],"url":"https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/160688-143","notes":"Свободна; закрытый паркинг, лифт, спортзал; Marmaray Küçükyalı в объявлении ~717 м.","tapu":"Kat Mülkiyeti","parking":"Закрытый","status":"Активное объявление","map_query":"Altıntepe Mahallesi, Maltepe, İstanbul","lat":40.9526,"lon":29.1007,"loc_accuracy":"Mahalle-level","loc_note":"Портал раскрывает Altıntepe и расстояния до POI, но не номер дома.","photos":["https://hecdn01.hemlak.com/mnresize/882/526/ds01/9/1/3/9/6/0/7/4/64fe6843-eb97-4416-b558-162769328d16.jpg","https://hecdn01.hemlak.com/mnresize/882/526/ds01/9/1/3/9/6/0/7/4/0bb75431-ee91-49db-95ec-94b24bf9bc4d.jpg","https://hecdn01.hemlak.com/mnresize/882/526/ds01/9/1/3/9/6/0/7/4/1cab1c0b-d9c3-4b4d-b950-352cfae14578.jpg"],"photo_source":"Оригинальное объявление","photo_status":"verified","data_checked":"2026-09-10","freshness_note":"Проверять цену и статус непосредственно перед оффером."},{"id":"M02","country":"Турция","city":"Стамбул","district":"Maltepe","micro":"Küçükyalı","title":"Küçükyalı — новый 2+1, 3 этаж","price_try":9500000,"price_usd":195957,"gross":80,"net":70,"sqm_usd":2449,"rooms":"2+1","floor":"3","age":"Новый","rent_try":66000,"rent_usd":1361,"gross_yield":8.3,"net_yield":6.3,"decision":"NEGOTIATE","score":88,"fair_try":9600000,"fair_usd":198020,"good_usd":183168,"excellent_usd":168317,"growth":"18–25% USD / 2–3 года","liquidity":"Высокая","seismic":"Повышенное внимание у побережья: грунт / liquefaction / tsunami context. Обязательна проверка parcel + soil report + конструкции.","transit":["Marmaray Küçükyalı","M4 Küçükyalı","D100 / minibüs"],"route":"Marmaray → Ayrılık Çeşmesi / Söğütlüçeşme; далее Kadıköy / европейская сторона","parks":["Maltepe Sahil Parkı","Küçükyalı sahil yürüyüş yolu","50. Yıl Parkı"],"poi":["Hilltown AVM","İstanbul Ticaret Üniversitesi Küçükyalı Kampüsü","Bostancı sahili"],"url":"https://www.hepsiemlak.com/istanbul-maltepe-kucukyali-satilik/daire/5734-2827","notes":"Новый фонд, удобный этаж; сильный rental comp. Проверить Tapu/Iskan и точное расстояние до Marmaray.","tapu":"проверить","parking":"проверить","status":"Активное объявление","map_query":"Küçükyalı Mahallesi, Maltepe, İstanbul","lat":40.9498,"lon":29.11,"loc_accuracy":"Mahalle-level","loc_note":"Портал раскрывает Küçükyalı, но не точный адрес.","photos":[],"photo_source":"Оригинальное объявление","photo_status":"unavailable","data_checked":"2026-09-10","freshness_note":"Цена требует повторной проверки: в более свежих индексах/листингах встречаются изменённые asking prices."},{"id":"M03","country":"Турция","city":"Стамбул","district":"Maltepe","micro":"Altıntepe","title":"Altıntepe — новый 2+1, 95 gross / 65 net","price_try":10200000,"price_usd":210396,"gross":95,"net":65,"sqm_usd":2215,"rooms":"2+1","floor":"1","age":"Новый","rent_try":65000,"rent_usd":1341,"gross_yield":7.6,"net_yield":5.7,"decision":"WATCH","score":73,"fair_try":9500000,"fair_usd":195957,"good_usd":181260,"excellent_usd":166564,"growth":"18–25% USD / 2–3 года","liquidity":"Высокая","seismic":"Повышенное внимание у побережья: грунт / liquefaction / tsunami context. Обязательна проверка parcel + soil report + конструкции.","transit":["Marmaray Küçükyalı","M4 Küçükyalı","D100 / minibüs"],"route":"Marmaray → Ayrılık Çeşmesi / Söğütlüçeşme; далее Kadıköy / европейская сторона","parks":["Maltepe Sahil Parkı","Küçükyalı sahil yürüyüş yolu","50. Yıl Parkı"],"poi":["Hilltown AVM","İstanbul Ticaret Üniversitesi Küçükyalı Kampüsü","Bostancı sahili"],"url":"https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/7628-4182","notes":"Большой разрыв gross/net — существенный минус. В объявлении Kat İrtifakı, не Kat Mülkiyeti.","tapu":"Kat İrtifakı","parking":"уточнить","status":"Активное объявление","map_query":"Altıntepe Mahallesi, Maltepe, İstanbul","lat":40.953,"lon":29.102,"loc_accuracy":"Mahalle-level","loc_note":"Портал раскрывает Altıntepe, но не номер дома.","photos":["https://hecdn01.hemlak.com/mnresize/882/526/ds01/0/2/7/0/8/5/6/4/86f6f5b7-16d6-480e-992a-43833036e362.jpg","https://hecdn01.hemlak.com/mnresize/882/526/ds01/0/2/7/0/8/5/6/4/24677fb8-2387-4423-b454-366da75c5406.jpg","https://hecdn01.hemlak.com/mnresize/882/526/ds01/0/2/7/0/8/5/6/4/54d22466-c8b4-48dd-874d-5e784eb728a4.jpg"],"photo_source":"Оригинальное объявление","photo_status":"verified","data_checked":"2026-09-10","freshness_note":"Проверять цену и статус непосредственно перед оффером."},{"id":"M04","country":"Турция","city":"Стамбул","district":"Maltepe","micro":"Altıntepe","title":"Altıntepe — новый 2+1, 3 этаж","price_try":10500000,"price_usd":216584,"gross":85,"net":75,"sqm_usd":2548,"rooms":"2+1","floor":"3","age":"Новый","rent_try":62000,"rent_usd":1279,"gross_yield":7.1,"net_yield":5.3,"decision":"WATCH","score":78,"fair_try":9800000,"fair_usd":202145,"good_usd":186984,"excellent_usd":171823,"growth":"18–25% USD / 2–3 года","liquidity":"Высокая","seismic":"Повышенное внимание у побережья: грунт / liquefaction / tsunami context. Обязательна проверка parcel + soil report + конструкции.","transit":["Marmaray Küçükyalı","M4 Küçükyalı","D100 / minibüs"],"route":"Marmaray → Ayrılık Çeşmesi / Söğütlüçeşme; далее Kadıköy / европейская сторона","parks":["Maltepe Sahil Parkı","Küçükyalı sahil yürüyüş yolu","50. Yıl Parkı"],"poi":["Hilltown AVM","İstanbul Ticaret Üniversitesi Küçükyalı Kampüsü","Bostancı sahili"],"url":"https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/6060-44314","notes":"Хороший этаж и размер, но asking выше комфортного бюджета и preliminary Fair Value.","tapu":"проверить","parking":"проверить","status":"Активное объявление","map_query":"Altıntepe Mahallesi, Maltepe, İstanbul","lat":40.951,"lon":29.1035,"loc_accuracy":"Mahalle-level","loc_note":"Портал раскрывает Altıntepe, но не номер дома.","photos":["https://hecdn01.hemlak.com/mnresize/882/526/ds01/7/9/9/9/2/6/6/4/9c7b42aa-0668-4648-acb7-984381329101.jpg","https://hecdn01.hemlak.com/mnresize/882/526/ds01/7/9/9/9/2/6/6/4/4cafd7f6-be66-49ae-bcd3-635f7049c173.jpg","https://hecdn01.hemlak.com/mnresize/882/526/ds01/7/9/9/9/2/6/6/4/7421af5b-9bba-488a-af99-a07cfaa46361.jpg"],"photo_source":"Оригинальное объявление","photo_status":"verified","data_checked":"2026-09-10","freshness_note":"Проверять цену и статус непосредственно перед оффером."},{"id":"M05","country":"Турция","city":"Стамбул","district":"Maltepe","micro":"Altıntepe","title":"Altıntepe — новый угловой 2+1, 85 м²","price_try":9600000,"price_usd":198020,"gross":85,"net":75,"sqm_usd":2330,"rooms":"2+1","floor":"1","age":"Новый","rent_try":62000,"rent_usd":1279,"gross_yield":7.8,"net_yield":5.8,"decision":"NEGOTIATE","score":85,"fair_try":9800000,"fair_usd":202145,"good_usd":186984,"excellent_usd":171823,"growth":"18–25% USD / 2–3 года","liquidity":"Высокая","seismic":"Повышенное внимание у побережья: грунт / liquefaction / tsunami context. Обязательна проверка parcel + soil report + конструкции.","transit":["Marmaray Küçükyalı","M4 Küçükyalı","D100 / minibüs"],"route":"Marmaray → Ayrılık Çeşmesi / Söğütlüçeşme; далее Kadıköy / европейская сторона","parks":["Maltepe Sahil Parkı","Küçükyalı sahil yürüyüş yolu","50. Yıl Parkı"],"poi":["Hilltown AVM","İstanbul Ticaret Üniversitesi Küçükyalı Kampüsü","Bostancı sahili"],"url":"https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/168150-529","notes":"Тёплый пол, балкон, открытый паркинг, спортзал; свободна. Хороший lifestyle fit.","tapu":"проверить","parking":"Открытый","status":"Активное объявление","map_query":"Altıntepe Mahallesi, Maltepe, İstanbul","lat":40.954,"lon":29.0995,"loc_accuracy":"Mahalle-level","loc_note":"Портал раскрывает Altıntepe, но не номер дома.","photos":["https://hecdn01.hemlak.com/mnresize/882/526/ds01/8/8/5/9/0/1/7/4/0955e4dc-956f-4119-b703-ec24f257603a.jpg","https://hecdn01.hemlak.com/mnresize/882/526/ds01/8/8/5/9/0/1/7/4/4047ec9d-6752-43de-85df-6e3ea3791606.jpg","https://hecdn01.hemlak.com/mnresize/882/526/ds01/8/8/5/9/0/1/7/4/b1798aa8-e1f5-4bd8-857a-2d51c4166d06.jpg"],"photo_source":"Оригинальное объявление","photo_status":"verified","data_checked":"2026-09-10","freshness_note":"Проверять цену и статус непосредственно перед оффером."},{"id":"M06","country":"Турция","city":"Стамбул","district":"Maltepe","micro":"Küçükyalı","title":"Küçükyalı — новый 2+1 за ₺7.825m","price_try":7825000,"price_usd":161407,"gross":70,"net":60,"sqm_usd":2306,"rooms":"2+1","floor":"1","age":"Новый","rent_try":55000,"rent_usd":1134,"gross_yield":8.4,"net_yield":6.3,"decision":"PASS","score":55,"fair_try":8000000,"fair_usd":165017,"good_usd":152640,"excellent_usd":140264,"growth":"18–25% USD / 2–3 года","liquidity":"Высокая","seismic":"Повышенное внимание у побережья: грунт / liquefaction / tsunami context. Обязательна проверка parcel + soil report + конструкции.","transit":["Marmaray Küçükyalı","M4 Küçükyalı","D100 / minibüs"],"route":"Marmaray → Ayrılık Çeşmesi / Söğütlüçeşme; далее Kadıköy / европейская сторона","parks":["Maltepe Sahil Parkı","Küçükyalı sahil yürüyüş yolu","50. Yıl Parkı"],"poi":["Hilltown AVM","İstanbul Ticaret Üniversitesi Küçükyalı Kampüsü","Bostancı sahili"],"url":"https://www.hepsiemlak.com/istanbul-maltepe-kucukyali-satilik/daire/6060-44266","notes":"Цена привлекательна, но структурированные данные объявления показывают «Tapu Yok». До документов — автоматический PASS.","tapu":"Tapu Yok в карточке","parking":"Закрытый","status":"Активное объявление","map_query":"Küçükyalı Mahallesi, Maltepe, İstanbul","lat":40.9492,"lon":29.1085,"loc_accuracy":"Mahalle-level","loc_note":"Портал раскрывает Küçükyalı, но не точный адрес.","photos":[],"photo_source":"Оригинальное объявление","photo_status":"unavailable","data_checked":"2026-09-10","freshness_note":"Проверять цену и статус непосредственно перед оффером."},{"id":"K01","country":"Турция","city":"Стамбул","district":"Kartal","micro":"Orhantepe / Dragos","title":"Orhantepe — 4-летний 2+1, 2 этаж","price_try":8500000,"price_usd":175330,"gross":110,"net":80,"sqm_usd":1594,"rooms":"2+1","floor":"2","age":"4 года","rent_try":55000,"rent_usd":1134,"gross_yield":7.8,"net_yield":5.8,"decision":"NEGOTIATE","score":90,"fair_try":9100000,"fair_usd":187706,"good_usd":173628,"excellent_usd":159550,"growth":"20–30% USD / 2–3 года при хорошем входе","liquidity":"Высокая / средне-высокая","seismic":"Прибрежная зона Marmara: site-specific грунт обязателен. Новый дом не заменяет инженерную проверку.","transit":["Marmaray Cevizli","M4 Kartal / Hastane-Adliye","D100 / minibüs"],"route":"Marmaray Cevizli → Ayrılık Çeşmesi / Söğütlüçeşme; M4 → Kadıköy","parks":["Dragos Sahili","Kartal Sahil Parkı","Cevizli kıyı yeşil alanları"],"poi":["İstMarina","Dragos Tepesi","Kartal Adliyesi"],"url":"https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/5630-6504","notes":"Южная сторона, балкон, паркинг. Заголовок продавца заявляет соответствие сейсмонормам — требуется независимая проверка.","tapu":"проверить","parking":"Есть","status":"Активное объявление","map_query":"Orhantepe Mahallesi, Kartal, İstanbul","lat":40.9064,"lon":29.1558,"loc_accuracy":"Mahalle-level","loc_note":"Портал раскрывает Orhantepe и расстояния до POI, но не номер дома.","photos":["https://hecdn01.hemlak.com/mnresize/882/526/ds01/0/3/7/6/9/0/5/4/1755336385-645269-45096730.jpeg","https://hecdn01.hemlak.com/mnresize/882/526/ds01/0/3/7/6/9/0/5/4/1755336382-291103-45096730.jpeg","https://hecdn01.hemlak.com/mnresize/882/526/ds01/0/3/7/6/9/0/5/4/1755336383-995597-45096730.jpeg"],"photo_source":"Оригинальное объявление","photo_status":"verified","data_checked":"2026-09-10","freshness_note":"Проверять цену и статус непосредственно перед оффером."},{"id":"K02","country":"Турция","city":"Стамбул","district":"Kartal","micro":"Orhantepe / Dragos","title":"Orhantepe — 80 net, 5 этаж","price_try":8099000,"price_usd":167059,"gross":100,"net":80,"sqm_usd":1671,"rooms":"2+1","floor":"5","age":"6 лет","rent_try":55000,"rent_usd":1134,"gross_yield":8.1,"net_yield":6.1,"decision":"NEGOTIATE","score":88,"fair_try":9500000,"fair_usd":195957,"good_usd":181260,"excellent_usd":166564,"growth":"20–30% USD / 2–3 года при хорошем входе","liquidity":"Высокая / средне-высокая","seismic":"Прибрежная зона Marmara: site-specific грунт обязателен. Новый дом не заменяет инженерную проверку.","transit":["Marmaray Cevizli","M4 Kartal / Hastane-Adliye","D100 / minibüs"],"route":"Marmaray Cevizli → Ayrılık Çeşmesi / Söğütlüçeşme; M4 → Kadıköy","parks":["Dragos Sahili","Kartal Sahil Parkı","Cevizli kıyı yeşil alanları"],"poi":["İstMarina","Dragos Tepesi","Kartal Adliyesi"],"url":"https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/156371-73","notes":"Сильная цена за 80 net; этаж соответствует профилю. Проверить парковку, Tapu/Iskan и состояние фасада.","tapu":"проверить","parking":"уточнить","status":"Активное объявление","map_query":"Orhantepe Mahallesi, Kartal, İstanbul","lat":40.9074,"lon":29.154,"loc_accuracy":"Mahalle-level","loc_note":"Портал раскрывает Orhantepe, но не номер дома.","photos":[],"photo_source":"Оригинальное объявление","photo_status":"unavailable","data_checked":"2026-09-10","freshness_note":"Проверять цену и статус непосредственно перед оффером."},{"id":"K03","country":"Турция","city":"Стамбул","district":"Kartal","micro":"Orhantepe / Dragos","title":"Orhantepe — новый 2+1, 3 этаж","price_try":7100000,"price_usd":146452,"gross":85,"net":75,"sqm_usd":1723,"rooms":"2+1","floor":"3","age":"Новый","rent_try":55000,"rent_usd":1134,"gross_yield":9.3,"net_yield":7.0,"decision":"NEGOTIATE","score":92,"fair_try":8500000,"fair_usd":175330,"good_usd":162180,"excellent_usd":149031,"growth":"20–30% USD / 2–3 года при хорошем входе","liquidity":"Высокая / средне-высокая","seismic":"Прибрежная зона Marmara: site-specific грунт обязателен. Новый дом не заменяет инженерную проверку.","transit":["Marmaray Cevizli","M4 Kartal / Hastane-Adliye","D100 / minibüs"],"route":"Marmaray Cevizli → Ayrılık Çeşmesi / Söğütlüçeşme; M4 → Kadıköy","parks":["Dragos Sahili","Kartal Sahil Parkı","Cevizli kıyı yeşil alanları"],"poi":["İstMarina","Dragos Tepesi","Kartal Adliyesi"],"url":"https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/151301-819","notes":"Один из лучших входов $/м²: новый фонд, 3 этаж, отдельная кухня. При чистых документах может перейти в BUY.","tapu":"проверить","parking":"проверить","status":"Активное объявление","map_query":"Orhantepe Mahallesi, Kartal, İstanbul","lat":40.9052,"lon":29.1575,"loc_accuracy":"Mahalle-level","loc_note":"Портал раскрывает Orhantepe, но не номер дома.","photos":["https://hecdn01.hemlak.com/mnresize/882/526/ds01/8/0/4/6/7/5/6/4/08fed01b-aaf2-421e-a70e-85c431db1e64.jpg","https://hecdn01.hemlak.com/mnresize/882/526/ds01/8/0/4/6/7/5/6/4/e20329b7-4c3a-42ba-ae4e-95f41bcc9380.jpg","https://hecdn01.hemlak.com/mnresize/882/526/ds01/8/0/4/6/7/5/6/4/01fecd4a-da05-464d-af29-1c381e5b3316.jpg"],"photo_source":"Оригинальное объявление","photo_status":"verified","data_checked":"2026-09-10","freshness_note":"Проверять цену и статус непосредственно перед оффером."},{"id":"K04","country":"Турция","city":"Стамбул","district":"Kartal","micro":"Orhantepe / Dragos","title":"Dragos sahil — новый 2+1, 70 м²","price_try":11000000,"price_usd":226898,"gross":70,"net":60,"sqm_usd":3241,"rooms":"2+1","floor":"1","age":"Новый","rent_try":65000,"rent_usd":1341,"gross_yield":7.1,"net_yield":5.3,"decision":"WATCH","score":70,"fair_try":8000000,"fair_usd":165017,"good_usd":152640,"excellent_usd":140264,"growth":"20–30% USD / 2–3 года при хорошем входе","liquidity":"Высокая / средне-высокая","seismic":"Прибрежная зона Marmara: site-specific грунт обязателен. Новый дом не заменяет инженерную проверку.","transit":["Marmaray Cevizli","M4 Kartal / Hastane-Adliye","D100 / minibüs"],"route":"Marmaray Cevizli → Ayrılık Çeşmesi / Söğütlüçeşme; M4 → Kadıköy","parks":["Dragos Sahili","Kartal Sahil Parkı","Cevizli kıyı yeşil alanları"],"poi":["İstMarina","Dragos Tepesi","Kartal Adliyesi"],"url":"https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/16829-2832","notes":"Сильная береговая локация, но текущий asking слишком высок относительно площади и бюджета.","tapu":"проверить","parking":"уточнить","status":"Активное объявление","map_query":"Dragos Sahili, Kartal, İstanbul","lat":40.904,"lon":29.1495,"loc_accuracy":"Mahalle-level","loc_note":"Прибрежная часть Orhantepe/Dragos; точный адрес не раскрыт.","photos":["https://hecdn01.hemlak.com/mnresize/552/329/ds01/2/0/6/9/8/4/6/4/16b03ab0-e29d-4602-b8c6-871b433cc380.jpg","https://hecdn01.hemlak.com/mnresize/552/329/ds01/2/0/6/9/8/4/6/4/5698a564-1314-4b2a-997d-1794fab15425.jpg"],"photo_source":"Оригинальное объявление","photo_status":"verified","data_checked":"2026-09-10","freshness_note":"Цена требует повторной проверки: в более свежих индексах/листингах встречаются изменённые asking prices."},{"id":"K05","country":"Турция","city":"Стамбул","district":"Kartal","micro":"Orhantepe","title":"Orhantepe — новый 2+1, 67 м²","price_try":7350000,"price_usd":151609,"gross":67,"net":60,"sqm_usd":2263,"rooms":"2+1","floor":"Средний","age":"Новый","rent_try":50000,"rent_usd":1031,"gross_yield":8.2,"net_yield":6.1,"decision":"WATCH","score":80,"fair_try":7300000,"fair_usd":150578,"good_usd":139284,"excellent_usd":127991,"growth":"20–30% USD / 2–3 года при хорошем входе","liquidity":"Высокая / средне-высокая","seismic":"Прибрежная зона Marmara: site-specific грунт обязателен. Новый дом не заменяет инженерную проверку.","transit":["Marmaray Cevizli","M4 Kartal / Hastane-Adliye","D100 / minibüs"],"route":"Marmaray Cevizli → Ayrılık Çeşmesi / Söğütlüçeşme; M4 → Kadıköy","parks":["Dragos Sahili","Kartal Sahil Parkı","Cevizli kıyı yeşil alanları"],"poi":["İstMarina","Dragos Tepesi","Kartal Adliyesi"],"url":"https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/162073-577","notes":"Цена нормальная, но площадь ниже целевых 70–90 м². Подходит как ликвидный компактный fallback.","tapu":"проверить","parking":"уточнить","status":"Активное объявление","map_query":"Orhantepe Mahallesi, Kartal, İstanbul","lat":40.9086,"lon":29.1515,"loc_accuracy":"Mahalle-level","loc_note":"Портал раскрывает Orhantepe, но не номер дома.","photos":["https://hecdn01.hemlak.com/mnresize/882/526/ds01/6/5/7/0/5/1/7/4/f30ecacc-5e71-42d8-af65-192b1e5e0f81.jpg","https://hecdn01.hemlak.com/mnresize/882/526/ds01/6/5/7/0/5/1/7/4/4c491302-75e5-46e5-8e77-9e9436704cd8.jpg","https://hecdn01.hemlak.com/mnresize/882/526/ds01/6/5/7/0/5/1/7/4/1d3a921d-15fe-4ced-8f00-a7219eaae36f.jpg"],"photo_source":"Оригинальное объявление","photo_status":"verified","data_checked":"2026-09-10","freshness_note":"Проверять цену и статус непосредственно перед оффером."},{"id":"K06","country":"Турция","city":"Стамбул","district":"Kartal","micro":"Orhantepe / sahil","title":"Orhantepe — новый 2+1, 2 этаж","price_try":9350000,"price_usd":192863,"gross":85,"net":75,"sqm_usd":2269,"rooms":"2+1","floor":"2","age":"Новый","rent_try":60000,"rent_usd":1238,"gross_yield":7.7,"net_yield":5.8,"decision":"PASS","score":50,"fair_try":8900000,"fair_usd":183581,"good_usd":169812,"excellent_usd":156044,"growth":"20–30% USD / 2–3 года при хорошем входе","liquidity":"Высокая / средне-высокая","seismic":"Прибрежная зона Marmara: site-specific грунт обязателен. Новый дом не заменяет инженерную проверку.","transit":["Marmaray Cevizli","M4 Kartal / Hastane-Adliye","D100 / minibüs"],"route":"Marmaray Cevizli → Ayrılık Çeşmesi / Söğütlüçeşme; M4 → Kadıköy","parks":["Dragos Sahili","Kartal Sahil Parkı","Cevizli kıyı yeşil alanları"],"poi":["İstMarina","Dragos Tepesi","Kartal Adliyesi"],"url":"https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/162634-573","notes":"Юридический hard flag: в текущей карточке объявления указано Tapu Yok. До документального объяснения — PASS.","tapu":"Tapu Yok в карточке","parking":"уточнить","status":"Активное объявление","map_query":"Orhantepe Mahallesi, Kartal, İstanbul","lat":40.9058,"lon":29.153,"loc_accuracy":"Mahalle-level","loc_note":"Портал раскрывает Orhantepe, но не номер дома.","photos":["https://hecdn01.hemlak.com/mnresize/882/526/ds01/1/3/3/8/4/9/6/4/b4ca834f-10c9-47f3-82f3-1650098d7f75.jpg","https://hecdn01.hemlak.com/mnresize/882/526/ds01/1/3/3/8/4/9/6/4/1801e332-d348-4ec3-8f81-ab925a69f962.jpg","https://hecdn01.hemlak.com/mnresize/882/526/ds01/1/3/3/8/4/9/6/4/b3711150-57aa-452e-b8a5-378e4baad5d3.jpg"],"photo_source":"Оригинальное объявление","photo_status":"verified","data_checked":"2026-09-10","freshness_note":"Проверять цену и статус непосредственно перед оффером."},{"id":"A01","country":"Турция","city":"Стамбул","district":"Ataşehir","micro":"Örnek","title":"Örnek — 2+1, 80 м², 2 этаж, арендатор","price_try":6100000,"price_usd":125825,"gross":80,"net":70,"sqm_usd":1573,"rooms":"2+1","floor":"2","age":"уточнить","rent_try":32600,"rent_usd":672,"gross_yield":6.4,"net_yield":4.8,"decision":"NEGOTIATE","score":91,"fair_try":7100000,"fair_usd":146452,"good_usd":135468,"excellent_usd":124484,"growth":"20–30% USD / 2–3 года при правильной цене","liquidity":"Высокая","seismic":"Внутренняя часть азиатской стороны: ниже coastal/liquefaction exposure, но региональный seismic hazard остаётся; нужна проверка конкретного здания.","transit":["M4 Göztepe","D100 / E-5","Uzunçayır Metrobüs (с пересадкой)"],"route":"M4 Göztepe → Kadıköy; через Ayrılık Çeşmesi пересадка на Marmaray","parks":["Örnek Mahallesi parkları","Nezahat Gökyiğit Botanik Bahçesi","Ataşehir yeşil alanları"],"poi":["Optimum Premium Outlet","Emaar Square Mall","İstanbul Finans Merkezi"],"url":"https://www.emlakjet.com/ilan/fl-emlaktan-dumankaya-ikon-yakini-32-600-kiracili-21-arakat-19811519","notes":"Сильная цена входа, но текущая аренда ₺32.6k ниже свежего рынка ~₺47–50k. Проверить договор и возможность индексации/освобождения.","tapu":"проверить","parking":"уточнить","status":"Активное объявление","map_query":"Örnek Mahallesi, Ataşehir, İstanbul","lat":40.99441099943952,"lon":29.08355712890625,"loc_accuracy":"Drone-tile approx","loc_note":"Центр drone-тайла Emlakjet; точный pin объявления скрыт.","photos":["https://imaj.emlakjet.com/resize/1200/0/listing/19811519/DE5EB8C0465776DF09C5831796AEED1D19811519.jpg","https://imaj.emlakjet.com/resize/1200/0/listing/19811519/28B65A5944ED8E56DFFA7FA57C87CC5D19811519.jpg","https://imaj.emlakjet.com/resize/1200/0/listing/19811519/509CE3C4FF063D0B3B0836188BE8782819811519.jpg"],"photo_source":"Оригинальное объявление","photo_status":"verified","data_checked":"2026-09-10","freshness_note":"Проверять цену и статус непосредственно перед оффером."},{"id":"A02","country":"Турция","city":"Стамбул","district":"Ataşehir","micro":"Örnek","title":"Örnek — 2+1, 80 м², рядом с метро","price_try":6400000,"price_usd":132013,"gross":80,"net":70,"sqm_usd":1650,"rooms":"2+1","floor":"Садовый","age":"уточнить","rent_try":49950,"rent_usd":1030,"gross_yield":9.4,"net_yield":7.0,"decision":"NEGOTIATE","score":88,"fair_try":7200000,"fair_usd":148515,"good_usd":137376,"excellent_usd":126238,"growth":"20–30% USD / 2–3 года при правильной цене","liquidity":"Высокая","seismic":"Внутренняя часть азиатской стороны: ниже coastal/liquefaction exposure, но региональный seismic hazard остаётся; нужна проверка конкретного здания.","transit":["M4 Göztepe","D100 / E-5","Uzunçayır Metrobüs (с пересадкой)"],"route":"M4 Göztepe → Kadıköy; через Ayrılık Çeşmesi пересадка на Marmaray","parks":["Örnek Mahallesi parkları","Nezahat Gökyiğit Botanik Bahçesi","Ataşehir yeşil alanları"],"poi":["Optimum Premium Outlet","Emaar Square Mall","İstanbul Finans Merkezi"],"url":"https://www.emlakjet.com/ilan/evinibul-dan-metroya-en-yakin-binada-iskanli-80m2-21-19666120","notes":"В объявлении заявлен Iskan и близость к метро. Минус — садовый этаж, что хуже твоего предпочтения 2–6.","tapu":"Iskan заявлен","parking":"уточнить","status":"Активное объявление","map_query":"Örnek Mahallesi, Ataşehir, İstanbul","lat":40.997,"lon":29.077,"loc_accuracy":"Mahalle-level","loc_note":"Örnek / Göztepe metro area; точный адрес не раскрыт.","photos":["https://imaj.emlakjet.com/resize/1200/0/listing/19666120/E854CE95687723AE50A251F87B1B4D0419666120.jpg","https://imaj.emlakjet.com/resize/1200/0/listing/19666120/7F5D8D8ED95EC1751CC0081AECB802BF19666120.jpg","https://imaj.emlakjet.com/resize/1200/0/listing/19666120/A0342B09CB4F802B9F5A121ACEF6285619666120.jpg"],"photo_source":"Оригинальное объявление","photo_status":"verified","data_checked":"2026-09-10","freshness_note":"Проверять цену и статус непосредственно перед оффером."},{"id":"A03","country":"Турция","city":"Стамбул","district":"Ataşehir","micro":"Örnek","title":"Örnek — новый 2+1, 80 м²","price_try":7450000,"price_usd":153672,"gross":80,"net":70,"sqm_usd":1921,"rooms":"2+1","floor":"Высокий вход","age":"Новый","rent_try":49950,"rent_usd":1030,"gross_yield":8.0,"net_yield":6.0,"decision":"PASS","score":48,"fair_try":7800000,"fair_usd":160891,"good_usd":148824,"excellent_usd":136757,"growth":"20–30% USD / 2–3 года при правильной цене","liquidity":"Высокая","seismic":"Внутренняя часть азиатской стороны: ниже coastal/liquefaction exposure, но региональный seismic hazard остаётся; нужна проверка конкретного здания.","transit":["M4 Göztepe","D100 / E-5","Uzunçayır Metrobüs (с пересадкой)"],"route":"M4 Göztepe → Kadıköy; через Ayrılık Çeşmesi пересадка на Marmaray","parks":["Örnek Mahallesi parkları","Nezahat Gökyiğit Botanik Bahçesi","Ataşehir yeşil alanları"],"poi":["Optimum Premium Outlet","Emaar Square Mall","İstanbul Finans Merkezi"],"url":"https://www.emlakjet.com/ilan/tapu-masrafsiz-21-sifir-binada-satilik-daire-19657427","notes":"Юридический hard flag: в карточке объявления указан Tapu Kaydı Yok. До получения/проверки правоустанавливающих документов — PASS.","tapu":"Tapu Kaydı Yok в карточке","parking":"уточнить","status":"Активное объявление","map_query":"Örnek Mahallesi, Ataşehir, İstanbul","lat":40.9962,"lon":29.08,"loc_accuracy":"Mahalle-level","loc_note":"Örnek; точный адрес не раскрыт.","photos":["https://imaj.emlakjet.com/resize/1200/0/listing/19657427/1759CAB98484EC4326B154050D40754019657427.jpg","https://imaj.emlakjet.com/resize/1200/0/listing/19657427/C822D5D6AFA4A8B900D98FDE525AE83D19657427.jpg","https://imaj.emlakjet.com/resize/1200/0/listing/19657427/986FA8D683B0DF779111ABA624CD0FC919657427.jpg"],"photo_source":"Оригинальное объявление","photo_status":"verified","data_checked":"2026-09-10","freshness_note":"Проверять цену и статус непосредственно перед оффером."},{"id":"A04","country":"Турция","city":"Стамбул","district":"Ataşehir","micro":"Örnek","title":"Örnek — 2+1, 90 м², 2 этаж","price_try":7980000,"price_usd":164604,"gross":90,"net":80,"sqm_usd":1829,"rooms":"2+1","floor":"2","age":"уточнить","rent_try":47000,"rent_usd":969,"gross_yield":7.1,"net_yield":5.3,"decision":"NEGOTIATE","score":90,"fair_try":8000000,"fair_usd":165017,"good_usd":152640,"excellent_usd":140264,"growth":"20–30% USD / 2–3 года при правильной цене","liquidity":"Высокая","seismic":"Внутренняя часть азиатской стороны: ниже coastal/liquefaction exposure, но региональный seismic hazard остаётся; нужна проверка конкретного здания.","transit":["M4 Göztepe","D100 / E-5","Uzunçayır Metrobüs (с пересадкой)"],"route":"M4 Göztepe → Kadıköy; через Ayrılık Çeşmesi пересадка на Marmaray","parks":["Örnek Mahallesi parkları","Nezahat Gökyiğit Botanik Bahçesi","Ataşehir yeşil alanları"],"poi":["Optimum Premium Outlet","Emaar Square Mall","İstanbul Finans Merkezi"],"url":"https://www.emlakjet.com/ilan/ornek-te-e-5-e-metroya-libadiye-caddesine-yurume-mesafesinde-19635774","notes":"Очень хороший fit по площади/этажу/метро. Asking близок к preliminary Fair Value; нужен cash discount.","tapu":"проверить","parking":"уточнить","status":"Активное объявление","map_query":"Örnek Mahallesi, Ataşehir, İstanbul","lat":40.99855696412672,"lon":29.07257080078125,"loc_accuracy":"Street-level approx","loc_note":"Продавец указывает Rast Sokak; номер дома не опубликован. Центр drone-тайла.","photos":["https://imaj.emlakjet.com/resize/1200/0/listing/19635774/F5F9846FD8367C1D4BA3A4CFDC5FF7D119635774.jpg","https://imaj.emlakjet.com/resize/1200/0/listing/19635774/533122D3B8EAAACFA04B2F5D43A169EE19635774.jpg","https://imaj.emlakjet.com/resize/1200/0/listing/19635774/940DD9496024740740D2BC08E1C276B319635774.jpg"],"photo_source":"Оригинальное объявление","photo_status":"verified","data_checked":"2026-09-10","freshness_note":"Проверять цену и статус непосредственно перед оффером."},{"id":"A05","country":"Турция","city":"Стамбул","district":"Ataşehir","micro":"Örnek","title":"Örnek — 2+1, 90 м², арендатор ₺45k","price_try":7400000,"price_usd":152640,"gross":90,"net":80,"sqm_usd":1696,"rooms":"2+1","floor":"1","age":"молодой дом","rent_try":45000,"rent_usd":928,"gross_yield":7.3,"net_yield":5.5,"decision":"NEGOTIATE","score":92,"fair_try":8200000,"fair_usd":169142,"good_usd":156456,"excellent_usd":143771,"growth":"20–30% USD / 2–3 года при правильной цене","liquidity":"Высокая","seismic":"Внутренняя часть азиатской стороны: ниже coastal/liquefaction exposure, но региональный seismic hazard остаётся; нужна проверка конкретного здания.","transit":["M4 Göztepe","D100 / E-5","Uzunçayır Metrobüs (с пересадкой)"],"route":"M4 Göztepe → Kadıköy; через Ayrılık Çeşmesi пересадка на Marmaray","parks":["Örnek Mahallesi parkları","Nezahat Gökyiğit Botanik Bahçesi","Ataşehir yeşil alanları"],"poi":["Optimum Premium Outlet","Emaar Square Mall","İstanbul Finans Merkezi"],"url":"https://www.emlakjet.com/ilan/f-l-den-ornek-merkezde-yatirimcisina-45bin-kiracili-21-19626854","notes":"Цена ниже локального среднего; текущая аренда уже близка к рынку. Проверить срок аренды и качество арендатора.","tapu":"проверить","parking":"уточнить","status":"Активное объявление","map_query":"Örnek Mahallesi, Ataşehir, İstanbul","lat":40.99855696412672,"lon":29.07806396484375,"loc_accuracy":"Landmark-level approx","loc_note":"Продавец указывает соседство с Örnek Merkez Camii; центр drone-тайла.","photos":["https://imaj.emlakjet.com/resize/1200/0/listing/19626854/30A3213734EE7D120314BE7084D8C55119626854.jpg","https://imaj.emlakjet.com/resize/1200/0/listing/19626854/825AF5DEAE8960068DB881D124EE012819626854.jpg","https://imaj.emlakjet.com/resize/1200/0/listing/19626854/42773185C1427FF244DBDD186A97D89019626854.jpg"],"photo_source":"Оригинальное объявление","photo_status":"verified","data_checked":"2026-09-10","freshness_note":"Проверять цену и статус непосредственно перед оффером."},{"id":"A06","country":"Турция","city":"Стамбул","district":"Ataşehir","micro":"Örnek","title":"Örnek — 2+1, 100 м², 2 этаж","price_try":7950000,"price_usd":163985,"gross":100,"net":90,"sqm_usd":1640,"rooms":"2+1","floor":"2","age":"состояние «как новое»","rent_try":47000,"rent_usd":969,"gross_yield":7.1,"net_yield":5.3,"decision":"NEGOTIATE","score":89,"fair_try":9000000,"fair_usd":185644,"good_usd":171720,"excellent_usd":157797,"growth":"20–30% USD / 2–3 года при правильной цене","liquidity":"Высокая","seismic":"Внутренняя часть азиатской стороны: ниже coastal/liquefaction exposure, но региональный seismic hazard остаётся; нужна проверка конкретного здания.","transit":["M4 Göztepe","D100 / E-5","Uzunçayır Metrobüs (с пересадкой)"],"route":"M4 Göztepe → Kadıköy; через Ayrılık Çeşmesi пересадка на Marmaray","parks":["Örnek Mahallesi parkları","Nezahat Gökyiğit Botanik Bahçesi","Ataşehir yeşil alanları"],"poi":["Optimum Premium Outlet","Emaar Square Mall","İstanbul Finans Merkezi"],"url":"https://www.emlakjet.com/ilan/anka-dan-ornek-merkezde-genis-ve-sifir-ayarinda-satilik-21-19567262","notes":"Площадь чуть выше целевой, но цена за м² сильная. Подходит как value play; проверить фактический возраст и документы.","tapu":"проверить","parking":"уточнить","status":"Активное объявление","map_query":"Örnek Mahallesi, Ataşehir, İstanbul","lat":40.9954,"lon":29.0792,"loc_accuracy":"Mahalle-level","loc_note":"Örnek; точный адрес не раскрыт.","photos":["https://imaj.emlakjet.com/resize/1200/0/listing/19567262/D613DB4B43E836D06FE0A23ACEB491C119567262.jpg","https://imaj.emlakjet.com/resize/1200/0/listing/19567262/7E04CB035D766E8933AE75F512810B2919567262.jpg","https://imaj.emlakjet.com/resize/1200/0/listing/19567262/2441254755C11DDF28881BAB1B74AE9019567262.jpg"],"photo_source":"Оригинальное объявление","photo_status":"verified","data_checked":"2026-09-10","freshness_note":"Проверять цену и статус непосредственно перед оффером."}];
+
+const DEFAULT_PROFILE={
+ budget:200000,horizon:3,areaMin:70,areaMax:90,floorMin:2,floorMax:6,netTarget:5,netMin:3.5,
+ growthMin:25,growthMax:30,drawdown:10,liquidity:6,costs:10,completion:6,management:20,age:5,
+ room11:true,room21:true,asian:true,water:true,parking:true,green:true,gym:true,pool:true,eqHard:true,tapuHard:true,
+ weights:{growth:25,location:20,value:15,liquidity:15,risk:10,rental:10,personal:5}
+};
+const ids={
+ budget:'p_budget',horizon:'p_horizon',areaMin:'p_area_min',areaMax:'p_area_max',floorMin:'p_floor_min',floorMax:'p_floor_max',
+ netTarget:'p_net_target',netMin:'p_net_min',growthMin:'p_growth_min',growthMax:'p_growth_max',drawdown:'p_drawdown',liquidity:'p_liquidity',
+ costs:'p_costs',completion:'p_completion',management:'p_management',age:'p_age',
+ room11:'p_room11',room21:'p_room21',asian:'p_asian',water:'p_water',parking:'p_parking',green:'p_green',gym:'p_gym',pool:'p_pool',eqHard:'p_eq_hard',tapuHard:'p_tapu_hard'
+};
+const wid={growth:'w_growth',location:'w_location',value:'w_value',liquidity:'w_liquidity',risk:'w_risk',rental:'w_rental',personal:'w_personal'};
+let profile=loadProfile(), activeLeaflet=null, globalLeaflet=null, googleGlobal=null, googleAsset=null, googleInfo=null, googleMarkers=[], currentVisible=[];
+const $=s=>document.querySelector(s);
+const $$=s=>[...document.querySelectorAll(s)];
+function clone(o){return JSON.parse(JSON.stringify(o))}
+function loadProfile(){try{return {...clone(DEFAULT_PROFILE),...JSON.parse(localStorage.getItem('rei_profile_v2')||'{}'),weights:{...DEFAULT_PROFILE.weights,...(JSON.parse(localStorage.getItem('rei_profile_v2')||'{}').weights||{})}}}catch(e){return clone(DEFAULT_PROFILE)}}
+function money(n){return '$'+Math.round(n||0).toLocaleString('en-US')}
+function safe(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function cls(d){return d==='BUY'?'buy':d==='NEGOTIATE'?'neg':d==='PASS'?'pass':'watch'}
+function toast(t){$('#toast').textContent=t;$('#toast').classList.add('show');setTimeout(()=>$('#toast').classList.remove('show'),1800)}
+function floorNum(s){let m=String(s).match(/\d+/);return m?+m[0]:null}
+function ageNum(s){let m=String(s).match(/\d+/);return /Новый|Sıfır/i.test(String(s))?0:(m?+m[0]:null)}
+function hardFlags(x,p=profile){
+ const f=[]; const t=(x.tapu||'').toLowerCase();
+ if(p.tapuHard && (t.includes('tapu yok')||t.includes('tapu kaydı yok')||t.includes('tapu нет')))f.push('Tapu / title deed');
+ if(p.eqHard && /серьёзн|structural doubt|автоматический pass/i.test(x.seismic||''))f.push('Structural');
+ return f;
+}
+function componentScores(x,p=profile){
+ const area=x.net||x.gross||0, fl=floorNum(x.floor), age=ageNum(x.age), ny=x.net_yield||0;
+ const budget=x.price_usd<=p.budget?100:Math.max(0,100-(x.price_usd/p.budget-1)*180);
+ const areaS=area>=p.areaMin&&area<=p.areaMax?100:Math.max(0,100-Math.min(Math.abs(area-p.areaMin),Math.abs(area-p.areaMax))*6);
+ const floorS=fl==null?60:(fl>=p.floorMin&&fl<=p.floorMax?100:Math.max(20,100-Math.min(Math.abs(fl-p.floorMin),Math.abs(fl-p.floorMax))*22));
+ const ageS=age==null?60:(age<=p.age?100:Math.max(25,100-(age-p.age)*7));
+ const yieldS=ny>=p.netTarget?100:(ny>=p.netMin?75+25*(ny-p.netMin)/Math.max(.1,p.netTarget-p.netMin):Math.max(0,75*ny/Math.max(.1,p.netMin)));
+ const valueRatio=x.fair_usd?x.price_usd/x.fair_usd:1; const valueS=valueRatio<=.9?100:valueRatio<=1?100-(valueRatio-.9)*300:Math.max(0,70-(valueRatio-1)*220);
+ const liquidityS=/Высокая/i.test(x.liquidity||'')?95:75;
+ const riskS=hardFlags(x,p).length?0:(/Kat Mülkiyeti/i.test(x.tapu||'')?92:/Kat İrtifakı/i.test(x.tapu||'')?65:58);
+ const locationS=x.district==='Maltepe'?94:x.district==='Kartal'?88:86;
+ const growthS=x.district==='Kartal'||x.district==='Ataşehir'?94:84;
+ const personalS=x.district==='Maltepe'?98:x.district==='Kartal'?86:72;
+ return {budget,area:areaS,floor:floorS,age:ageS,yield:yieldS,value:valueS,liquidity:liquidityS,risk:riskS,location:locationS,growth:growthS,personal:personalS};
+}
+function profileFit(x,p=profile){
+ const s=componentScores(x,p),w=p.weights,sum=Object.values(w).reduce((a,b)=>a+(+b||0),0)||100;
+ const invest=(s.growth*w.growth+s.location*w.location+s.value*w.value+s.liquidity*w.liquidity+s.risk*w.risk+s.yield*w.rental+s.personal*w.personal)/sum;
+ const constraints=(s.budget*.30+s.area*.20+s.floor*.12+s.age*.08+s.yield*.30);
+ let fit=Math.round(invest*.66+constraints*.34);
+ if(hardFlags(x,p).length)fit=Math.min(fit,35);
+ return Math.max(0,Math.min(100,fit));
+}
+function fitLabel(n){return n>=85?'Сильное соответствие':n>=70?'Хорошее соответствие':n>=55?'Компромисс':'Слабое соответствие'}
+function unique(k){return [...new Set(P.map(x=>x[k]))].sort()}
+function fill(sel,k){unique(k).forEach(v=>{let o=document.createElement('option');o.value=v;o.textContent=v;$(sel).appendChild(o)})}
+fill('#country','country');fill('#city','city');fill('#district','district');
+
+function filtered(){
+ let a=P.filter(x=>(!$('#country').value||x.country===$('#country').value)&&(!$('#city').value||x.city===$('#city').value)&&(!$('#district').value||x.district===$('#district').value)&&(!$('#decision').value||x.decision===$('#decision').value));
+ let q=$('#search').value.trim().toLowerCase();if(q)a=a.filter(x=>JSON.stringify(x).toLowerCase().includes(q));
+ let s=$('#sort').value;
+ a.sort((a,b)=>s==='price'?a.price_usd-b.price_usd:s==='yield'?(b.gross_yield||0)-(a.gross_yield||0):s==='sqm'?a.sqm_usd-b.sqm_usd:s==='score'?b.score-a.score:profileFit(b)-profileFit(a));
+ return a;
+}
+function photoBlock(x){
+ const ps=(x.photos||[]).slice(0,3);
+ if(!ps.length)return `<div class="cardmedia one" onclick="openP('${x.id}')"><div class="noimg"><div>Фото оригинального объявления<br><b>не отдается порталом для внешнего embed</b><br>Откройте источник из карточки</div></div><span class="photo-tag">Источник: оригинал</span></div>`;
+ const main=`<img class="mainimg" src="${ps[0]}" alt="Фото из оригинального объявления" loading="lazy" onerror="this.closest('.cardmedia').classList.add('img-error')">`;
+ const thumbs=ps.length>1?`<div class="thumbcol">${ps.slice(1,3).map(p=>`<img src="${p}" alt="" loading="lazy" onerror="this.style.display='none'">`).join('')}</div>`:'';
+ return `<div class="cardmedia ${ps.length===1?'one':''}" onclick="openP('${x.id}')">${main}${thumbs}<span class="photo-tag">Original listing</span><span class="photo-count">${ps.length} фото</span></div>`;
+}
+function render(){
+ const a=filtered();currentVisible=a;
+ $('#count').textContent=a.length;$('#avg').textContent=money(a.reduce((s,x)=>s+x.price_usd,0)/(a.length||1));
+ $('#yield').textContent=(a.reduce((s,x)=>s+(x.gross_yield||0),0)/(a.length||1)).toFixed(1)+'%';
+ $('#fitavg').textContent=Math.round(a.reduce((s,x)=>s+profileFit(x),0)/(a.length||1))+'%';
+ $('#top').textContent=a.length?Math.max(...a.map(profileFit))+'%':'–';
+ $('#grid').innerHTML=a.map(x=>{
+  const fit=profileFit(x),hf=hardFlags(x),hard=hf.length?`<div class="note hard">Hard fail: ${safe(hf.join(', '))}</div>`:'';
+  return `<article class="card">${photoBlock(x)}
+   <div class="cardhead"><div class="row"><div class="badges"><span class="badge">${safe(x.district)} · ${safe(x.micro)}</span><span class="badge ${cls(x.decision)}">${x.decision}</span></div><span class="badge">${fit}% fit</span></div>
+   <div class="price">${money(x.price_usd)}</div><div class="try">₺${x.price_try.toLocaleString('tr-TR')} · ${money(x.sqm_usd)}/м²</div>
+   <div class="title">${safe(x.title)}</div><div class="fitline"><span class="fitnum">${fitLabel(fit)}</span><div class="fitbar"><i style="width:${fit}%"></i></div></div></div>
+   <div class="metrics"><div class="metric"><b>${x.net||x.gross} м²</b><span>net / usable</span></div><div class="metric"><b>${x.net_yield??'–'}%</b><span>norm. net yield</span></div><div class="metric"><b>${x.score}/100</b><span>base score</span></div><div class="metric"><b>${safe(x.floor)}</b><span>этаж</span></div></div>
+   <div class="cardbody"><div class="chips"><span class="chip">${x.rooms}</span><span class="chip">${safe(x.age)}</span><span class="chip">${safe(x.loc_accuracy)}</span><span class="chip">${safe(x.tapu)}</span></div>${hard}<div class="note">${safe(x.notes)}</div>
+   <div class="card-actions"><button class="smallbtn" onclick="openP('${x.id}')">Подробнее</button><a class="smallbtn" href="${x.url}" target="_blank" rel="noopener">Оригинал ↗</a></div></div>
+  </article>`}).join('');
+}
+function list(a){return '<ul>'+a.map(v=>'<li>'+safe(v)+'</li>').join('')+'</ul>'}
+function popupHtml(x){
+ const p=(x.photos||[])[0],fit=profileFit(x);return `${p?`<img class="popimg" src="${p}" alt="" onerror="this.style.display='none'">`:''}<div class="poptitle">${safe(x.title)}</div><div class="popprice">${money(x.price_usd)}</div><div class="popmeta">${x.rooms} · ${x.net||x.gross} м² · ${safe(x.floor)} этаж · Profile Fit ${fit}%<br>${safe(x.loc_accuracy)}</div>`;
+}
+function galleryHtml(x){
+ if(!(x.photos||[]).length)return `<div class="noimg" style="height:210px;border-radius:16px">Портал не отдаёт изображение для внешнего embed.<br>Используйте кнопку «Исходное объявление».</div>`;
+ return `<div class="gallery">${x.photos.map(p=>`<img src="${p}" alt="Фото из оригинального объявления" loading="lazy" onerror="this.style.display='none'">`).join('')}</div>`;
+}
+function openP(id){
+ const x=P.find(v=>v.id===id),fit=profileFit(x),hf=hardFlags(x);
+ $('#sheet').innerHTML=`<button class="close" onclick="closeM()">×</button><div class="kicker">${safe(x.country)} · ${safe(x.city)} · ${safe(x.district)}</div><h2>${safe(x.title)}</h2>
+ ${galleryHtml(x)}
+ <div class="row"><div><div class="price">${money(x.price_usd)}</div><div class="try">₺${x.price_try.toLocaleString('tr-TR')} · ${money(x.sqm_usd)}/м²</div></div><div class="badges"><span class="badge ${cls(x.decision)}">${x.decision}</span><span class="badge">${fit}% fit</span></div></div>
+ <div class="detailgrid"><div>
+  <div class="box"><h3>Параметры</h3><div class="moneygrid"><div class="money"><b>${x.gross} / ${x.net||'–'} м²</b><small>gross / net</small></div><div class="money"><b>${x.rooms}</b><small>комнаты</small></div><div class="money"><b>${safe(x.floor)}</b><small>этаж</small></div></div><p class="note">Возраст: ${safe(x.age)} · Tapu: ${safe(x.tapu)} · Parking: ${safe(x.parking)}</p></div>
+  <div class="box"><h3>Экономика</h3><div class="moneygrid"><div class="money"><b>${money(x.rent_usd)}</b><small>аренда/мес.</small></div><div class="money"><b>${x.gross_yield}%</b><small>gross yield</small></div><div class="money"><b>${x.net_yield}%</b><small>norm. net</small></div></div></div>
+  <div class="box"><h3>Fair Value Framework</h3><div class="moneygrid"><div class="money"><b>${money(x.fair_usd)}</b><small>Fair Value</small></div><div class="money"><b>${money(x.good_usd)}</b><small>Good Buy</small></div><div class="money"><b>${money(x.excellent_usd)}</b><small>Excellent Buy</small></div></div><p class="note">Предварительная аналитическая оценка; перед сделкой требуется обновление comps.</p></div>
+  <div class="box"><h3>Investment Profile Fit</h3><div class="price" style="font-size:24px">${fit}%</div><div class="fitbar"><i style="width:${fit}%"></i></div>${hf.length?`<p class="note hard">Hard fail: ${safe(hf.join(', '))}</p>`:''}<p class="note">${safe(x.freshness_note||'')}</p></div>
+  <div class="box"><h3>Инвестиционный тезис</h3><p class="note">${safe(x.notes)}</p><p class="note"><b>Рост:</b> ${safe(x.growth)}<br><b>Ликвидность:</b> ${safe(x.liquidity)}</p></div>
+  <div class="box" style="border-color:#61363b"><h3>Earthquake / legal</h3><p class="note">${safe(x.seismic)}</p><p class="note"><b>До BUY:</b> Tapu, Iskan, liens/arrests, permits, aidat, DASK, soil/parcel, structural inspection, фактический net m².</p></div>
+ </div><div>
+  <div id="asset-map"></div><div class="mapnotice"><b>${safe(x.loc_accuracy)}</b><br>${safe(x.loc_note)} Точка не считается кадастровым адресом, если источник не раскрывает точный адрес.</div>
+  <div class="btnrow"><a class="secondarybtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(x.lat+','+x.lon)}">Google Maps ↗</a><a class="primarybtn" target="_blank" rel="noopener" href="${x.url}">Исходное объявление ↗</a></div>
+  <div class="box"><h3>Транспорт</h3>${list(x.transit)}<p class="note">${safe(x.route)}</p></div><div class="box"><h3>Парки / зелень</h3>${list(x.parks)}</div><div class="box"><h3>POI</h3>${list(x.poi)}</div>
+ </div></div>`;
+ $('#modal').classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>initAssetMap(x),40)
+}
+function closeM(){if(activeLeaflet){activeLeaflet.remove();activeLeaflet=null}googleAsset=null;$('#modal').classList.remove('open');document.body.style.overflow=''}
+
+function leafletIcon(){return L.divIcon({className:'pinwrap',html:'<div class="pin"></div>',iconSize:[34,38],iconAnchor:[17,36],popupAnchor:[0,-32]})}
+function initAssetLeaflet(x){
+ if(activeLeaflet)activeLeaflet.remove();activeLeaflet=L.map('asset-map',{zoomControl:true}).setView([x.lat,x.lon],16);
+ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles © Esri'}).addTo(activeLeaflet);
+ const m=L.marker([x.lat,x.lon],{icon:leafletIcon()}).addTo(activeLeaflet).bindPopup(popupHtml(x),{maxWidth:270,closeButton:false});
+ m.on('mouseover',()=>m.openPopup());m.on('click',()=>m.openPopup());setTimeout(()=>activeLeaflet.invalidateSize(),100)
+}
+function mapsKey(){return localStorage.getItem('rei_gmaps_key')||''}
+let gPromise=null;
+window.gm_authFailure=function(){gPromise=null;$('#maps-status').textContent='Google Maps: авторизация отклонена. Проверьте key/referrer/billing.';toast('Google Maps key отклонён')}
+function loadGoogle(){
+ if(window.google&&google.maps)return Promise.resolve(google.maps);
+ const key=mapsKey();if(!key)return Promise.reject(new Error('no-key'));if(gPromise)return gPromise;
+ gPromise=new Promise((resolve,reject)=>{
+  const cb='reiGmReady'+Date.now();window[cb]=()=>{delete window[cb];resolve(google.maps)};
+  const s=document.createElement('script');s.src=`https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(key)}&v=weekly&language=ru&region=TR&loading=async&callback=${cb}&auth_referrer_policy=origin`;
+  s.async=true;s.defer=true;s.onerror=()=>{gPromise=null;reject(new Error('load-failed'))};document.head.appendChild(s);
+  setTimeout(()=>{if(!(window.google&&google.maps)){gPromise=null;reject(new Error('timeout'))}},9000)
+ });return gPromise
+}
+function initAssetGoogle(x){
+ const el=document.getElementById('asset-map');googleAsset=new google.maps.Map(el,{center:{lat:x.lat,lng:x.lon},zoom:16,mapTypeId:'hybrid',streetViewControl:true,mapTypeControl:true,fullscreenControl:true});
+ const marker=new google.maps.Marker({position:{lat:x.lat,lng:x.lon},map:googleAsset,title:x.title});
+ const inf=new google.maps.InfoWindow({content:popupHtml(x)});marker.addListener('mouseover',()=>inf.open({map:googleAsset,anchor:marker}));marker.addListener('click',()=>inf.open({map:googleAsset,anchor:marker}))
+}
+function initAssetMap(x){loadGoogle().then(()=>initAssetGoogle(x)).catch(()=>initAssetLeaflet(x))}
+function destroyGlobal(){if(globalLeaflet){globalLeaflet.remove();globalLeaflet=null}googleGlobal=null;googleMarkers=[]}
+function initGlobalLeaflet(){
+ destroyGlobal();globalLeaflet=L.map('global-map',{zoomControl:true}).setView([40.98,29.13],11);
+ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles © Esri'}).addTo(globalLeaflet);
+ const bounds=[];currentVisible.forEach(x=>{bounds.push([x.lat,x.lon]);const m=L.marker([x.lat,x.lon],{icon:leafletIcon()}).addTo(globalLeaflet).bindPopup(popupHtml(x),{maxWidth:270,closeButton:false});m.on('mouseover',()=>m.openPopup());m.on('click',()=>m.openPopup())});
+ if(bounds.length)globalLeaflet.fitBounds(bounds,{padding:[35,35],maxZoom:14});$('#map-state').innerHTML='<b>Satellite fallback</b> · Google Maps key не подключён или недоступен.'
+}
+function initGlobalGoogle(){
+ destroyGlobal();googleGlobal=new google.maps.Map($('#global-map'),{center:{lat:40.98,lng:29.13},zoom:11,mapTypeId:'hybrid',streetViewControl:true,mapTypeControl:true,fullscreenControl:true});
+ googleInfo=new google.maps.InfoWindow();const bounds=new google.maps.LatLngBounds();
+ currentVisible.forEach(x=>{const pos={lat:x.lat,lng:x.lon};bounds.extend(pos);const m=new google.maps.Marker({position:pos,map:googleGlobal,title:x.title,label:{text:String(profileFit(x)),color:'#ffffff',fontWeight:'700',fontSize:'10px'}});const open=()=>{googleInfo.setContent(popupHtml(x));googleInfo.open({map:googleGlobal,anchor:m})};m.addListener('mouseover',open);m.addListener('click',open);googleMarkers.push(m)});
+ if(currentVisible.length)googleGlobal.fitBounds(bounds,60);$('#map-state').innerHTML='<b>Google Maps JavaScript API · Hybrid</b> · markers показывают Profile Fit.'
+}
+function initGlobalMap(){loadGoogle().then(initGlobalGoogle).catch(initGlobalLeaflet)}
+
+function fillProfile(){
+ Object.entries(ids).forEach(([k,id])=>{let e=$('#'+id);if(e.type==='checkbox')e.checked=!!profile[k];else e.value=profile[k]});
+ Object.entries(wid).forEach(([k,id])=>$('#'+id).value=profile.weights[k]);$('#maps-key').value=mapsKey();updateWeightSum();updateProfileSummary();generateSearchPrompt();
+ $('#maps-status').textContent=mapsKey()?'Google Maps key сохранён в этом браузере.':'Google Maps key: не настроен. Используется satellite fallback.'
+}
+function readProfile(){
+ const p=clone(profile);Object.entries(ids).forEach(([k,id])=>{let e=$('#'+id);p[k]=e.type==='checkbox'?e.checked:+e.value});
+ p.weights={};Object.entries(wid).forEach(([k,id])=>p.weights[k]=+$('#'+id).value||0);return p
+}
+function updateWeightSum(){const n=Object.values(wid).reduce((s,id)=>s+(+$('#'+id).value||0),0);$('#weight-sum').textContent=n+'%';$('#weight-sum').style.color=n===100?'#50d890':'#ffc45f'}
+function updateProfileSummary(){
+ const strong=P.filter(x=>profileFit(x)>=85&&!hardFlags(x).length).length,pass=P.filter(x=>hardFlags(x).length).length;
+ $('#profile-summary').innerHTML=`<b>Текущий сценарий</b><div class="mini">Budget ≤ ${money(profile.budget)} · ${profile.areaMin}–${profile.areaMax} м² · этаж ${profile.floorMin}–${profile.floorMax} · net target ${profile.netTarget}% · рост ${profile.growthMin}–${profile.growthMax}% USD / ${profile.horizon} г.<br><br>Сильное соответствие в текущем каталоге: <b>${strong}</b> · hard failures: <b>${pass}</b>.</div>`
+}
+function applyProfile(){
+ profile=readProfile();localStorage.setItem('rei_profile_v2',JSON.stringify(profile));updateProfileSummary();generateSearchPrompt();render();toast('Профиль применён');
+ if($('#page-map').classList.contains('active'))setTimeout(initGlobalMap,80)
+}
+function resetProfile(){profile=clone(DEFAULT_PROFILE);localStorage.setItem('rei_profile_v2',JSON.stringify(profile));fillProfile();render();toast('Profile 1.0 восстановлен')}
+function generateSearchPrompt(){
+ const p=readProfile();
+ const districts=[...new Set(P.map(x=>x.district))].join(', ');
+ const rooms=[p.room11?'1+1':null,p.room21?'2+1':null].filter(Boolean).join(' / ')||'без жёсткого ограничения';
+ const txt=`Проведи новый актуальный поиск инвестиционных объектов недвижимости по моему изменённому профилю.
+
+География: сначала Турция, Стамбул; приоритетные районы текущего раунда: ${districts}. Азиатская сторона: ${p.asian?'приоритет':'не обязательна'}. Близость к морю/набережной: ${p.water?'желательна':'не обязательна'}.
+Бюджет покупки: до ${money(p.budget)}. Полная стоимость сделки учитывать отдельно; допустимые transaction costs до ${p.costs}%.
+Формат: ${rooms}, площадь ${p.areaMin}–${p.areaMax} м², предпочтительный этаж ${p.floorMin}–${p.floorMax}, предпочтительный возраст дома ≤${p.age} лет.
+Цель: capital growth ${p.growthMin}–${p.growthMax}% в USD за ${p.horizon} года; net rental yield цель ${p.netTarget}%, допустимый минимум ${p.netMin}% при сильном growth/liquidity.
+Ликвидность: целевая продажа ≤${p.liquidity} месяцев. Допустимая просадка: ≤${p.drawdown}% USD.
+Паркинг: ${p.parking?'желателен':'не обязателен'}; зелень: ${p.green?'желательна':'не обязательна'}; gym: ${p.gym?'желателен':'не обязателен'}; pool: ${p.pool?'желателен':'не обязателен'}.
+Строительство: почти готовое, срок до сдачи не более ${p.completion} месяцев. Не брать маленького неизвестного застройщика.
+Earthquake/structural risk: ${p.eqHard?'HARD FILTER; серьёзные сомнения = PASS':'высокий приоритет'}.
+Legal/Tapu: ${p.tapuHard?'HARD FILTER; Tapu/Iskan/обременения должны быть проверены':'обязательно анализировать'}.
+
+Найди 15–20 реально активных объявлений/проектов, проверь текущую цену и дату объявления через независимые источники. Для каждого дай: ссылку на оригинал, фото из оригинального объявления, цену USD и TRY, $/м², gross/net m², этаж/возраст, аренду, gross/net yield, транспорт, парки/зелень, сейсмику/грунт, Tapu/Iskan/aidat, ликвидность, Fair Value, Good Buy, Excellent Buy, причины отказаться и итог BUY/NEGOTIATE/WATCH/PASS. Отдельно пометь подтверждённые факты, заявления продавца, расчёты и прогнозы.`;
+ $('#search-prompt').value=txt;return txt
+}
+async function copySearch(){const t=generateSearchPrompt();try{await navigator.clipboard.writeText(t);toast('Запрос скопирован')}catch(e){$('#search-prompt').select();document.execCommand('copy');toast('Запрос скопирован')}}
+function switchTab(tab){
+ $$('.tabbtn').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));$$('.page').forEach(p=>p.classList.toggle('active',p.id==='page-'+tab));
+ if(tab==='map')setTimeout(initGlobalMap,90);if(tab==='profile')fillProfile()
+}
+
+$$('.tabbtn').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
+['#country','#city','#district','#decision','#sort','#search'].forEach(s=>$(s).addEventListener('input',()=>{render();if($('#page-map').classList.contains('active'))setTimeout(initGlobalMap,50)}));
+Object.values(wid).forEach(id=>$('#'+id).addEventListener('input',updateWeightSum));
+$('#apply-profile').addEventListener('click',applyProfile);$('#reset-profile').addEventListener('click',resetProfile);$('#generate-search').addEventListener('click',()=>{generateSearchPrompt();toast('Новый поисковый бриф сформирован')});$('#copy-search').addEventListener('click',copySearch);
+$('#save-maps-key').addEventListener('click',()=>{const k=$('#maps-key').value.trim();if(!k){toast('Введите API key');return}localStorage.setItem('rei_gmaps_key',k);gPromise=null;$('#maps-status').textContent='Проверяю Google Maps key…';loadGoogle().then(()=>{$('#maps-status').textContent='Google Maps JavaScript API подключён в этом браузере.';toast('Google Maps подключён')}).catch(()=>{$('#maps-status').textContent='Не удалось загрузить Google Maps. Проверьте key, billing и HTTP referrer restriction.';toast('Проверьте настройки key')})});
+$('#clear-maps-key').addEventListener('click',()=>{localStorage.removeItem('rei_gmaps_key');$('#maps-key').value='';gPromise=null;$('#maps-status').textContent='Google Maps key удалён. Используется satellite fallback.';toast('Ключ удалён')});
+$('#fit-map-btn').addEventListener('click',initGlobalMap);$('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeM()});
+fillProfile();render();
+</script>
+</body>
+</html>
