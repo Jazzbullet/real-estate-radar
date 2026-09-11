@@ -45,8 +45,9 @@ Run `node tests/regression.cjs`. The dependency-free tests exercise JavaScript b
 
 ## v2.2: distances, surroundings and scheduled updates
 - Cards show approximate straight-line distances to the closest known promenade, metro and transport point in the available POI dataset. Missing points are explicitly unknown; the dataset is not exhaustive.
+- The bootstrap waterfront reference is the named Bostancı İDO terminal at the coast. Its distance is NOT the shortest distance to the sea or the nearest promenade. Additional named coastal walking paths depend on Overpass availability.
 - Property details add park/leisure distances and Google Maps walking directions. Listing pins are generally approximate; computed distance is not an entrance-to-entrance route.
-- Eight referenced bootstrap POIs load without a data API. OpenStreetMap Overpass adds named parks, stations, terminals, malls, theatres/cinemas and named coastal pedestrian paths. Public Overpass may fail or throttle: keep bootstrap points and show the failure. Local POI cache expires after seven days. No fabricated coordinates.
+- Nine referenced bootstrap POIs load without a data API. OpenStreetMap Overpass adds named parks, stations, terminals, malls, theatres/cinemas and named coastal pedestrian paths. Public Overpass may fail or throttle: keep bootstrap points and show the failure. Local POI cache expires after seven days. No fabricated coordinates.
 - Leaflet supports per-category layers; Google has corresponding colored markers and global category checkboxes. Detail maps include POIs within 5 km and initially fit those within 3 km.
 - POI sources are linked from map popups. OpenStreetMap data is © OpenStreetMap contributors under ODbL; see https://www.openstreetmap.org/copyright .
 - projects.json is now the primary catalog. The embedded P array is an offline fallback. Keep both synchronized after validated research; preserve complete record fields and photos. The page refetches projects.json without cache on load and every five minutes.
