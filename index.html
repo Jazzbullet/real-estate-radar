@@ -107,7 +107,7 @@ footer{padding:26px 0 44px;color:#8094a8;font-size:10px;line-height:1.5}.footlin
 <header>
  <div class="kicker">Investment Profile 1.0 · v2.0 · Istanbul</div>
  <h1>Real Estate Investment Radar</h1>
- <div class="sub">Рабочий каталог инвестиционных квартир: фото из оригинальных объявлений, профиль-fit, Fair Value, аренда, hard-risk flags и Google Maps при подключенном ключе. Цены и объявления требуют повторной проверки перед оффером.</div>
+ <div class="sub">Предварительный каталог, версия 2.1. WATCH — недостаточно подтверждённых данных; PASS — нарушение ограничений. Балл учитывает только доступные подтверждения. Данные и оценки сохранены на дату проверки, обновление рынка вручную. Каталог: фото из оригинальных объявлений, профиль-fit, Fair Value, аренда, hard-risk flags и Google Maps при подключенном ключе. Цены и объявления требуют повторной проверки перед оффером.</div>
 </header>
 
 <section id="page-objects" class="page active">
@@ -140,10 +140,10 @@ footer{padding:26px 0 44px;color:#8094a8;font-size:10px;line-height:1.5}.footlin
 
 <section id="page-profile" class="page">
  <h2 class="section-title">Investment Profile</h2>
- <div class="section-sub">Поля ниже загружены из Investment Profile 1.0. Изменения сохраняются только в вашем браузере и не меняют исходный Google Doc. Нажмите «Применить» — текущий каталог немедленно пересчитается и переранжируется.</div>
+ <div class="section-sub">Сохранённая копия параметров профиля; автоматической синхронизации с Google Doc нет. Изменения сохраняются только в вашем браузере и не меняют исходный Google Doc. Нажмите «Применить» — текущий каталог немедленно пересчитается и переранжируется.</div>
  <div class="profile-layout">
   <div class="panel">
-   <h3>Параметры отбора</h3><p>Hard filters и ключевые экономические ограничения.</p>
+   <h3>Параметры отбора</h3><p>Бюджет — обязательный предел. Площадь и этаж — предпочтения. Неподтверждённые параметры требуют проверки; они не дают положительных баллов.</p>
    <div class="formgrid">
     <div class="field"><label>Макс. бюджет, USD</label><input id="p_budget" type="number" min="50000" step="5000"></div>
     <div class="field"><label>Горизонт, лет</label><input id="p_horizon" type="number" min="1" max="15" step="1"></div>
@@ -160,7 +160,7 @@ footer{padding:26px 0 44px;color:#8094a8;font-size:10px;line-height:1.5}.footlin
     <div class="field"><label>Макс. transaction costs, %</label><input id="p_costs" type="number" min="0" max="30" step="1"></div>
     <div class="field"><label>Макс. срок до сдачи, мес.</label><input id="p_completion" type="number" min="0" max="60" step="1"></div>
     <div class="field"><label>Макс. management fee, % аренды</label><input id="p_management" type="number" min="0" max="50" step="1"></div>
-    <div class="field"><label>Предпочтительный возраст дома, лет</label><input id="p_age" type="number" min="0" max="50" step="1"></div>
+    <div class="field"><label>Справочный возраст дома, лет</label><input id="p_age" type="number" min="0" max="50" step="1"></div>
    </div>
    <div class="checkgrid">
     <label class="check"><input id="p_room11" type="checkbox">1+1 разрешено</label>
@@ -206,10 +206,10 @@ footer{padding:26px 0 44px;color:#8094a8;font-size:10px;line-height:1.5}.footlin
    </div>
 
    <div class="panel" style="margin-top:14px">
-    <h3>Новый рыночный поиск</h3>
+    <h3>Запрос для исследования рынка</h3>
     <p>GitHub Pages — статический сайт, поэтому он не должен делать вид, что сам сканирует интернет. Здесь формируется точный поисковый бриф по изменённому профилю.</p>
     <textarea id="search-prompt" class="searchprompt" readonly></textarea>
-    <div class="actionrow"><button class="primarybtn" id="generate-search">Сформировать новый поиск</button><button class="secondarybtn" id="copy-search">Скопировать запрос</button></div>
+    <div class="actionrow"><button class="primarybtn" id="generate-search">Сформировать запрос</button><button class="secondarybtn" id="copy-search">Скопировать запрос</button></div>
    </div>
   </div>
  </div>
@@ -253,42 +253,21 @@ function cls(d){return d==='BUY'?'buy':d==='NEGOTIATE'?'neg':d==='PASS'?'pass':'
 function toast(t){$('#toast').textContent=t;$('#toast').classList.add('show');setTimeout(()=>$('#toast').classList.remove('show'),1800)}
 function floorNum(s){let m=String(s).match(/\d+/);return m?+m[0]:null}
 function ageNum(s){let m=String(s).match(/\d+/);return /Новый|Sıfır/i.test(String(s))?0:(m?+m[0]:null)}
-function hardFlags(x,p=profile){
- const f=[]; const t=(x.tapu||'').toLowerCase();
- if(p.tapuHard && (t.includes('tapu yok')||t.includes('tapu kaydı yok')||t.includes('tapu нет')))f.push('Tapu / title deed');
- if(p.eqHard && /серьёзн|structural doubt|автоматический pass/i.test(x.seismic||''))f.push('Structural');
- return f;
-}
-function componentScores(x,p=profile){
- const area=x.net||x.gross||0, fl=floorNum(x.floor), age=ageNum(x.age), ny=x.net_yield||0;
- const budget=x.price_usd<=p.budget?100:Math.max(0,100-(x.price_usd/p.budget-1)*180);
- const areaS=area>=p.areaMin&&area<=p.areaMax?100:Math.max(0,100-Math.min(Math.abs(area-p.areaMin),Math.abs(area-p.areaMax))*6);
- const floorS=fl==null?60:(fl>=p.floorMin&&fl<=p.floorMax?100:Math.max(20,100-Math.min(Math.abs(fl-p.floorMin),Math.abs(fl-p.floorMax))*22));
- const ageS=age==null?60:(age<=p.age?100:Math.max(25,100-(age-p.age)*7));
- const yieldS=ny>=p.netTarget?100:(ny>=p.netMin?75+25*(ny-p.netMin)/Math.max(.1,p.netTarget-p.netMin):Math.max(0,75*ny/Math.max(.1,p.netMin)));
- const valueRatio=x.fair_usd?x.price_usd/x.fair_usd:1; const valueS=valueRatio<=.9?100:valueRatio<=1?100-(valueRatio-.9)*300:Math.max(0,70-(valueRatio-1)*220);
- const liquidityS=/Высокая/i.test(x.liquidity||'')?95:75;
- const riskS=hardFlags(x,p).length?0:(/Kat Mülkiyeti/i.test(x.tapu||'')?92:/Kat İrtifakı/i.test(x.tapu||'')?65:58);
- const locationS=x.district==='Maltepe'?94:x.district==='Kartal'?88:86;
- const growthS=x.district==='Kartal'||x.district==='Ataşehir'?94:84;
- const personalS=x.district==='Maltepe'?98:x.district==='Kartal'?86:72;
- return {budget,area:areaS,floor:floorS,age:ageS,yield:yieldS,value:valueS,liquidity:liquidityS,risk:riskS,location:locationS,growth:growthS,personal:personalS};
-}
 function profileFit(x,p=profile){
  const s=componentScores(x,p),w=p.weights,sum=Object.values(w).reduce((a,b)=>a+(+b||0),0)||100;
  const invest=(s.growth*w.growth+s.location*w.location+s.value*w.value+s.liquidity*w.liquidity+s.risk*w.risk+s.yield*w.rental+s.personal*w.personal)/sum;
- const constraints=(s.budget*.30+s.area*.20+s.floor*.12+s.age*.08+s.yield*.30);
+ const constraints=(s.budget*.30+s.area*.25+s.floor*.15+s.yield*.30);
  let fit=Math.round(invest*.66+constraints*.34);
- if(hardFlags(x,p).length)fit=Math.min(fit,35);
+ if(hardFlags(x,p).length)fit=0;
  return Math.max(0,Math.min(100,fit));
 }
-function fitLabel(n){return n>=85?'Сильное соответствие':n>=70?'Хорошее соответствие':n>=55?'Компромисс':'Слабое соответствие'}
+function fitLabel(n){return n>=85?'Высокое подтверждённое соответствие':n>=70?'Хорошее соответствие':n>=55?'Компромисс':'Слабое соответствие'}
 function unique(k){return [...new Set(P.map(x=>x[k]))].sort()}
 function fill(sel,k){unique(k).forEach(v=>{let o=document.createElement('option');o.value=v;o.textContent=v;$(sel).appendChild(o)})}
 fill('#country','country');fill('#city','city');fill('#district','district');
 
 function filtered(){
- let a=P.filter(x=>(!$('#country').value||x.country===$('#country').value)&&(!$('#city').value||x.city===$('#city').value)&&(!$('#district').value||x.district===$('#district').value)&&(!$('#decision').value||x.decision===$('#decision').value));
+ let a=P.filter(x=>(!$('#country').value||x.country===$('#country').value)&&(!$('#city').value||x.city===$('#city').value)&&(!$('#district').value||x.district===$('#district').value)&&(!$('#decision').value||decisionFor(x)===$('#decision').value));
  let q=$('#search').value.trim().toLowerCase();if(q)a=a.filter(x=>JSON.stringify(x).toLowerCase().includes(q));
  let s=$('#sort').value;
  a.sort((a,b)=>s==='price'?a.price_usd-b.price_usd:s==='yield'?(b.gross_yield||0)-(a.gross_yield||0):s==='sqm'?a.sqm_usd-b.sqm_usd:s==='score'?b.score-a.score:profileFit(b)-profileFit(a));
@@ -297,7 +276,7 @@ function filtered(){
 function photoBlock(x){
  const ps=(x.photos||[]).slice(0,3);
  if(!ps.length)return `<div class="cardmedia one" onclick="openP('${x.id}')"><div class="noimg"><div>Фото оригинального объявления<br><b>не отдается порталом для внешнего embed</b><br>Откройте источник из карточки</div></div><span class="photo-tag">Источник: оригинал</span></div>`;
- const main=`<img class="mainimg" src="${ps[0]}" alt="Фото из оригинального объявления" loading="lazy" onerror="this.closest('.cardmedia').classList.add('img-error')">`;
+ const main=`<img class="mainimg" src="${ps[0]}" alt="Фото из оригинального объявления" loading="lazy" onerror="this.style.display='none';this.closest('.cardmedia').insertAdjacentHTML('afterbegin','<div class=&quot;noimg&quot;>Фото недоступно — откройте оригинал</div>')">`;
  const thumbs=ps.length>1?`<div class="thumbcol">${ps.slice(1,3).map(p=>`<img src="${p}" alt="" loading="lazy" onerror="this.style.display='none'">`).join('')}</div>`:'';
  return `<div class="cardmedia ${ps.length===1?'one':''}" onclick="openP('${x.id}')">${main}${thumbs}<span class="photo-tag">Original listing</span><span class="photo-count">${ps.length} фото</span></div>`;
 }
@@ -306,17 +285,17 @@ function render(){
  $('#count').textContent=a.length;$('#avg').textContent=money(a.reduce((s,x)=>s+x.price_usd,0)/(a.length||1));
  $('#yield').textContent=(a.reduce((s,x)=>s+(x.gross_yield||0),0)/(a.length||1)).toFixed(1)+'%';
  $('#fitavg').textContent=Math.round(a.reduce((s,x)=>s+profileFit(x),0)/(a.length||1))+'%';
- $('#top').textContent=a.length?Math.max(...a.map(profileFit))+'%':'–';
+ $('#top').textContent=a.length?Math.max(...a.map(x=>profileFit(x)))+'%':'–';
  $('#grid').innerHTML=a.map(x=>{
   const fit=profileFit(x),hf=hardFlags(x),hard=hf.length?`<div class="note hard">Hard fail: ${safe(hf.join(', '))}</div>`:'';
   return `<article class="card">${photoBlock(x)}
-   <div class="cardhead"><div class="row"><div class="badges"><span class="badge">${safe(x.district)} · ${safe(x.micro)}</span><span class="badge ${cls(x.decision)}">${x.decision}</span></div><span class="badge">${fit}% fit</span></div>
+   <div class="cardhead"><div class="row"><div class="badges"><span class="badge">${safe(x.district)} · ${safe(x.micro)}</span><span class="badge ${cls(decisionFor(x))}">${decisionFor(x)}</span></div><span class="badge">${fit}% fit</span></div>
    <div class="price">${money(x.price_usd)}</div><div class="try">₺${x.price_try.toLocaleString('tr-TR')} · ${money(x.sqm_usd)}/м²</div>
    <div class="title">${safe(x.title)}</div><div class="fitline"><span class="fitnum">${fitLabel(fit)}</span><div class="fitbar"><i style="width:${fit}%"></i></div></div></div>
-   <div class="metrics"><div class="metric"><b>${x.net||x.gross} м²</b><span>net / usable</span></div><div class="metric"><b>${x.net_yield??'–'}%</b><span>norm. net yield</span></div><div class="metric"><b>${x.score}/100</b><span>base score</span></div><div class="metric"><b>${safe(x.floor)}</b><span>этаж</span></div></div>
+   <div class="metrics"><div class="metric"><b>${x.net||x.gross} м²</b><span>net / usable</span></div><div class="metric"><b>${x.net_yield??'–'}%</b><span>оценка net, архив</span></div><div class="metric"><b>${x.score}/100</b><span>архивный балл</span></div><div class="metric"><b>${safe(x.floor)}</b><span>этаж</span></div></div>
    <div class="cardbody"><div class="chips"><span class="chip">${x.rooms}</span><span class="chip">${safe(x.age)}</span><span class="chip">${safe(x.loc_accuracy)}</span><span class="chip">${safe(x.tapu)}</span></div>${hard}<div class="note">${safe(x.notes)}</div>
    <div class="card-actions"><button class="smallbtn" onclick="openP('${x.id}')">Подробнее</button><a class="smallbtn" href="${x.url}" target="_blank" rel="noopener">Оригинал ↗</a></div></div>
-  </article>`}).join('');
+  </article>`}).join('')||'<p class="section-sub">Нет объектов по выбранным фильтрам.</p>';
 }
 function list(a){return '<ul>'+a.map(v=>'<li>'+safe(v)+'</li>').join('')+'</ul>'}
 function popupHtml(x){
@@ -327,15 +306,15 @@ function galleryHtml(x){
  return `<div class="gallery">${x.photos.map(p=>`<img src="${p}" alt="Фото из оригинального объявления" loading="lazy" onerror="this.style.display='none'">`).join('')}</div>`;
 }
 function openP(id){
- const x=P.find(v=>v.id===id),fit=profileFit(x),hf=hardFlags(x);
+ const x=P.find(v=>v.id===id);if(!x)return;closeM();selectedAsset=x;const fit=profileFit(x),hf=hardFlags(x);
  $('#sheet').innerHTML=`<button class="close" onclick="closeM()">×</button><div class="kicker">${safe(x.country)} · ${safe(x.city)} · ${safe(x.district)}</div><h2>${safe(x.title)}</h2>
  ${galleryHtml(x)}
- <div class="row"><div><div class="price">${money(x.price_usd)}</div><div class="try">₺${x.price_try.toLocaleString('tr-TR')} · ${money(x.sqm_usd)}/м²</div></div><div class="badges"><span class="badge ${cls(x.decision)}">${x.decision}</span><span class="badge">${fit}% fit</span></div></div>
+ <div class="row"><div><div class="price">${money(x.price_usd)}</div><div class="try">₺${x.price_try.toLocaleString('tr-TR')} · ${money(x.sqm_usd)}/м²</div></div><div class="badges"><span class="badge ${cls(decisionFor(x))}">${decisionFor(x)}</span><span class="badge">${fit}% fit</span></div></div>
  <div class="detailgrid"><div>
   <div class="box"><h3>Параметры</h3><div class="moneygrid"><div class="money"><b>${x.gross} / ${x.net||'–'} м²</b><small>gross / net</small></div><div class="money"><b>${x.rooms}</b><small>комнаты</small></div><div class="money"><b>${safe(x.floor)}</b><small>этаж</small></div></div><p class="note">Возраст: ${safe(x.age)} · Tapu: ${safe(x.tapu)} · Parking: ${safe(x.parking)}</p></div>
-  <div class="box"><h3>Экономика</h3><div class="moneygrid"><div class="money"><b>${money(x.rent_usd)}</b><small>аренда/мес.</small></div><div class="money"><b>${x.gross_yield}%</b><small>gross yield</small></div><div class="money"><b>${x.net_yield}%</b><small>norm. net</small></div></div></div>
-  <div class="box"><h3>Fair Value Framework</h3><div class="moneygrid"><div class="money"><b>${money(x.fair_usd)}</b><small>Fair Value</small></div><div class="money"><b>${money(x.good_usd)}</b><small>Good Buy</small></div><div class="money"><b>${money(x.excellent_usd)}</b><small>Excellent Buy</small></div></div><p class="note">Предварительная аналитическая оценка; перед сделкой требуется обновление comps.</p></div>
-  <div class="box"><h3>Investment Profile Fit</h3><div class="price" style="font-size:24px">${fit}%</div><div class="fitbar"><i style="width:${fit}%"></i></div>${hf.length?`<p class="note hard">Hard fail: ${safe(hf.join(', '))}</p>`:''}<p class="note">${safe(x.freshness_note||'')}</p></div>
+  <div class="box"><h3>Экономика</h3><div class="moneygrid"><div class="money"><b>${money(x.rent_usd)}</b><small>аренда/мес.</small></div><div class="money"><b>${x.gross_yield}%</b><small>gross yield</small></div><div class="money"><b>${x.net_yield}%</b><small>оценка net, архив</small></div></div></div>
+  <div class="box"><h3>Архивные оценки стоимости</h3><div class="moneygrid"><div class="money"><b>${money(x.fair_usd)}</b><small>Fair Value</small></div><div class="money"><b>${money(x.good_usd)}</b><small>Good Buy</small></div><div class="money"><b>${money(x.excellent_usd)}</b><small>Excellent Buy</small></div></div><p class="note">Сохранённые оценки, не текущая рыночная стоимость. Аналоги и полные расходы не подтверждены; требуется новая оценка.</p></div>
+  <div class="box"><h3>Investment Profile Fit</h3><div class="price" style="font-size:24px">${fit}%</div><div class="fitbar"><i style="width:${fit}%"></i></div>${hf.length?`<p class="note hard">Hard fail: ${safe(hf.join(', '))}</p>`:''}<p class="note">Данные каталога: ${safe(x.data_checked||'дата неизвестна')}. Требуют проверки: ${safe(missingChecks(x).join('; ')||'актуальность данных')}. ${safe(x.freshness_note||'')}</p></div>
   <div class="box"><h3>Инвестиционный тезис</h3><p class="note">${safe(x.notes)}</p><p class="note"><b>Рост:</b> ${safe(x.growth)}<br><b>Ликвидность:</b> ${safe(x.liquidity)}</p></div>
   <div class="box" style="border-color:#61363b"><h3>Earthquake / legal</h3><p class="note">${safe(x.seismic)}</p><p class="note"><b>До BUY:</b> Tapu, Iskan, liens/arrests, permits, aidat, DASK, soil/parcel, structural inspection, фактический net m².</p></div>
  </div><div>
@@ -345,53 +324,65 @@ function openP(id){
  </div></div>`;
  $('#modal').classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>initAssetMap(x),40)
 }
-function closeM(){if(activeLeaflet){activeLeaflet.remove();activeLeaflet=null}googleAsset=null;$('#modal').classList.remove('open');document.body.style.overflow=''}
+let selectedAsset=null;
+function closeM(){assetRequest++;selectedAsset=null;if(activeLeaflet){activeLeaflet.remove();activeLeaflet=null}googleAsset=null;$('#modal').classList.remove('open');document.body.style.overflow=''}
 
 function leafletIcon(){return L.divIcon({className:'pinwrap',html:'<div class="pin"></div>',iconSize:[34,38],iconAnchor:[17,36],popupAnchor:[0,-32]})}
 function initAssetLeaflet(x){
- if(activeLeaflet)activeLeaflet.remove();activeLeaflet=L.map('asset-map',{zoomControl:true}).setView([x.lat,x.lon],16);
+ if(!window.L){$('#asset-map').textContent='Карта недоступна. Откройте ссылку Google Maps ниже.';return}if(activeLeaflet)activeLeaflet.remove();activeLeaflet=L.map('asset-map',{zoomControl:true}).setView([x.lat,x.lon],16);
  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles © Esri'}).addTo(activeLeaflet);
  const m=L.marker([x.lat,x.lon],{icon:leafletIcon()}).addTo(activeLeaflet).bindPopup(popupHtml(x),{maxWidth:270,closeButton:false});
- m.on('mouseover',()=>m.openPopup());m.on('click',()=>m.openPopup());setTimeout(()=>activeLeaflet.invalidateSize(),100)
+ m.on('mouseover',()=>m.openPopup());m.on('click',()=>m.openPopup());setTimeout(()=>activeLeaflet?.invalidateSize(),100)
 }
-function mapsKey(){return localStorage.getItem('rei_gmaps_key')||''}
-let gPromise=null;
-window.gm_authFailure=function(){gPromise=null;$('#maps-status').textContent='Google Maps: авторизация отклонена. Проверьте key/referrer/billing.';toast('Google Maps key отклонён')}
+function mapsKey(){try{return localStorage.getItem('rei_gmaps_key')||''}catch{return ''}}
+let gPromise=null, googleFailed=false, rejectGoogle=null, assetRequest=0, globalRequest=0;
+window.gm_authFailure=function(){
+ googleFailed=true;if(rejectGoogle)rejectGoogle(new Error('auth-failed'));gPromise=null;
+ $('#maps-status').textContent='Google Maps отклонил ключ. Используется резервная карта.';
+ if($('#page-map').classList.contains('active'))initGlobalLeaflet();
+ if($('#modal').classList.contains('open')&&selectedAsset)initAssetLeaflet(selectedAsset);
+};
 function loadGoogle(){
+ const key=mapsKey();if(!key||googleFailed)return Promise.reject(new Error('no-key-or-rejected'));
  if(window.google&&google.maps)return Promise.resolve(google.maps);
- const key=mapsKey();if(!key)return Promise.reject(new Error('no-key'));if(gPromise)return gPromise;
+ if(gPromise)return gPromise;
  gPromise=new Promise((resolve,reject)=>{
-  const cb='reiGmReady'+Date.now();window[cb]=()=>{delete window[cb];resolve(google.maps)};
-  const s=document.createElement('script');s.src=`https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(key)}&v=weekly&language=ru&region=TR&loading=async&callback=${cb}&auth_referrer_policy=origin`;
-  s.async=true;s.defer=true;s.onerror=()=>{gPromise=null;reject(new Error('load-failed'))};document.head.appendChild(s);
-  setTimeout(()=>{if(!(window.google&&google.maps)){gPromise=null;reject(new Error('timeout'))}},9000)
- });return gPromise
+  let settled=false;const cb='reiGmReady'+Date.now();const script=document.createElement('script');
+  const finish=(err)=>{if(settled)return;settled=true;clearTimeout(timer);rejectGoogle=null;window[cb]=()=>{};
+   if(err){googleFailed=true;reject(err)}else resolve(google.maps)};
+  rejectGoogle=finish;window[cb]=()=>finish();
+  const timer=setTimeout(()=>finish(new Error('timeout')),9000);
+  script.src=`https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(key)}&v=weekly&language=ru&region=TR&loading=async&callback=${cb}&auth_referrer_policy=origin`;
+  script.async=true;script.onerror=()=>finish(new Error('load-failed'));document.head.appendChild(script);
+ });return gPromise;
 }
 function initAssetGoogle(x){
+ if(googleFailed)return initAssetLeaflet(x);
  const el=document.getElementById('asset-map');googleAsset=new google.maps.Map(el,{center:{lat:x.lat,lng:x.lon},zoom:16,mapTypeId:'hybrid',streetViewControl:true,mapTypeControl:true,fullscreenControl:true});
  const marker=new google.maps.Marker({position:{lat:x.lat,lng:x.lon},map:googleAsset,title:x.title});
  const inf=new google.maps.InfoWindow({content:popupHtml(x)});marker.addListener('mouseover',()=>inf.open({map:googleAsset,anchor:marker}));marker.addListener('click',()=>inf.open({map:googleAsset,anchor:marker}))
 }
-function initAssetMap(x){loadGoogle().then(()=>initAssetGoogle(x)).catch(()=>initAssetLeaflet(x))}
+function initAssetMap(x){const token=++assetRequest;loadGoogle().then(()=>{if(token===assetRequest&&selectedAsset===x)initAssetGoogle(x)}).catch(()=>{if(token===assetRequest&&selectedAsset===x)initAssetLeaflet(x)})}
 function destroyGlobal(){if(globalLeaflet){globalLeaflet.remove();globalLeaflet=null}googleGlobal=null;googleMarkers=[]}
 function initGlobalLeaflet(){
- destroyGlobal();globalLeaflet=L.map('global-map',{zoomControl:true}).setView([40.98,29.13],11);
+ destroyGlobal();if(!window.L){$('#map-state').textContent='Не удалось загрузить резервную карту. Проверьте соединение.';return}globalLeaflet=L.map('global-map',{zoomControl:true}).setView([40.98,29.13],11);
  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Tiles © Esri'}).addTo(globalLeaflet);
  const bounds=[];currentVisible.forEach(x=>{bounds.push([x.lat,x.lon]);const m=L.marker([x.lat,x.lon],{icon:leafletIcon()}).addTo(globalLeaflet).bindPopup(popupHtml(x),{maxWidth:270,closeButton:false});m.on('mouseover',()=>m.openPopup());m.on('click',()=>m.openPopup())});
  if(bounds.length)globalLeaflet.fitBounds(bounds,{padding:[35,35],maxZoom:14});$('#map-state').innerHTML='<b>Satellite fallback</b> · Google Maps key не подключён или недоступен.'
 }
 function initGlobalGoogle(){
+ if(googleFailed)return initGlobalLeaflet();
  destroyGlobal();googleGlobal=new google.maps.Map($('#global-map'),{center:{lat:40.98,lng:29.13},zoom:11,mapTypeId:'hybrid',streetViewControl:true,mapTypeControl:true,fullscreenControl:true});
  googleInfo=new google.maps.InfoWindow();const bounds=new google.maps.LatLngBounds();
  currentVisible.forEach(x=>{const pos={lat:x.lat,lng:x.lon};bounds.extend(pos);const m=new google.maps.Marker({position:pos,map:googleGlobal,title:x.title,label:{text:String(profileFit(x)),color:'#ffffff',fontWeight:'700',fontSize:'10px'}});const open=()=>{googleInfo.setContent(popupHtml(x));googleInfo.open({map:googleGlobal,anchor:m})};m.addListener('mouseover',open);m.addListener('click',open);googleMarkers.push(m)});
  if(currentVisible.length)googleGlobal.fitBounds(bounds,60);$('#map-state').innerHTML='<b>Google Maps JavaScript API · Hybrid</b> · markers показывают Profile Fit.'
 }
-function initGlobalMap(){loadGoogle().then(initGlobalGoogle).catch(initGlobalLeaflet)}
+function initGlobalMap(){const token=++globalRequest;loadGoogle().then(()=>{if(token===globalRequest)initGlobalGoogle()}).catch(()=>{if(token===globalRequest)initGlobalLeaflet()})}
 
 function fillProfile(){
  Object.entries(ids).forEach(([k,id])=>{let e=$('#'+id);if(e.type==='checkbox')e.checked=!!profile[k];else e.value=profile[k]});
  Object.entries(wid).forEach(([k,id])=>$('#'+id).value=profile.weights[k]);$('#maps-key').value=mapsKey();updateWeightSum();updateProfileSummary();generateSearchPrompt();
- $('#maps-status').textContent=mapsKey()?'Google Maps key сохранён в этом браузере.':'Google Maps key: не настроен. Используется satellite fallback.'
+ $('#maps-status').textContent=mapsKey()?'Ключ сохранён; доступ Google проверяется при открытии карты.':'Google Maps key: не настроен. Используется satellite fallback.'
 }
 function readProfile(){
  const p=clone(profile);Object.entries(ids).forEach(([k,id])=>{let e=$('#'+id);p[k]=e.type==='checkbox'?e.checked:+e.value});
@@ -400,13 +391,13 @@ function readProfile(){
 function updateWeightSum(){const n=Object.values(wid).reduce((s,id)=>s+(+$('#'+id).value||0),0);$('#weight-sum').textContent=n+'%';$('#weight-sum').style.color=n===100?'#50d890':'#ffc45f'}
 function updateProfileSummary(){
  const strong=P.filter(x=>profileFit(x)>=85&&!hardFlags(x).length).length,pass=P.filter(x=>hardFlags(x).length).length;
- $('#profile-summary').innerHTML=`<b>Текущий сценарий</b><div class="mini">Budget ≤ ${money(profile.budget)} · ${profile.areaMin}–${profile.areaMax} м² · этаж ${profile.floorMin}–${profile.floorMax} · net target ${profile.netTarget}% · рост ${profile.growthMin}–${profile.growthMax}% USD / ${profile.horizon} г.<br><br>Сильное соответствие в текущем каталоге: <b>${strong}</b> · hard failures: <b>${pass}</b>.</div>`
+ $('#profile-summary').innerHTML=`<b>Текущий сценарий</b><div class="mini">Budget ≤ ${money(profile.budget)} · ${profile.areaMin}–${profile.areaMax} м² · этаж ${profile.floorMin}–${profile.floorMax} · net target ${profile.netTarget}% · рост ${profile.growthMin}–${profile.growthMax}% USD / ${profile.horizon} г.<br><br>Высокое подтверждённое соответствие в текущем каталоге: <b>${strong}</b> · hard failures: <b>${pass}</b>.</div>`
 }
 function applyProfile(){
- profile=readProfile();localStorage.setItem('rei_profile_v2',JSON.stringify(profile));updateProfileSummary();generateSearchPrompt();render();toast('Профиль применён');
+ const next=readProfile();if(!validateProfile(next))return;profile=next;saveProfile();updateProfileSummary();generateSearchPrompt();render();toast('Профиль пересчитан');
  if($('#page-map').classList.contains('active'))setTimeout(initGlobalMap,80)
 }
-function resetProfile(){profile=clone(DEFAULT_PROFILE);localStorage.setItem('rei_profile_v2',JSON.stringify(profile));fillProfile();render();toast('Profile 1.0 восстановлен')}
+function resetProfile(){profile=clone(DEFAULT_PROFILE);saveProfile();fillProfile();render();toast('Profile 1.0 восстановлен')}
 function generateSearchPrompt(){
  const p=readProfile();
  const districts=[...new Set(P.map(x=>x.district))].join(', ');
@@ -415,7 +406,7 @@ function generateSearchPrompt(){
 
 География: сначала Турция, Стамбул; приоритетные районы текущего раунда: ${districts}. Азиатская сторона: ${p.asian?'приоритет':'не обязательна'}. Близость к морю/набережной: ${p.water?'желательна':'не обязательна'}.
 Бюджет покупки: до ${money(p.budget)}. Полная стоимость сделки учитывать отдельно; допустимые transaction costs до ${p.costs}%.
-Формат: ${rooms}, площадь ${p.areaMin}–${p.areaMax} м², предпочтительный этаж ${p.floorMin}–${p.floorMax}, предпочтительный возраст дома ≤${p.age} лет.
+Формат: ${rooms}, площадь ${p.areaMin}–${p.areaMax} м², предпочтительный этаж ${p.floorMin}–${p.floorMax}, возраст здания справочно; решающая проверка — инженерное состояние.
 Цель: capital growth ${p.growthMin}–${p.growthMax}% в USD за ${p.horizon} года; net rental yield цель ${p.netTarget}%, допустимый минимум ${p.netMin}% при сильном growth/liquidity.
 Ликвидность: целевая продажа ≤${p.liquidity} месяцев. Допустимая просадка: ≤${p.drawdown}% USD.
 Паркинг: ${p.parking?'желателен':'не обязателен'}; зелень: ${p.green?'желательна':'не обязательна'}; gym: ${p.gym?'желателен':'не обязателен'}; pool: ${p.pool?'желателен':'не обязателен'}.
@@ -432,12 +423,51 @@ function switchTab(tab){
  if(tab==='map')setTimeout(initGlobalMap,90);if(tab==='profile')fillProfile()
 }
 
+
+function saveProfile(){try{localStorage.setItem('rei_profile_v2',JSON.stringify(profile))}catch{toast('Профиль действует до закрытия страницы: сохранение недоступно')}}
+function validateProfile(p){
+ for(const id of [...Object.values(ids),...Object.values(wid)]){const e=$('#'+id);if(!e.checkValidity()){e.reportValidity();return false}}
+ if(p.areaMin>p.areaMax||p.floorMin>p.floorMax||p.netMin>p.netTarget||p.growthMin>p.growthMax||Object.values(p.weights).reduce((a,b)=>a+b,0)<=0){toast('Проверьте диапазоны и веса: минимум ≤ максимум, сумма весов > 0');return false}return true;
+}
+function hardFlags(x,p=profile){
+ const f=[];if(x.price_usd>p.budget)f.push('Цена выше максимального бюджета');
+ if(x.structural_status==='failed')f.push('Неприемлемый конструктивный риск');
+ if(x.legal_status==='failed'||/tapu yok|tapu kaydı yok|tapu нет/i.test(x.tapu||''))f.push('Проблема права собственности');
+ if(x.completion_months!=null&&x.completion_months>p.completion)f.push('Срок сдачи превышен');
+ if(x.transaction_cost_pct!=null&&x.transaction_cost_pct>p.costs)f.push('Расходы покупки превышены');
+ if(x.management_pct!=null&&x.management_pct>p.management)f.push('Комиссия управления превышена');
+ if(x.drawdown_usd_pct!=null&&x.drawdown_usd_pct>p.drawdown)f.push('Просадка USD превышает ограничение');
+ if(x.developer_status==='unknown-small')f.push('Малый неизвестный застройщик');
+ return f;
+}
+function missingChecks(x){return [x.legal_status!=='verified'?'Tapu, Iskan, обременения и разрешения':null,x.structural_status!=='verified'?'Независимая техническая экспертиза':null,x.economics_status!=='verified'?'Аналоги, аренда, расходы, валютный сценарий':null,!x.liquidity_months?'Срок продажи':null,x.growth_usd_pct==null?'Рост USD и горизонт':null,x.completion_months==null?'Срок готовности':null,x.transaction_cost_pct==null?'Полная стоимость покупки':null,x.management_pct==null?'Расходы управления':null,x.drawdown_usd_pct==null?'Сценарий просадки USD':null,x.developer_status!=='verified'?'Проверка застройщика':null].filter(Boolean)}
+function decisionFor(x){
+ if(hardFlags(x).length)return 'PASS';
+ const checked=Date.parse(x.data_checked||'');
+ if(x.net_yield<profile.netMin||x.liquidity_months>profile.liquidity||x.growth_horizon_years!==profile.horizon||x.growth_usd_pct<profile.growthMin)return 'WATCH';
+ if(missingChecks(x).length||!Number.isFinite(checked)||Date.now()-checked>7*86400000)return 'WATCH';
+ return profileFit(x)>=85&&x.price_usd<=x.good_usd?'BUY':x.price_usd>x.good_usd?'NEGOTIATE':'WATCH';
+}
+function componentScores(x,p=profile){
+ const area=x.net,fl=floorNum(x.floor),ny=x.net_yield;
+ const match=(v,min,max)=>v==null?0:v>=min&&v<=max?100:0;
+ const prefs=[['parking',x.parking?(!/нет|yok/i.test(x.parking)):null],['gym',x.gym],['pool',x.pool],['green',x.green],['water',x.water],['asian',x.asian]];
+ const requested=prefs.filter(([k])=>p[k]);
+ const personal=requested.length?requested.reduce((n,[k,v])=>n+(v===true?100:0),0)/requested.length:100;
+ const rooms=(!p.room11&&!p.room21)||(p.room11&&x.rooms==='1+1')||(p.room21&&x.rooms==='2+1');
+ return {budget:match(x.price_usd,0,p.budget),area:match(area,p.areaMin,p.areaMax),floor:match(fl,p.floorMin,p.floorMax),age:100,
+ yield:x.economics_status==='verified'?match(ny,p.netMin,100):0,
+ value:x.economics_status==='verified'&&x.fair_usd?Math.min(100,100*x.fair_usd/x.price_usd):0,
+ liquidity:match(x.liquidity_months,0,p.liquidity),risk:x.legal_status==='verified'&&x.structural_status==='verified'?100:0,
+ location:x.infrastructure_verified===true?100:0,growth:x.growth_horizon_years===p.horizon?match(x.growth_usd_pct,p.growthMin,p.growthMax):0,personal:rooms?personal:0};
+}
+
 $$('.tabbtn').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
 ['#country','#city','#district','#decision','#sort','#search'].forEach(s=>$(s).addEventListener('input',()=>{render();if($('#page-map').classList.contains('active'))setTimeout(initGlobalMap,50)}));
 Object.values(wid).forEach(id=>$('#'+id).addEventListener('input',updateWeightSum));
 $('#apply-profile').addEventListener('click',applyProfile);$('#reset-profile').addEventListener('click',resetProfile);$('#generate-search').addEventListener('click',()=>{generateSearchPrompt();toast('Новый поисковый бриф сформирован')});$('#copy-search').addEventListener('click',copySearch);
-$('#save-maps-key').addEventListener('click',()=>{const k=$('#maps-key').value.trim();if(!k){toast('Введите API key');return}localStorage.setItem('rei_gmaps_key',k);gPromise=null;$('#maps-status').textContent='Проверяю Google Maps key…';loadGoogle().then(()=>{$('#maps-status').textContent='Google Maps JavaScript API подключён в этом браузере.';toast('Google Maps подключён')}).catch(()=>{$('#maps-status').textContent='Не удалось загрузить Google Maps. Проверьте key, billing и HTTP referrer restriction.';toast('Проверьте настройки key')})});
-$('#clear-maps-key').addEventListener('click',()=>{localStorage.removeItem('rei_gmaps_key');$('#maps-key').value='';gPromise=null;$('#maps-status').textContent='Google Maps key удалён. Используется satellite fallback.';toast('Ключ удалён')});
+$('#save-maps-key').addEventListener('click',()=>{const k=$('#maps-key').value.trim();if(!k){toast('Введите API key');return}try{localStorage.setItem('rei_gmaps_key',k);location.reload()}catch{toast('Браузер не разрешил сохранить ключ')}});
+$('#clear-maps-key').addEventListener('click',()=>{try{localStorage.removeItem('rei_gmaps_key');location.reload()}catch{toast('Не удалось удалить ключ')}});
 $('#fit-map-btn').addEventListener('click',initGlobalMap);$('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeM()});
 fillProfile();render();
 </script>
