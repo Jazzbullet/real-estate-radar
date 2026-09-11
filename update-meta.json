@@ -1,0 +1,8 @@
+{
+  "status": "scheduled",
+  "last_attempt_at": null,
+  "last_success_at": null,
+  "timezone": "Asia/Tashkent",
+  "next_scheduled_start": "2026-09-12T10:00:00+05:00",
+  "message": "Ежедневное задание включено. Новая проверка объявлений ещё не завершена; исходные даты указаны в карточках."
+}
