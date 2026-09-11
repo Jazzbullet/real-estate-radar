@@ -42,3 +42,14 @@ There are no accounts, sessions or private routes. The catalog and repository ar
 
 ## Validation
 Run `node tests/regression.cjs`. The dependency-free tests exercise JavaScript boot, catalog rendering logic, decisions, invalid ranges, empty results and absent/deleted/rejected map keys in a simulated DOM. They do not replace real browser rendering or live Google Cloud checks.
+
+## v2.2: distances, surroundings and scheduled updates
+- Cards show approximate straight-line distances to the closest known promenade, metro and transport point in the available POI dataset. Missing points are explicitly unknown; the dataset is not exhaustive.
+- Property details add park/leisure distances and Google Maps walking directions. Listing pins are generally approximate; computed distance is not an entrance-to-entrance route.
+- Eight referenced bootstrap POIs load without a data API. OpenStreetMap Overpass adds named parks, stations, terminals, malls, theatres/cinemas and named coastal pedestrian paths. Public Overpass may fail or throttle: keep bootstrap points and show the failure. Local POI cache expires after seven days. No fabricated coordinates.
+- Leaflet supports per-category layers; Google has corresponding colored markers and global category checkboxes. Detail maps include POIs within 5 km and initially fit those within 3 km.
+- POI sources are linked from map popups. OpenStreetMap data is © OpenStreetMap contributors under ODbL; see https://www.openstreetmap.org/copyright .
+- projects.json is now the primary catalog. The embedded P array is an offline fallback. Keep both synchronized after validated research; preserve complete record fields and photos. The page refetches projects.json without cache on load and every five minutes.
+- External ChatGPT task Real Estate Radar Daily (6aa2b3cea6848191b53311e4d71c74c4) is enabled for 10:00 Asia/Tashkent, starting September 12, 2026. It researches listings and publishes evidence-backed repository updates. This is the start of research, not a guaranteed publication completion time.
+- update-meta.json records run state. Never advance last_success_at or per-listing data_checked solely because a scheduled run occurred. On unavailable sources retain the prior catalog with an explicit failed/partial state.
+- For future updates read the actual profile and current schema; do not delete galleries, map layers or risk guards. Never equate a failed HTTP request with a withdrawn listing.
