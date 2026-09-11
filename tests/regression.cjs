@@ -3,7 +3,7 @@ const html=fs.readFileSync(require('path').join(__dirname,'../index.html'),'utf8
 const script=html.match(/<script>\s*([\s\S]*?)<\/script>/)[1];
 const nodes=new Map(),storage=new Map(),timers=[];const node=id=>nodes.get(id)||nodes.set(id,{id,value:'',type:html.includes(`id="${id}" type="checkbox"`)?'checkbox':'number',checked:false,textContent:'',innerHTML:'',style:{},classList:{contains:()=>false,add(){},remove(){},toggle(){}},addEventListener(){},appendChild(){},checkValidity:()=>true,reportValidity(){}}).get(id);
 const ctx={console,Date,Promise,encodeURIComponent,localStorage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v),removeItem:k=>storage.delete(k)},document:{querySelector:s=>node(s.slice(1)),querySelectorAll:()=>[],getElementById:node,createElement:()=>({}),head:{appendChild(){}},body:{style:{}}},setTimeout:(fn)=>{timers.push(fn);return timers.length},clearTimeout(){},location:{reload(){}},navigator:{}};ctx.window=ctx;vm.createContext(ctx);vm.runInContext(script,ctx);
-const run=s=>vm.runInContext(s,ctx);assert.equal(run('P.length'),18);assert(run('P.every(x=>decisionFor(x)!=="BUY")'));
+const run=s=>vm.runInContext(s,ctx);assert.equal(run('kmBetween({lat:0,lon:0},{lat:0,lon:0})'),0);assert(Math.abs(run('kmBetween({lat:0,lon:0},{lat:0,lon:1})')-111.195)<0.01);assert(run('logisticsHtml(P[0]).includes("Набережная")'));assert(run('logisticsHtml(P[0]).includes("по")'));assert.equal(run('pointsForMap().length'),9);assert.equal(run('P.length'),18);assert(run('P.every(x=>decisionFor(x)!=="BUY")'));
 assert.equal(run('decisionFor({...P[0],price_usd:profile.budget+1})'),'PASS');
 assert.equal(run('decisionFor({...P[0],structural_status:"failed"})'),'PASS');
 assert.equal(run('decisionFor({...P[0],legal_status:"failed"})'),'PASS');
