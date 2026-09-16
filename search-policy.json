@@ -1,0 +1,90 @@
+{
+  "version": "1.0",
+  "updated_at": "2026-09-16T04:58:22Z",
+  "purpose": "Evidence-first multi-source discovery for the external daily research and publishing task.",
+  "source_priority": [
+    {
+      "rank": 1,
+      "source": "Sahibinden",
+      "type": "marketplace",
+      "rule": "Use accessible public listing pages; never infer a current price from a stale search snippet."
+    },
+    {
+      "rank": 2,
+      "source": "Hepsiemlak",
+      "type": "marketplace",
+      "rule": "Verify the direct listing page, current asking price and active sale status."
+    },
+    {
+      "rank": 3,
+      "source": "Emlakjet",
+      "type": "marketplace",
+      "rule": "Verify the direct listing page, current asking price and active sale status."
+    },
+    {
+      "rank": 4,
+      "source": "Official developer inventory",
+      "type": "developer",
+      "rule": "Prefer an official availability and price page. A lead form or 'Fiyat Sor' is not a verified price."
+    },
+    {
+      "rank": 5,
+      "source": "Authorized agencies and project aggregators",
+      "type": "secondary",
+      "rule": "Discovery only until the exact unit, price and availability are confirmed at the original source."
+    }
+  ],
+  "geography": {
+    "primary": [
+      "Maltepe/Altıntepe",
+      "Maltepe/Küçükyalı",
+      "Maltepe/İdealtepe",
+      "Kartal/Dragos-Orhantepe",
+      "Kartal/Atalar",
+      "Ataşehir/Örnek"
+    ],
+    "adjacent_if_relevant": [
+      "Maltepe/Çınar",
+      "Maltepe/Bağlarbaşı",
+      "Maltepe/Cevizli",
+      "Kartal/Cevizli",
+      "Kartal/Kordonboyu",
+      "Kartal/Esentepe",
+      "Ataşehir/Kayışdağı",
+      "Ataşehir/İnönü"
+    ]
+  },
+  "developer_first": {
+    "completion_months_max": 6,
+    "require_published_price": true,
+    "require_published_availability": true,
+    "unknown_small_developer_decision": "PASS",
+    "required_checks": [
+      "corporate identity and ownership",
+      "completed projects and delivery record",
+      "construction and permit status",
+      "lawsuits, delays and material complaints",
+      "Tapu/Iskan path and encumbrances",
+      "exact unit, gross/net area, floor and delivery date"
+    ]
+  },
+  "deduplication": {
+    "keys": [
+      "normalized source URL or listing ID",
+      "project + block + unit",
+      "district + micro-location + gross/net area + floor + photo fingerprint"
+    ],
+    "preference": "Official developer unit page, then newest direct listing with the clearest evidence.",
+    "preserve_cross_source_urls": true
+  },
+  "publication_gate": {
+    "require_direct_source_url": true,
+    "require_current_price": true,
+    "require_original_currency": true,
+    "require_source_checked_at": true,
+    "require_fx_rate_and_source": true,
+    "unknown_legal_structural_economics": "WATCH",
+    "failed_structural_or_legal": "PASS",
+    "network_failure_means_withdrawn": false
+  }
+}
