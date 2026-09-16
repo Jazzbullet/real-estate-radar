@@ -38,6 +38,8 @@ Removing a local key does not revoke it in Google Cloud. Google Cloud restrictio
 ## Search, profile and privacy
 The research button generates a copyable research brief. It does not perform live internet search. Automated market ingestion needs an external service/backend and licensed or otherwise permitted data access; it is not implemented here.
 
+The external daily research task now follows `search-policy.json`. Discovery is multi-source and developer-first: Sahibinden, Hepsiemlak, Emlakjet, official developer inventory, then authorized agencies/project aggregators. A project page that only says `Fiyat Sor` or collects leads is not evidence of a current unit price or availability. Candidates are deduplicated across sources before publication; an official unit page wins over secondary copies. Unknown small developers are PASS, while missing legal, structural or economic evidence remains WATCH.
+
 There are no accounts, sessions or private routes. The catalog and repository are public. Profile edits are device-local and do not synchronize with the source Google Doc. No custom server or private API token is present.
 
 ## Validation
