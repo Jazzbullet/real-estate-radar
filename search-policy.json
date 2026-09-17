@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated_at": "2026-09-16T04:58:22Z",
+  "updated_at": "2026-09-17T04:58:16Z",
   "purpose": "Evidence-first multi-source discovery for the external daily research and publishing task.",
   "source_priority": [
     {
@@ -51,7 +51,8 @@
       "Kartal/Kordonboyu",
       "Kartal/Esentepe",
       "Ataşehir/Kayışdağı",
-      "Ataşehir/İnönü"
+      "Ataşehir/İnönü",
+      "Ataşehir/Esatpaşa"
     ]
   },
   "developer_first": {
