@@ -60,16 +60,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-19",
-    "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026 (выходной рынок). Юридическая, техническая и экономическая проверка не выполнена.",
+    "data_checked": "2026-09-20",
+    "freshness_note": "Цена и активная карточка проверены 20.09.2026; курс USD/TRY 48,7600 датирован пятницей 18.09.2026. Юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/160688-143",
-    "source_checked_at": "2026-09-19T05:02:54Z",
+    "source_checked_at": "2026-09-20T04:57:41Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.76,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-19T05:02:54Z",
+    "fx_checked_at": "2026-09-20T04:57:41Z",
     "price_history": [
       {
         "checked_at": "2026-09-10",
@@ -157,13 +157,24 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-18",
         "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/160688-143"
+      },
+      {
+        "checked_at": "2026-09-20T04:57:41Z",
+        "price_try": 8950000,
+        "price_usd": 183552,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.76,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-18",
+        "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/160688-143"
       }
     ],
     "legal_status": "unknown",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "fx_quote_date": "2026-09-18"
   },
   {
@@ -226,9 +237,9 @@
     "data_checked": "2026-09-10",
     "freshness_note": "Свежая цена 18.09.2026 не подтверждена (source-error); сохранена последняя успешная проверка 2026-09-10. Объект не архивирован.",
     "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-kucukyali-satilik/daire/5734-2827",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "source_check_result": "source-error",
-    "source_last_attempt_note": "Портал ответил ошибкой; цена и активность не подтверждены 19.09.2026."
+    "source_last_attempt_note": "20.09.2026 портал вернул ошибку; цена не проверена."
   },
   {
     "id": "M03",
@@ -291,16 +302,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-19",
-    "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026 (выходной рынок). Юридическая, техническая и экономическая проверка не выполнена.",
+    "data_checked": "2026-09-20",
+    "freshness_note": "Цена и активная карточка проверены 20.09.2026; курс USD/TRY 48,7600 датирован пятницей 18.09.2026. Юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/7628-4182",
-    "source_checked_at": "2026-09-19T05:02:54Z",
+    "source_checked_at": "2026-09-20T04:57:41Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.76,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-19T05:02:54Z",
+    "fx_checked_at": "2026-09-20T04:57:41Z",
     "price_history": [
       {
         "checked_at": "2026-09-10",
@@ -378,13 +389,24 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-18",
         "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/7628-4182"
+      },
+      {
+        "checked_at": "2026-09-20T04:57:41Z",
+        "price_try": 10200000,
+        "price_usd": 209188,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.76,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-18",
+        "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/7628-4182"
       }
     ],
     "legal_status": "unknown",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "fx_quote_date": "2026-09-18"
   },
   {
@@ -448,16 +470,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-19",
-    "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026 (выходной рынок). Юридическая, техническая и экономическая проверка не выполнена.",
+    "data_checked": "2026-09-20",
+    "freshness_note": "Цена и активная карточка проверены 20.09.2026; курс USD/TRY 48,7600 датирован пятницей 18.09.2026. Юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/6060-44314",
-    "source_checked_at": "2026-09-19T05:02:54Z",
+    "source_checked_at": "2026-09-20T04:57:41Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.76,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-19T05:02:54Z",
+    "fx_checked_at": "2026-09-20T04:57:41Z",
     "price_history": [
       {
         "checked_at": "2026-09-10",
@@ -535,13 +557,24 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-18",
         "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/6060-44314"
+      },
+      {
+        "checked_at": "2026-09-20T04:57:41Z",
+        "price_try": 10500000,
+        "price_usd": 215340,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.76,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-18",
+        "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/6060-44314"
       }
     ],
     "legal_status": "unknown",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "fx_quote_date": "2026-09-18"
   },
   {
@@ -608,9 +641,9 @@
     "data_checked": "2026-09-10",
     "freshness_note": "Свежая цена 18.09.2026 не подтверждена (redirected-to-category); сохранена последняя успешная проверка 2026-09-10. Объект не архивирован.",
     "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/168150-529",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "source_check_result": "redirected-to-category",
-    "source_last_attempt_note": "Ссылка перенаправила в каталог; снятие объявления не подтверждено."
+    "source_last_attempt_note": "20.09.2026 ссылка открыла общий каталог вместо карточки; снятие не доказано."
   },
   {
     "id": "M06",
@@ -672,9 +705,9 @@
     "data_checked": "2026-09-10",
     "freshness_note": "Свежая цена 18.09.2026 не подтверждена (redirected-to-category); сохранена последняя успешная проверка 2026-09-10. Объект не архивирован.",
     "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-kucukyali-satilik/daire/6060-44266",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "source_check_result": "redirected-to-category",
-    "source_last_attempt_note": "Ссылка перенаправила в каталог; снятие объявления не подтверждено."
+    "source_last_attempt_note": "20.09.2026 ссылка открыла общий каталог вместо карточки; снятие не доказано."
   },
   {
     "id": "K01",
@@ -737,16 +770,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-19",
-    "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026 (выходной рынок). Юридическая, техническая и экономическая проверка не выполнена.",
+    "data_checked": "2026-09-20",
+    "freshness_note": "Цена и активная карточка проверены 20.09.2026; курс USD/TRY 48,7600 датирован пятницей 18.09.2026. Юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/5630-6504",
-    "source_checked_at": "2026-09-19T05:02:54Z",
+    "source_checked_at": "2026-09-20T04:57:41Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.76,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-19T05:02:54Z",
+    "fx_checked_at": "2026-09-20T04:57:41Z",
     "price_history": [
       {
         "checked_at": "2026-09-10",
@@ -824,13 +857,24 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-18",
         "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/5630-6504"
+      },
+      {
+        "checked_at": "2026-09-20T04:57:41Z",
+        "price_try": 8500000,
+        "price_usd": 174323,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.76,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-18",
+        "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/5630-6504"
       }
     ],
     "legal_status": "unknown",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "fx_quote_date": "2026-09-18"
   },
   {
@@ -893,9 +937,9 @@
     "data_checked": "2026-09-10",
     "freshness_note": "Свежая цена 18.09.2026 не подтверждена (incomplete-page); сохранена последняя успешная проверка 2026-09-10. Объект не архивирован.",
     "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/156371-73",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "source_check_result": "incomplete-page",
-    "source_last_attempt_note": "Страница не раскрыла цену и статус; данные оставлены с предыдущей проверки."
+    "source_last_attempt_note": "20.09.2026 прямая страница не предоставила цену; снятие не доказано."
   },
   {
     "id": "K03",
@@ -961,9 +1005,9 @@
     "data_checked": "2026-09-10",
     "freshness_note": "Свежая цена 18.09.2026 не подтверждена (source-error); сохранена последняя успешная проверка 2026-09-10. Объект не архивирован.",
     "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/151301-819",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "source_check_result": "source-error",
-    "source_last_attempt_note": "Портал ответил ошибкой; цена и активность не подтверждены 19.09.2026."
+    "source_last_attempt_note": "20.09.2026 портал вернул ошибку; цена не проверена."
   },
   {
     "id": "K04",
@@ -1025,16 +1069,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-19",
-    "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026 (выходной рынок). Юридическая, техническая и экономическая проверка не выполнена.",
+    "data_checked": "2026-09-20",
+    "freshness_note": "Цена и активная карточка проверены 20.09.2026; курс USD/TRY 48,7600 датирован пятницей 18.09.2026. Юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/16829-2832",
-    "source_checked_at": "2026-09-19T05:02:54Z",
+    "source_checked_at": "2026-09-20T04:57:41Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.76,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-19T05:02:54Z",
+    "fx_checked_at": "2026-09-20T04:57:41Z",
     "price_history": [
       {
         "checked_at": "2026-09-10",
@@ -1122,13 +1166,24 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-18",
         "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/16829-2832"
+      },
+      {
+        "checked_at": "2026-09-20T04:57:41Z",
+        "price_try": 11000000,
+        "price_usd": 225595,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.76,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-18",
+        "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/16829-2832"
       }
     ],
     "legal_status": "unknown",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "fx_quote_date": "2026-09-18"
   },
   {
@@ -1192,16 +1247,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-19",
-    "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026 (выходной рынок). Юридическая, техническая и экономическая проверка не выполнена.",
+    "data_checked": "2026-09-20",
+    "freshness_note": "Цена и активная карточка проверены 20.09.2026; курс USD/TRY 48,7600 датирован пятницей 18.09.2026. Юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/162073-577",
-    "source_checked_at": "2026-09-19T05:02:54Z",
+    "source_checked_at": "2026-09-20T04:57:41Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.76,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-19T05:02:54Z",
+    "fx_checked_at": "2026-09-20T04:57:41Z",
     "price_history": [
       {
         "checked_at": "2026-09-10",
@@ -1279,13 +1334,24 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-18",
         "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/162073-577"
+      },
+      {
+        "checked_at": "2026-09-20T04:57:41Z",
+        "price_try": 7350000,
+        "price_usd": 150738,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.76,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-18",
+        "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/162073-577"
       }
     ],
     "legal_status": "unknown",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "fx_quote_date": "2026-09-18"
   },
   {
@@ -1349,16 +1415,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-19",
-    "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026 (выходной рынок). Юридическая, техническая и экономическая проверка не выполнена.",
+    "data_checked": "2026-09-20",
+    "freshness_note": "Цена и активная карточка проверены 20.09.2026; курс USD/TRY 48,7600 датирован пятницей 18.09.2026. Юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/162634-573",
-    "source_checked_at": "2026-09-19T05:02:54Z",
+    "source_checked_at": "2026-09-20T04:57:41Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.76,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-19T05:02:54Z",
+    "fx_checked_at": "2026-09-20T04:57:41Z",
     "price_history": [
       {
         "checked_at": "2026-09-10",
@@ -1436,13 +1502,24 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-18",
         "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/162634-573"
+      },
+      {
+        "checked_at": "2026-09-20T04:57:41Z",
+        "price_try": 9350000,
+        "price_usd": 191756,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.76,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-18",
+        "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/162634-573"
       }
     ],
     "legal_status": "failed",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "fx_quote_date": "2026-09-18"
   },
   {
@@ -1510,7 +1587,7 @@
     "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026 (выходной рынок). Юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.emlakjet.com/ilan/fl-emlaktan-dumankaya-ikon-yakini-32-600-kiracili-21-arakat-19811519",
     "source_checked_at": "2026-09-19T05:02:54Z",
-    "source_check_result": "active-price-confirmed",
+    "source_check_result": "source-error",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.76,
@@ -1609,8 +1686,9 @@
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
-    "fx_quote_date": "2026-09-18"
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
+    "fx_quote_date": "2026-09-18",
+    "source_last_attempt_note": "20.09.2026 прямая ссылка возвратила 410; без явного подтверждения снятия карточку не архивировать."
   },
   {
     "id": "A02",
@@ -1673,16 +1751,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-19",
-    "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026 (выходной рынок). Юридическая, техническая и экономическая проверка не выполнена.",
+    "data_checked": "2026-09-20",
+    "freshness_note": "Цена и активная карточка проверены 20.09.2026; курс USD/TRY 48,7600 датирован пятницей 18.09.2026. Юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.emlakjet.com/ilan/evinibul-dan-metroya-en-yakin-binada-iskanli-80m2-21-19666120",
-    "source_checked_at": "2026-09-19T05:02:54Z",
+    "source_checked_at": "2026-09-20T04:57:41Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.76,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-19T05:02:54Z",
+    "fx_checked_at": "2026-09-20T04:57:41Z",
     "price_history": [
       {
         "checked_at": "2026-09-10",
@@ -1770,13 +1848,24 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-18",
         "source_url": "https://www.emlakjet.com/ilan/evinibul-dan-metroya-en-yakin-binada-iskanli-80m2-21-19666120"
+      },
+      {
+        "checked_at": "2026-09-20T04:57:41Z",
+        "price_try": 6400000,
+        "price_usd": 131255,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.76,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-18",
+        "source_url": "https://www.emlakjet.com/ilan/evinibul-dan-metroya-en-yakin-binada-iskanli-80m2-21-19666120"
       }
     ],
     "legal_status": "unknown",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "fx_quote_date": "2026-09-18"
   },
   {
@@ -1786,11 +1875,11 @@
     "district": "Ataşehir",
     "micro": "Örnek",
     "title": "Örnek — новый 2+1, 80 м²",
-    "price_try": 7450000,
-    "price_usd": 152789,
+    "price_try": 7800000,
+    "price_usd": 159967,
     "gross": 80,
     "net": 70,
-    "sqm_usd": 1910,
+    "sqm_usd": 2000,
     "rooms": "2+1",
     "floor": "Высокий вход",
     "age": "Новый",
@@ -1824,7 +1913,7 @@
       "İstanbul Finans Merkezi"
     ],
     "url": "https://www.emlakjet.com/ilan/tapu-masrafsiz-21-sifir-binada-satilik-daire-19657427",
-    "notes": "Юридический hard flag: в карточке объявления указан Tapu Kaydı Yok. До получения/проверки правоустанавливающих документов — PASS.",
+    "notes": "Юридический hard flag: в карточке объявления указан Tapu Kaydı Yok. До получения/проверки правоустанавливающих документов — PASS. Запрашиваемая цена выросла с ₺7,45 млн до ₺7,8 млн по проверенной карточке 20.09.2026; документы и качество строительства не проверены.",
     "tapu": "Tapu Kaydı Yok в карточке",
     "parking": "уточнить",
     "status": "Активное объявление",
@@ -1840,16 +1929,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-19",
-    "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026 (выходной рынок). Юридическая, техническая и экономическая проверка не выполнена.",
+    "data_checked": "2026-09-20",
+    "freshness_note": "Цена и активная карточка проверены 20.09.2026; курс USD/TRY 48,7600 датирован пятницей 18.09.2026. Юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.emlakjet.com/ilan/tapu-masrafsiz-21-sifir-binada-satilik-daire-19657427",
-    "source_checked_at": "2026-09-19T05:02:54Z",
+    "source_checked_at": "2026-09-20T04:57:41Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.76,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-19T05:02:54Z",
+    "fx_checked_at": "2026-09-20T04:57:41Z",
     "price_history": [
       {
         "checked_at": "2026-09-10",
@@ -1937,13 +2026,24 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-18",
         "source_url": "https://www.emlakjet.com/ilan/tapu-masrafsiz-21-sifir-binada-satilik-daire-19657427"
+      },
+      {
+        "checked_at": "2026-09-20T04:57:41Z",
+        "price_try": 7800000,
+        "price_usd": 159967,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.76,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-18",
+        "source_url": "https://www.emlakjet.com/ilan/tapu-masrafsiz-21-sifir-binada-satilik-daire-19657427"
       }
     ],
     "legal_status": "failed",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "fx_quote_date": "2026-09-18"
   },
   {
@@ -2007,16 +2107,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-19",
-    "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026 (выходной рынок). Юридическая, техническая и экономическая проверка не выполнена.",
+    "data_checked": "2026-09-20",
+    "freshness_note": "Цена и активная карточка проверены 20.09.2026; курс USD/TRY 48,7600 датирован пятницей 18.09.2026. Юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.emlakjet.com/ilan/ornek-te-e-5-e-metroya-libadiye-caddesine-yurume-mesafesinde-19635774",
-    "source_checked_at": "2026-09-19T05:02:54Z",
+    "source_checked_at": "2026-09-20T04:57:41Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.76,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-19T05:02:54Z",
+    "fx_checked_at": "2026-09-20T04:57:41Z",
     "price_history": [
       {
         "checked_at": "2026-09-10",
@@ -2104,13 +2204,24 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-18",
         "source_url": "https://www.emlakjet.com/ilan/ornek-te-e-5-e-metroya-libadiye-caddesine-yurume-mesafesinde-19635774"
+      },
+      {
+        "checked_at": "2026-09-20T04:57:41Z",
+        "price_try": 7980000,
+        "price_usd": 163659,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.76,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-18",
+        "source_url": "https://www.emlakjet.com/ilan/ornek-te-e-5-e-metroya-libadiye-caddesine-yurume-mesafesinde-19635774"
       }
     ],
     "legal_status": "unknown",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "fx_quote_date": "2026-09-18"
   },
   {
@@ -2174,16 +2285,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-19",
-    "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026 (выходной рынок). Юридическая, техническая и экономическая проверка не выполнена.",
+    "data_checked": "2026-09-20",
+    "freshness_note": "Цена и активная карточка проверены 20.09.2026; курс USD/TRY 48,7600 датирован пятницей 18.09.2026. Юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.emlakjet.com/ilan/f-l-den-ornek-merkezde-yatirimcisina-45bin-kiracili-21-19626854",
-    "source_checked_at": "2026-09-19T05:02:54Z",
+    "source_checked_at": "2026-09-20T04:57:41Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.76,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-19T05:02:54Z",
+    "fx_checked_at": "2026-09-20T04:57:41Z",
     "price_history": [
       {
         "checked_at": "2026-09-10",
@@ -2271,13 +2382,24 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-18",
         "source_url": "https://www.emlakjet.com/ilan/f-l-den-ornek-merkezde-yatirimcisina-45bin-kiracili-21-19626854"
+      },
+      {
+        "checked_at": "2026-09-20T04:57:41Z",
+        "price_try": 7400000,
+        "price_usd": 151764,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.76,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-18",
+        "source_url": "https://www.emlakjet.com/ilan/f-l-den-ornek-merkezde-yatirimcisina-45bin-kiracili-21-19626854"
       }
     ],
     "legal_status": "unknown",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "fx_quote_date": "2026-09-18"
   },
   {
@@ -2341,16 +2463,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-19",
-    "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026 (выходной рынок). Юридическая, техническая и экономическая проверка не выполнена.",
+    "data_checked": "2026-09-20",
+    "freshness_note": "Цена и активная карточка проверены 20.09.2026; курс USD/TRY 48,7600 датирован пятницей 18.09.2026. Юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.emlakjet.com/ilan/anka-dan-ornek-merkezde-genis-ve-sifir-ayarinda-satilik-21-19567262",
-    "source_checked_at": "2026-09-19T05:02:54Z",
+    "source_checked_at": "2026-09-20T04:57:41Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.76,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-19T05:02:54Z",
+    "fx_checked_at": "2026-09-20T04:57:41Z",
     "price_history": [
       {
         "checked_at": "2026-09-10",
@@ -2438,13 +2560,24 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-18",
         "source_url": "https://www.emlakjet.com/ilan/anka-dan-ornek-merkezde-genis-ve-sifir-ayarinda-satilik-21-19567262"
+      },
+      {
+        "checked_at": "2026-09-20T04:57:41Z",
+        "price_try": 7950000,
+        "price_usd": 163043,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.76,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-18",
+        "source_url": "https://www.emlakjet.com/ilan/anka-dan-ornek-merkezde-genis-ve-sifir-ayarinda-satilik-21-19567262"
       }
     ],
     "legal_status": "unknown",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "fx_quote_date": "2026-09-18"
   },
   {
@@ -2501,14 +2634,14 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-19",
-    "source_checked_at": "2026-09-19T05:02:54Z",
+    "data_checked": "2026-09-20",
+    "source_checked_at": "2026-09-20T04:57:41Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.76,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-19T05:02:54Z",
+    "fx_checked_at": "2026-09-20T04:57:41Z",
     "price_history": [
       {
         "checked_at": "2026-09-12T04:57:13Z",
@@ -2570,6 +2703,17 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-18",
         "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/151301-932"
+      },
+      {
+        "checked_at": "2026-09-20T04:57:41Z",
+        "price_try": 8595000,
+        "price_usd": 176272,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.76,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-18",
+        "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/151301-932"
       }
     ],
     "legal_status": "unknown",
@@ -2583,8 +2727,8 @@
         "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/151301-932"
       }
     },
-    "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026 (выходной рынок). Юридическая, техническая и экономическая проверка не выполнена.",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "freshness_note": "Цена и активная карточка проверены 20.09.2026; курс USD/TRY 48,7600 датирован пятницей 18.09.2026. Юридическая, техническая и экономическая проверка не выполнена.",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "fx_quote_date": "2026-09-18"
   },
   {
@@ -2641,14 +2785,14 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-19",
-    "source_checked_at": "2026-09-19T05:02:54Z",
+    "data_checked": "2026-09-20",
+    "source_checked_at": "2026-09-20T04:57:41Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.76,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-19T05:02:54Z",
+    "fx_checked_at": "2026-09-20T04:57:41Z",
     "price_history": [
       {
         "checked_at": "2026-09-13T05:03:01Z",
@@ -2720,6 +2864,17 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-18",
         "source_url": "https://www.hepsiemlak.com/istanbul-kartal-atalar-satilik/daire/168071-27"
+      },
+      {
+        "checked_at": "2026-09-20T04:57:41Z",
+        "price_try": 6800000,
+        "price_usd": 139459,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.76,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-18",
+        "source_url": "https://www.hepsiemlak.com/istanbul-kartal-atalar-satilik/daire/168071-27"
       }
     ],
     "legal_status": "unknown",
@@ -2738,8 +2893,8 @@
         "source_url": "https://tr.wikipedia.org/wiki/Atalar_Tren_%C4%B0stasyonu"
       }
     },
-    "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026 (выходной рынок). Юридическая, техническая и экономическая проверка не выполнена.",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "freshness_note": "Цена и активная карточка проверены 20.09.2026; курс USD/TRY 48,7600 датирован пятницей 18.09.2026. Юридическая, техническая и экономическая проверка не выполнена.",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "fx_quote_date": "2026-09-18"
   },
   {
@@ -2796,14 +2951,14 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-19",
-    "source_checked_at": "2026-09-19T05:02:54Z",
+    "data_checked": "2026-09-20",
+    "source_checked_at": "2026-09-20T04:57:41Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.76,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-19T05:02:54Z",
+    "fx_checked_at": "2026-09-20T04:57:41Z",
     "price_history": [
       {
         "checked_at": "2026-09-14T05:00:14Z",
@@ -2865,6 +3020,17 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-18",
         "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/36118-18533"
+      },
+      {
+        "checked_at": "2026-09-20T04:57:41Z",
+        "price_try": 6350000,
+        "price_usd": 130230,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.76,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-18",
+        "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/36118-18533"
       }
     ],
     "legal_status": "unknown",
@@ -2888,8 +3054,8 @@
         "source_url": "https://en.wikipedia.org/wiki/Bostanc%C4%B1_Ferry_Terminal"
       }
     },
-    "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026 (выходной рынок). Юридическая, техническая и экономическая проверка не выполнена.",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "freshness_note": "Цена и активная карточка проверены 20.09.2026; курс USD/TRY 48,7600 датирован пятницей 18.09.2026. Юридическая, техническая и экономическая проверка не выполнена.",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "fx_quote_date": "2026-09-18"
   },
   {
@@ -2946,14 +3112,14 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-19",
-    "source_checked_at": "2026-09-19T05:02:54Z",
+    "data_checked": "2026-09-20",
+    "source_checked_at": "2026-09-20T04:57:41Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.76,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-19T05:02:54Z",
+    "fx_checked_at": "2026-09-20T04:57:41Z",
     "price_history": [
       {
         "checked_at": "2026-09-15T04:58:05Z",
@@ -3005,6 +3171,17 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-18",
         "source_url": "https://www.hepsiemlak.com/istanbul-kartal-atalar-satilik/daire/151301-795"
+      },
+      {
+        "checked_at": "2026-09-20T04:57:41Z",
+        "price_try": 8350000,
+        "price_usd": 171247,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.76,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-18",
+        "source_url": "https://www.hepsiemlak.com/istanbul-kartal-atalar-satilik/daire/151301-795"
       }
     ],
     "legal_status": "unknown",
@@ -3023,8 +3200,8 @@
         "source_url": "https://tr.wikipedia.org/wiki/Atalar_Tren_%C4%B0stasyonu"
       }
     },
-    "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026 (выходной рынок). Юридическая, техническая и экономическая проверка не выполнена.",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "freshness_note": "Цена и активная карточка проверены 20.09.2026; курс USD/TRY 48,7600 датирован пятницей 18.09.2026. Юридическая, техническая и экономическая проверка не выполнена.",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "fx_quote_date": "2026-09-18"
   },
   {
@@ -3084,14 +3261,14 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-19",
-    "source_checked_at": "2026-09-19T05:02:54Z",
+    "data_checked": "2026-09-20",
+    "source_checked_at": "2026-09-20T04:57:41Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.76,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-19T05:02:54Z",
+    "fx_checked_at": "2026-09-20T04:57:41Z",
     "price_history": [
       {
         "checked_at": "2026-09-16T04:58:22Z",
@@ -3133,6 +3310,17 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-18",
         "source_url": "https://www.emlakjet.com/ilan/maltepe-metronun-dibinde-yeni-binada-ayri-mutfakli-21-19009990"
+      },
+      {
+        "checked_at": "2026-09-20T04:57:41Z",
+        "price_try": 8000000,
+        "price_usd": 164069,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.76,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-18",
+        "source_url": "https://www.emlakjet.com/ilan/maltepe-metronun-dibinde-yeni-binada-ayri-mutfakli-21-19009990"
       }
     ],
     "legal_status": "unknown",
@@ -3151,8 +3339,8 @@
         "source_url": "https://webgis.maltepe.bel.tr/belnet/GenericClass/Rapor.aspx?Language=tr-TR&RaporAdi=v_afad_toplanma.toplanma_alanlari&guestlogin=true&nomaster=true"
       }
     },
-    "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026 (выходной рынок). Юридическая, техническая и экономическая проверка не выполнена.",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "freshness_note": "Цена и активная карточка проверены 20.09.2026; курс USD/TRY 48,7600 датирован пятницей 18.09.2026. Юридическая, техническая и экономическая проверка не выполнена.",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "fx_quote_date": "2026-09-18"
   },
   {
@@ -3214,7 +3402,7 @@
     "photo_status": "verified",
     "data_checked": "2026-09-19",
     "source_checked_at": "2026-09-19T05:02:54Z",
-    "source_check_result": "active-price-confirmed",
+    "source_check_result": "source-error",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.76,
@@ -3275,8 +3463,9 @@
       }
     },
     "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026 (выходной рынок). Юридическая, техническая и экономическая проверка не выполнена.",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
-    "fx_quote_date": "2026-09-18"
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
+    "fx_quote_date": "2026-09-18",
+    "source_last_attempt_note": "20.09.2026 прямая ссылка возвратила 410; без явного подтверждения снятия карточку не архивировать."
   },
   {
     "id": "A08",
@@ -3335,14 +3524,14 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-19",
-    "source_checked_at": "2026-09-19T05:02:54Z",
+    "data_checked": "2026-09-20",
+    "source_checked_at": "2026-09-20T04:57:41Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.76,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-19T05:02:54Z",
+    "fx_checked_at": "2026-09-20T04:57:41Z",
     "price_history": [
       {
         "checked_at": "2026-09-18T05:00:50Z",
@@ -3356,6 +3545,17 @@
       },
       {
         "checked_at": "2026-09-19T05:02:54Z",
+        "price_try": 5800000,
+        "price_usd": 118950,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.76,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-18",
+        "source_url": "https://www.emlakjet.com/ilan/f-l-den-ornekte-yatirimcisina-40-bin-kiracili-eminevim-sirketlerine-uygun-yuksek-giris-21-19614456"
+      },
+      {
+        "checked_at": "2026-09-20T04:57:41Z",
         "price_try": 5800000,
         "price_usd": 118950,
         "price_currency": "TRY",
@@ -3396,8 +3596,8 @@
         "source_url": "https://en.wikipedia.org/wiki/Bostanc%C4%B1_Ferry_Terminal"
       }
     },
-    "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026 (выходной рынок). Юридическая, техническая и экономическая проверка не выполнена.",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "freshness_note": "Цена и активная карточка проверены 20.09.2026; курс USD/TRY 48,7600 датирован пятницей 18.09.2026. Юридическая, техническая и экономическая проверка не выполнена.",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "fx_quote_date": "2026-09-18"
   },
   {
@@ -3457,19 +3657,30 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-19",
-    "source_checked_at": "2026-09-19T05:02:54Z",
-    "source_last_attempt_at": "2026-09-19T05:02:54Z",
+    "data_checked": "2026-09-20",
+    "source_checked_at": "2026-09-20T04:57:41Z",
+    "source_last_attempt_at": "2026-09-20T04:57:41Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.76,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-19T05:02:54Z",
+    "fx_checked_at": "2026-09-20T04:57:41Z",
     "fx_quote_date": "2026-09-18",
     "price_history": [
       {
         "checked_at": "2026-09-19T05:02:54Z",
+        "price_try": 7250000,
+        "price_usd": 148687,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.76,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-18",
+        "source_url": "https://www.hepsiemlak.com/istanbul-kartal-atalar-satilik/daire/1985-3313"
+      },
+      {
+        "checked_at": "2026-09-20T04:57:41Z",
         "price_try": 7250000,
         "price_usd": 148687,
         "price_currency": "TRY",
@@ -3496,6 +3707,6 @@
         "source_url": "https://tr.wikipedia.org/wiki/Atalar_Tren_%C4%B0stasyonu"
       }
     },
-    "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026. Юридическая, техническая и экономическая проверка не выполнена."
+    "freshness_note": "Цена и активная карточка проверены 20.09.2026; курс USD/TRY 48,7600 датирован пятницей 18.09.2026. Юридическая, техническая и экономическая проверка не выполнена."
   }
 ]
