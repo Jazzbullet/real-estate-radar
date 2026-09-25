@@ -64,7 +64,7 @@
     "freshness_note": "Цена и активная карточка подтверждены 24.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/160688-143",
     "source_checked_at": "2026-09-24T05:02:18Z",
-    "source_check_result": "active-price-confirmed",
+    "source_check_result": "fresh-verification-unavailable",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.854,
@@ -207,9 +207,10 @@
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
     "fx_quote_date": "2026-09-24",
-    "source_check_evidence_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/160688-143"
+    "source_check_evidence_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/160688-143",
+    "source_last_attempt_note": "25.09.2026 источник не позволил подтвердить свежую цену; прежние цена и дата сохранены, снятие не утверждается."
   },
   {
     "id": "M02",
@@ -271,9 +272,9 @@
     "data_checked": "2026-09-10",
     "freshness_note": "Свежая цена 18.09.2026 не подтверждена (source-error); сохранена последняя успешная проверка 2026-09-10. Объект не архивирован.",
     "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-kucukyali-satilik/daire/5734-2827",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
     "source_check_result": "source-error",
-    "source_last_attempt_note": "24.09.2026 источник не позволил подтвердить свежую цену; прежние цена и дата сохранены, снятие не утверждается."
+    "source_last_attempt_note": "25.09.2026 источник не позволил подтвердить свежую цену; прежние цена и дата сохранены, снятие не утверждается."
   },
   {
     "id": "M03",
@@ -283,10 +284,10 @@
     "micro": "Altıntepe",
     "title": "Altıntepe — новый 2+1, 95 gross / 65 net",
     "price_try": 10200000,
-    "price_usd": 208785,
+    "price_usd": 208321,
     "gross": 95,
     "net": 65,
-    "sqm_usd": 2198,
+    "sqm_usd": 2193,
     "rooms": "2+1",
     "floor": "1",
     "age": "Новый",
@@ -336,16 +337,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-24",
-    "freshness_note": "Цена и активная карточка подтверждены 24.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
+    "data_checked": "2026-09-25",
+    "freshness_note": "Цена и активная карточка подтверждены 25.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/7628-4182",
-    "source_checked_at": "2026-09-24T05:02:18Z",
+    "source_checked_at": "2026-09-25T05:01:27Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
-    "fx_rate": 48.854,
+    "fx_rate": 48.963,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-24T05:02:18Z",
+    "fx_checked_at": "2026-09-25T05:01:27Z",
     "price_history": [
       {
         "checked_at": "2026-09-10",
@@ -467,14 +468,25 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-24",
         "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/7628-4182"
+      },
+      {
+        "checked_at": "2026-09-25T05:01:27Z",
+        "price_try": 10200000,
+        "price_usd": 208321,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.963,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-25",
+        "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/7628-4182"
       }
     ],
     "legal_status": "unknown",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
-    "fx_quote_date": "2026-09-24",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
+    "fx_quote_date": "2026-09-25",
     "source_check_evidence_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/7628-4182"
   },
   {
@@ -485,10 +497,10 @@
     "micro": "Altıntepe",
     "title": "Altıntepe — новый 2+1, 3 этаж",
     "price_try": 10500000,
-    "price_usd": 214926,
+    "price_usd": 214448,
     "gross": 85,
     "net": 75,
-    "sqm_usd": 2529,
+    "sqm_usd": 2523,
     "rooms": "2+1",
     "floor": "3",
     "age": "Новый",
@@ -538,16 +550,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-24",
-    "freshness_note": "Цена и активная карточка подтверждены 24.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
+    "data_checked": "2026-09-25",
+    "freshness_note": "Цена и активная карточка подтверждены 25.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/6060-44314",
-    "source_checked_at": "2026-09-24T05:02:18Z",
+    "source_checked_at": "2026-09-25T05:01:27Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
-    "fx_rate": 48.854,
+    "fx_rate": 48.963,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-24T05:02:18Z",
+    "fx_checked_at": "2026-09-25T05:01:27Z",
     "price_history": [
       {
         "checked_at": "2026-09-10",
@@ -669,14 +681,25 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-24",
         "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/6060-44314"
+      },
+      {
+        "checked_at": "2026-09-25T05:01:27Z",
+        "price_try": 10500000,
+        "price_usd": 214448,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.963,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-25",
+        "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/6060-44314"
       }
     ],
     "legal_status": "unknown",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
-    "fx_quote_date": "2026-09-24",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
+    "fx_quote_date": "2026-09-25",
     "source_check_evidence_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/6060-44314"
   },
   {
@@ -743,9 +766,9 @@
     "data_checked": "2026-09-10",
     "freshness_note": "Свежая цена 18.09.2026 не подтверждена (redirected-to-category); сохранена последняя успешная проверка 2026-09-10. Объект не архивирован.",
     "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/168150-529",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
     "source_check_result": "redirected-to-category",
-    "source_last_attempt_note": "24.09.2026 источник не позволил подтвердить свежую цену; прежние цена и дата сохранены, снятие не утверждается."
+    "source_last_attempt_note": "25.09.2026 источник не позволил подтвердить свежую цену; прежние цена и дата сохранены, снятие не утверждается."
   },
   {
     "id": "M06",
@@ -807,9 +830,9 @@
     "data_checked": "2026-09-10",
     "freshness_note": "Свежая цена 18.09.2026 не подтверждена (redirected-to-category); сохранена последняя успешная проверка 2026-09-10. Объект не архивирован.",
     "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-kucukyali-satilik/daire/6060-44266",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
     "source_check_result": "redirected-to-category",
-    "source_last_attempt_note": "24.09.2026 источник не позволил подтвердить свежую цену; прежние цена и дата сохранены, снятие не утверждается."
+    "source_last_attempt_note": "25.09.2026 источник не позволил подтвердить свежую цену; прежние цена и дата сохранены, снятие не утверждается."
   },
   {
     "id": "K01",
@@ -819,10 +842,10 @@
     "micro": "Orhantepe / Dragos",
     "title": "Orhantepe — 4-летний 2+1, 2 этаж",
     "price_try": 8500000,
-    "price_usd": 173988,
+    "price_usd": 173600,
     "gross": 110,
     "net": 80,
-    "sqm_usd": 1582,
+    "sqm_usd": 1578,
     "rooms": "2+1",
     "floor": "2",
     "age": "4 года",
@@ -872,16 +895,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-24",
-    "freshness_note": "Цена и активная карточка подтверждены 24.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
+    "data_checked": "2026-09-25",
+    "freshness_note": "Цена и активная карточка подтверждены 25.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/5630-6504",
-    "source_checked_at": "2026-09-24T05:02:18Z",
+    "source_checked_at": "2026-09-25T05:01:27Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
-    "fx_rate": 48.854,
+    "fx_rate": 48.963,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-24T05:02:18Z",
+    "fx_checked_at": "2026-09-25T05:01:27Z",
     "price_history": [
       {
         "checked_at": "2026-09-10",
@@ -1015,14 +1038,25 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-24",
         "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/5630-6504"
+      },
+      {
+        "checked_at": "2026-09-25T05:01:27Z",
+        "price_try": 8500000,
+        "price_usd": 173600,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.963,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-25",
+        "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/5630-6504"
       }
     ],
     "legal_status": "unknown",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
-    "fx_quote_date": "2026-09-24",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
+    "fx_quote_date": "2026-09-25",
     "source_check_evidence_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/5630-6504"
   },
   {
@@ -1085,9 +1119,9 @@
     "data_checked": "2026-09-10",
     "freshness_note": "Свежая цена 18.09.2026 не подтверждена (incomplete-page); сохранена последняя успешная проверка 2026-09-10. Объект не архивирован.",
     "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/156371-73",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
     "source_check_result": "fresh-verification-unavailable",
-    "source_last_attempt_note": "24.09.2026 источник не позволил подтвердить свежую цену; прежние цена и дата сохранены, снятие не утверждается."
+    "source_last_attempt_note": "25.09.2026 источник не позволил подтвердить свежую цену; прежние цена и дата сохранены, снятие не утверждается."
   },
   {
     "id": "K03",
@@ -1153,9 +1187,9 @@
     "data_checked": "2026-09-10",
     "freshness_note": "Свежая цена 18.09.2026 не подтверждена (source-error); сохранена последняя успешная проверка 2026-09-10. Объект не архивирован.",
     "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/151301-819",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
     "source_check_result": "source-error",
-    "source_last_attempt_note": "24.09.2026 источник не позволил подтвердить свежую цену; прежние цена и дата сохранены, снятие не утверждается."
+    "source_last_attempt_note": "25.09.2026 источник не позволил подтвердить свежую цену; прежние цена и дата сохранены, снятие не утверждается."
   },
   {
     "id": "K04",
@@ -1331,9 +1365,9 @@
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
     "fx_quote_date": "2026-09-18",
-    "source_last_attempt_note": "24.09.2026 источник не позволил подтвердить свежую цену; прежние цена и дата сохранены, снятие не утверждается."
+    "source_last_attempt_note": "25.09.2026 источник не позволил подтвердить свежую цену; прежние цена и дата сохранены, снятие не утверждается."
   },
   {
     "id": "K05",
@@ -1343,10 +1377,10 @@
     "micro": "Orhantepe",
     "title": "Orhantepe — новый 2+1, 67 м²",
     "price_try": 7350000,
-    "price_usd": 150448,
+    "price_usd": 150113,
     "gross": 67,
     "net": 60,
-    "sqm_usd": 2245,
+    "sqm_usd": 2240,
     "rooms": "2+1",
     "floor": "Средний",
     "age": "Новый",
@@ -1396,16 +1430,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-24",
-    "freshness_note": "Цена и активная карточка подтверждены 24.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
+    "data_checked": "2026-09-25",
+    "freshness_note": "Цена и активная карточка подтверждены 25.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/162073-577",
-    "source_checked_at": "2026-09-24T05:02:18Z",
+    "source_checked_at": "2026-09-25T05:01:27Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
-    "fx_rate": 48.854,
+    "fx_rate": 48.963,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-24T05:02:18Z",
+    "fx_checked_at": "2026-09-25T05:01:27Z",
     "price_history": [
       {
         "checked_at": "2026-09-10",
@@ -1527,14 +1561,25 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-24",
         "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/162073-577"
+      },
+      {
+        "checked_at": "2026-09-25T05:01:27Z",
+        "price_try": 7350000,
+        "price_usd": 150113,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.963,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-25",
+        "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/162073-577"
       }
     ],
     "legal_status": "unknown",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
-    "fx_quote_date": "2026-09-24",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
+    "fx_quote_date": "2026-09-25",
     "source_check_evidence_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/162073-577"
   },
   {
@@ -1545,10 +1590,10 @@
     "micro": "Orhantepe / sahil",
     "title": "Orhantepe — новый 2+1, 2 этаж",
     "price_try": 9350000,
-    "price_usd": 191387,
+    "price_usd": 190961,
     "gross": 85,
     "net": 75,
-    "sqm_usd": 2252,
+    "sqm_usd": 2247,
     "rooms": "2+1",
     "floor": "2",
     "age": "Новый",
@@ -1598,16 +1643,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-24",
-    "freshness_note": "Цена и активная карточка подтверждены 24.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
+    "data_checked": "2026-09-25",
+    "freshness_note": "Цена и активная карточка подтверждены 25.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/162634-573",
-    "source_checked_at": "2026-09-24T05:02:18Z",
+    "source_checked_at": "2026-09-25T05:01:27Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
-    "fx_rate": 48.854,
+    "fx_rate": 48.963,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-24T05:02:18Z",
+    "fx_checked_at": "2026-09-25T05:01:27Z",
     "price_history": [
       {
         "checked_at": "2026-09-10",
@@ -1729,14 +1774,25 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-24",
         "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/162634-573"
+      },
+      {
+        "checked_at": "2026-09-25T05:01:27Z",
+        "price_try": 9350000,
+        "price_usd": 190961,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.963,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-25",
+        "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/162634-573"
       }
     ],
     "legal_status": "failed",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
-    "fx_quote_date": "2026-09-24",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
+    "fx_quote_date": "2026-09-25",
     "source_check_evidence_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/162634-573"
   },
   {
@@ -1804,7 +1860,7 @@
     "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026 (выходной рынок). Юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.emlakjet.com/ilan/fl-emlaktan-dumankaya-ikon-yakini-32-600-kiracili-21-arakat-19811519",
     "source_checked_at": "2026-09-19T05:02:54Z",
-    "source_check_result": "source-error-410",
+    "source_check_result": "source-error",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
     "fx_rate": 48.76,
@@ -1903,9 +1959,9 @@
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
     "fx_quote_date": "2026-09-18",
-    "source_last_attempt_note": "24.09.2026 источник не позволил подтвердить свежую цену; прежние цена и дата сохранены, снятие не утверждается."
+    "source_last_attempt_note": "25.09.2026 источник не позволил подтвердить свежую цену; прежние цена и дата сохранены, снятие не утверждается."
   },
   {
     "id": "A02",
@@ -1915,10 +1971,10 @@
     "micro": "Örnek",
     "title": "Örnek — 2+1, 80 м², рядом с метро",
     "price_try": 6400000,
-    "price_usd": 131003,
+    "price_usd": 130711,
     "gross": 80,
     "net": 70,
-    "sqm_usd": 1638,
+    "sqm_usd": 1634,
     "rooms": "2+1",
     "floor": "Садовый",
     "age": "уточнить",
@@ -1968,16 +2024,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-24",
-    "freshness_note": "Цена и активная карточка подтверждены 24.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
+    "data_checked": "2026-09-25",
+    "freshness_note": "Цена и активная карточка подтверждены 25.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.emlakjet.com/ilan/evinibul-dan-metroya-en-yakin-binada-iskanli-80m2-21-19666120",
-    "source_checked_at": "2026-09-24T05:02:18Z",
+    "source_checked_at": "2026-09-25T05:01:27Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
-    "fx_rate": 48.854,
+    "fx_rate": 48.963,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-24T05:02:18Z",
+    "fx_checked_at": "2026-09-25T05:01:27Z",
     "price_history": [
       {
         "checked_at": "2026-09-10",
@@ -2110,14 +2166,25 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-24",
         "source_url": "https://www.emlakjet.com/ilan/evinibul-dan-metroya-en-yakin-binada-iskanli-80m2-21-19666120"
+      },
+      {
+        "checked_at": "2026-09-25T05:01:27Z",
+        "price_try": 6400000,
+        "price_usd": 130711,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.963,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-25",
+        "source_url": "https://www.emlakjet.com/ilan/evinibul-dan-metroya-en-yakin-binada-iskanli-80m2-21-19666120"
       }
     ],
     "legal_status": "unknown",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
-    "fx_quote_date": "2026-09-24",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
+    "fx_quote_date": "2026-09-25",
     "source_check_evidence_url": "https://www.emlakjet.com/ilan/evinibul-dan-metroya-en-yakin-binada-iskanli-80m2-21-19666120"
   },
   {
@@ -2128,10 +2195,10 @@
     "micro": "Örnek",
     "title": "Örnek — новый 2+1, 80 м²",
     "price_try": 7800000,
-    "price_usd": 159659,
+    "price_usd": 159304,
     "gross": 80,
     "net": 70,
-    "sqm_usd": 1996,
+    "sqm_usd": 1991,
     "rooms": "2+1",
     "floor": "Высокий вход",
     "age": "Новый",
@@ -2181,16 +2248,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-24",
-    "freshness_note": "Цена и активная карточка подтверждены 24.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
+    "data_checked": "2026-09-25",
+    "freshness_note": "Цена и активная карточка подтверждены 25.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.emlakjet.com/ilan/tapu-masrafsiz-21-sifir-binada-satilik-daire-19657427",
-    "source_checked_at": "2026-09-24T05:02:18Z",
+    "source_checked_at": "2026-09-25T05:01:27Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
-    "fx_rate": 48.854,
+    "fx_rate": 48.963,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-24T05:02:18Z",
+    "fx_checked_at": "2026-09-25T05:01:27Z",
     "price_history": [
       {
         "checked_at": "2026-09-10",
@@ -2323,14 +2390,25 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-24",
         "source_url": "https://www.emlakjet.com/ilan/tapu-masrafsiz-21-sifir-binada-satilik-daire-19657427"
+      },
+      {
+        "checked_at": "2026-09-25T05:01:27Z",
+        "price_try": 7800000,
+        "price_usd": 159304,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.963,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-25",
+        "source_url": "https://www.emlakjet.com/ilan/tapu-masrafsiz-21-sifir-binada-satilik-daire-19657427"
       }
     ],
     "legal_status": "failed",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
-    "fx_quote_date": "2026-09-24",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
+    "fx_quote_date": "2026-09-25",
     "source_check_evidence_url": "https://www.emlakjet.com/ilan/tapu-masrafsiz-21-sifir-binada-satilik-daire-19657427"
   },
   {
@@ -2341,10 +2419,10 @@
     "micro": "Örnek",
     "title": "Örnek — 2+1, 90 м², 2 этаж",
     "price_try": 7980000,
-    "price_usd": 163344,
+    "price_usd": 162980,
     "gross": 90,
     "net": 80,
-    "sqm_usd": 1815,
+    "sqm_usd": 1811,
     "rooms": "2+1",
     "floor": "2",
     "age": "уточнить",
@@ -2394,16 +2472,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-24",
-    "freshness_note": "Цена и активная карточка подтверждены 24.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
+    "data_checked": "2026-09-25",
+    "freshness_note": "Цена и активная карточка подтверждены 25.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.emlakjet.com/ilan/ornek-te-e-5-e-metroya-libadiye-caddesine-yurume-mesafesinde-19635774",
-    "source_checked_at": "2026-09-24T05:02:18Z",
+    "source_checked_at": "2026-09-25T05:01:27Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
-    "fx_rate": 48.854,
+    "fx_rate": 48.963,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-24T05:02:18Z",
+    "fx_checked_at": "2026-09-25T05:01:27Z",
     "price_history": [
       {
         "checked_at": "2026-09-10",
@@ -2536,14 +2614,25 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-24",
         "source_url": "https://www.emlakjet.com/ilan/ornek-te-e-5-e-metroya-libadiye-caddesine-yurume-mesafesinde-19635774"
+      },
+      {
+        "checked_at": "2026-09-25T05:01:27Z",
+        "price_try": 7980000,
+        "price_usd": 162980,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.963,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-25",
+        "source_url": "https://www.emlakjet.com/ilan/ornek-te-e-5-e-metroya-libadiye-caddesine-yurume-mesafesinde-19635774"
       }
     ],
     "legal_status": "unknown",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
-    "fx_quote_date": "2026-09-24",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
+    "fx_quote_date": "2026-09-25",
     "source_check_evidence_url": "https://www.emlakjet.com/ilan/ornek-te-e-5-e-metroya-libadiye-caddesine-yurume-mesafesinde-19635774"
   },
   {
@@ -2554,10 +2643,10 @@
     "micro": "Örnek",
     "title": "Örnek — 2+1, 90 м², арендатор ₺45k",
     "price_try": 7400000,
-    "price_usd": 151472,
+    "price_usd": 151135,
     "gross": 90,
     "net": 80,
-    "sqm_usd": 1683,
+    "sqm_usd": 1679,
     "rooms": "2+1",
     "floor": "1",
     "age": "молодой дом",
@@ -2607,16 +2696,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-24",
-    "freshness_note": "Цена и активная карточка подтверждены 24.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
+    "data_checked": "2026-09-25",
+    "freshness_note": "Цена и активная карточка подтверждены 25.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.emlakjet.com/ilan/f-l-den-ornek-merkezde-yatirimcisina-45bin-kiracili-21-19626854",
-    "source_checked_at": "2026-09-24T05:02:18Z",
+    "source_checked_at": "2026-09-25T05:01:27Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
-    "fx_rate": 48.854,
+    "fx_rate": 48.963,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-24T05:02:18Z",
+    "fx_checked_at": "2026-09-25T05:01:27Z",
     "price_history": [
       {
         "checked_at": "2026-09-10",
@@ -2749,14 +2838,25 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-24",
         "source_url": "https://www.emlakjet.com/ilan/f-l-den-ornek-merkezde-yatirimcisina-45bin-kiracili-21-19626854"
+      },
+      {
+        "checked_at": "2026-09-25T05:01:27Z",
+        "price_try": 7400000,
+        "price_usd": 151135,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.963,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-25",
+        "source_url": "https://www.emlakjet.com/ilan/f-l-den-ornek-merkezde-yatirimcisina-45bin-kiracili-21-19626854"
       }
     ],
     "legal_status": "unknown",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
-    "fx_quote_date": "2026-09-24",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
+    "fx_quote_date": "2026-09-25",
     "source_check_evidence_url": "https://www.emlakjet.com/ilan/f-l-den-ornek-merkezde-yatirimcisina-45bin-kiracili-21-19626854"
   },
   {
@@ -2767,10 +2867,10 @@
     "micro": "Örnek",
     "title": "Örnek — 2+1, 100 м², 2 этаж",
     "price_try": 7950000,
-    "price_usd": 162730,
+    "price_usd": 162368,
     "gross": 100,
     "net": 90,
-    "sqm_usd": 1627,
+    "sqm_usd": 1624,
     "rooms": "2+1",
     "floor": "2",
     "age": "состояние «как новое»",
@@ -2820,16 +2920,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-24",
-    "freshness_note": "Цена и активная карточка подтверждены 24.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
+    "data_checked": "2026-09-25",
+    "freshness_note": "Цена и активная карточка подтверждены 25.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
     "source_url": "https://www.emlakjet.com/ilan/anka-dan-ornek-merkezde-genis-ve-sifir-ayarinda-satilik-21-19567262",
-    "source_checked_at": "2026-09-24T05:02:18Z",
+    "source_checked_at": "2026-09-25T05:01:27Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
-    "fx_rate": 48.854,
+    "fx_rate": 48.963,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-24T05:02:18Z",
+    "fx_checked_at": "2026-09-25T05:01:27Z",
     "price_history": [
       {
         "checked_at": "2026-09-10",
@@ -2962,14 +3062,25 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-24",
         "source_url": "https://www.emlakjet.com/ilan/anka-dan-ornek-merkezde-genis-ve-sifir-ayarinda-satilik-21-19567262"
+      },
+      {
+        "checked_at": "2026-09-25T05:01:27Z",
+        "price_try": 7950000,
+        "price_usd": 162368,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.963,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-25",
+        "source_url": "https://www.emlakjet.com/ilan/anka-dan-ornek-merkezde-genis-ve-sifir-ayarinda-satilik-21-19567262"
       }
     ],
     "legal_status": "unknown",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
-    "fx_quote_date": "2026-09-24",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
+    "fx_quote_date": "2026-09-25",
     "source_check_evidence_url": "https://www.emlakjet.com/ilan/anka-dan-ornek-merkezde-genis-ve-sifir-ayarinda-satilik-21-19567262"
   },
   {
@@ -2980,10 +3091,10 @@
     "micro": "Orhantepe / Dragos",
     "title": "Orhantepe — Marmaray 717 м, 2+1, 2 этаж",
     "price_try": 8575000,
-    "price_usd": 175523,
+    "price_usd": 175132,
     "gross": 83,
     "net": 73,
-    "sqm_usd": 2115,
+    "sqm_usd": 2110,
     "rooms": "2+1",
     "floor": "2",
     "age": "6 лет",
@@ -3026,14 +3137,14 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-24",
-    "source_checked_at": "2026-09-24T05:02:18Z",
+    "data_checked": "2026-09-25",
+    "source_checked_at": "2026-09-25T05:01:27Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
-    "fx_rate": 48.854,
+    "fx_rate": 48.963,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-24T05:02:18Z",
+    "fx_checked_at": "2026-09-25T05:01:27Z",
     "price_history": [
       {
         "checked_at": "2026-09-12T04:57:13Z",
@@ -3139,6 +3250,17 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-24",
         "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/151301-932"
+      },
+      {
+        "checked_at": "2026-09-25T05:01:27Z",
+        "price_try": 8575000,
+        "price_usd": 175132,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.963,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-25",
+        "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/151301-932"
       }
     ],
     "legal_status": "unknown",
@@ -3152,9 +3274,9 @@
         "source_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/151301-932"
       }
     },
-    "freshness_note": "Цена и активная карточка подтверждены 24.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
-    "fx_quote_date": "2026-09-24",
+    "freshness_note": "Цена и активная карточка подтверждены 25.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
+    "fx_quote_date": "2026-09-25",
     "source_check_evidence_url": "https://www.hepsiemlak.com/istanbul-kartal-orhantepe-satilik/daire/151301-932"
   },
   {
@@ -3165,10 +3287,10 @@
     "micro": "Atalar",
     "title": "Atalar — 2+1, 90/70 м², 3 этаж",
     "price_try": 6800000,
-    "price_usd": 139190,
+    "price_usd": 138880,
     "gross": 90,
     "net": 70,
-    "sqm_usd": 1547,
+    "sqm_usd": 1543,
     "rooms": "2+1",
     "floor": "3",
     "age": "6 лет",
@@ -3211,14 +3333,14 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-24",
-    "source_checked_at": "2026-09-24T05:02:18Z",
+    "data_checked": "2026-09-25",
+    "source_checked_at": "2026-09-25T05:01:27Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
-    "fx_rate": 48.854,
+    "fx_rate": 48.963,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-24T05:02:18Z",
+    "fx_checked_at": "2026-09-25T05:01:27Z",
     "price_history": [
       {
         "checked_at": "2026-09-13T05:03:01Z",
@@ -3334,6 +3456,17 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-24",
         "source_url": "https://www.hepsiemlak.com/istanbul-kartal-atalar-satilik/daire/168071-27"
+      },
+      {
+        "checked_at": "2026-09-25T05:01:27Z",
+        "price_try": 6800000,
+        "price_usd": 138880,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.963,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-25",
+        "source_url": "https://www.hepsiemlak.com/istanbul-kartal-atalar-satilik/daire/168071-27"
       }
     ],
     "legal_status": "unknown",
@@ -3352,9 +3485,9 @@
         "source_url": "https://tr.wikipedia.org/wiki/Atalar_Tren_%C4%B0stasyonu"
       }
     },
-    "freshness_note": "Цена и активная карточка подтверждены 24.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
-    "fx_quote_date": "2026-09-24",
+    "freshness_note": "Цена и активная карточка подтверждены 25.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
+    "fx_quote_date": "2026-09-25",
     "source_check_evidence_url": "https://www.hepsiemlak.com/istanbul-kartal-atalar-satilik/daire/168071-27"
   },
   {
@@ -3365,10 +3498,10 @@
     "micro": "Altıntepe",
     "title": "Altıntepe — Ergin Sokak, 2+1, 75/60 м², 2 этаж",
     "price_try": 6350000,
-    "price_usd": 129979,
+    "price_usd": 129690,
     "gross": 75,
     "net": 60,
-    "sqm_usd": 1733,
+    "sqm_usd": 1729,
     "rooms": "2+1",
     "floor": "2",
     "age": "28 лет",
@@ -3411,14 +3544,14 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-24",
-    "source_checked_at": "2026-09-24T05:02:18Z",
+    "data_checked": "2026-09-25",
+    "source_checked_at": "2026-09-25T05:01:27Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
-    "fx_rate": 48.854,
+    "fx_rate": 48.963,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-24T05:02:18Z",
+    "fx_checked_at": "2026-09-25T05:01:27Z",
     "price_history": [
       {
         "checked_at": "2026-09-14T05:00:14Z",
@@ -3524,6 +3657,17 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-24",
         "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/36118-18533"
+      },
+      {
+        "checked_at": "2026-09-25T05:01:27Z",
+        "price_try": 6350000,
+        "price_usd": 129690,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.963,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-25",
+        "source_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/36118-18533"
       }
     ],
     "legal_status": "unknown",
@@ -3547,9 +3691,9 @@
         "source_url": "https://en.wikipedia.org/wiki/Bostanc%C4%B1_Ferry_Terminal"
       }
     },
-    "freshness_note": "Цена и активная карточка подтверждены 24.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
-    "fx_quote_date": "2026-09-24",
+    "freshness_note": "Цена и активная карточка подтверждены 25.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
+    "fx_quote_date": "2026-09-25",
     "source_check_evidence_url": "https://www.hepsiemlak.com/istanbul-maltepe-altintepe-satilik/daire/36118-18533"
   },
   {
@@ -3560,10 +3704,10 @@
     "micro": "Atalar",
     "title": "Atalar — 2+1, 90/80 м², 1 этаж",
     "price_try": 8350000,
-    "price_usd": 170917,
+    "price_usd": 170537,
     "gross": 90,
     "net": 80,
-    "sqm_usd": 1899,
+    "sqm_usd": 1895,
     "rooms": "2+1",
     "floor": "1",
     "age": "Новый дом",
@@ -3606,14 +3750,14 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-24",
-    "source_checked_at": "2026-09-24T05:02:18Z",
+    "data_checked": "2026-09-25",
+    "source_checked_at": "2026-09-25T05:01:27Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
-    "fx_rate": 48.854,
+    "fx_rate": 48.963,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-24T05:02:18Z",
+    "fx_checked_at": "2026-09-25T05:01:27Z",
     "price_history": [
       {
         "checked_at": "2026-09-15T04:58:05Z",
@@ -3709,6 +3853,17 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-24",
         "source_url": "https://www.hepsiemlak.com/istanbul-kartal-atalar-satilik/daire/151301-795"
+      },
+      {
+        "checked_at": "2026-09-25T05:01:27Z",
+        "price_try": 8350000,
+        "price_usd": 170537,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.963,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-25",
+        "source_url": "https://www.hepsiemlak.com/istanbul-kartal-atalar-satilik/daire/151301-795"
       }
     ],
     "legal_status": "unknown",
@@ -3727,9 +3882,9 @@
         "source_url": "https://tr.wikipedia.org/wiki/Atalar_Tren_%C4%B0stasyonu"
       }
     },
-    "freshness_note": "Цена и активная карточка подтверждены 24.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
-    "fx_quote_date": "2026-09-24",
+    "freshness_note": "Цена и активная карточка подтверждены 25.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
+    "fx_quote_date": "2026-09-25",
     "source_check_evidence_url": "https://www.hepsiemlak.com/istanbul-kartal-atalar-satilik/daire/151301-795"
   },
   {
@@ -3879,10 +4034,10 @@
       }
     },
     "freshness_note": "Цена и активная карточка подтверждены 23.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
     "fx_quote_date": "2026-09-23",
     "source_check_evidence_url": "https://www.emlakjet.com/ilan/maltepe-metronun-dibinde-yeni-binada-ayri-mutfakli-21-19009990",
-    "source_last_attempt_note": "24.09.2026 источник не позволил подтвердить свежую цену; прежние цена и дата сохранены, снятие не утверждается."
+    "source_last_attempt_note": "25.09.2026 источник не позволил подтвердить свежую цену; прежние цена и дата сохранены, снятие не утверждается."
   },
   {
     "id": "A07",
@@ -4004,9 +4159,9 @@
       }
     },
     "freshness_note": "Цена и активность карточки проверены 19.09.2026; USD/TRY — опубликованное значение за 18.09.2026 (выходной рынок). Юридическая, техническая и экономическая проверка не выполнена.",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
     "fx_quote_date": "2026-09-18",
-    "source_last_attempt_note": "24.09.2026 источник не позволил подтвердить свежую цену; прежние цена и дата сохранены, снятие не утверждается."
+    "source_last_attempt_note": "25.09.2026 источник не позволил подтвердить свежую цену; прежние цена и дата сохранены, снятие не утверждается."
   },
   {
     "id": "A08",
@@ -4016,10 +4171,10 @@
     "micro": "Örnek",
     "title": "Örnek — 2+1, 75/70 м², высокий вход",
     "price_try": 5800000,
-    "price_usd": 118721,
+    "price_usd": 118457,
     "gross": 75,
     "net": 70,
-    "sqm_usd": 1583,
+    "sqm_usd": 1579,
     "rooms": "2+1",
     "floor": "Высокий вход",
     "age": "11–15 лет",
@@ -4065,14 +4220,14 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-24",
-    "source_checked_at": "2026-09-24T05:02:18Z",
+    "data_checked": "2026-09-25",
+    "source_checked_at": "2026-09-25T05:01:27Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
-    "fx_rate": 48.854,
+    "fx_rate": 48.963,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-24T05:02:18Z",
+    "fx_checked_at": "2026-09-25T05:01:27Z",
     "price_history": [
       {
         "checked_at": "2026-09-18T05:00:50Z",
@@ -4139,6 +4294,17 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-24",
         "source_url": "https://www.emlakjet.com/ilan/f-l-den-ornekte-yatirimcisina-40-bin-kiracili-eminevim-sirketlerine-uygun-yuksek-giris-21-19614456"
+      },
+      {
+        "checked_at": "2026-09-25T05:01:27Z",
+        "price_try": 5800000,
+        "price_usd": 118457,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.963,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-25",
+        "source_url": "https://www.emlakjet.com/ilan/f-l-den-ornekte-yatirimcisina-40-bin-kiracili-eminevim-sirketlerine-uygun-yuksek-giris-21-19614456"
       }
     ],
     "advertised_previous_price_try": 6050000,
@@ -4171,9 +4337,9 @@
         "source_url": "https://en.wikipedia.org/wiki/Bostanc%C4%B1_Ferry_Terminal"
       }
     },
-    "freshness_note": "Цена и активная карточка подтверждены 24.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
-    "fx_quote_date": "2026-09-24",
+    "freshness_note": "Цена и активная карточка подтверждены 25.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
+    "fx_quote_date": "2026-09-25",
     "source_check_evidence_url": "https://www.emlakjet.com/ilan/f-l-den-ornekte-yatirimcisina-40-bin-kiracili-eminevim-sirketlerine-uygun-yuksek-giris-21-19614456"
   },
   {
@@ -4184,10 +4350,10 @@
     "micro": "Atalar",
     "title": "Atalar — 2+1, 95/75 м², средний этаж",
     "price_try": 7250000,
-    "price_usd": 148401,
+    "price_usd": 148071,
     "gross": 95,
     "net": 75,
-    "sqm_usd": 1562,
+    "sqm_usd": 1559,
     "rooms": "2+1",
     "floor": "Ara Kat (точный номер не раскрыт)",
     "age": "10 лет — по объявлению",
@@ -4233,16 +4399,16 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-24",
-    "source_checked_at": "2026-09-24T05:02:18Z",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
+    "data_checked": "2026-09-25",
+    "source_checked_at": "2026-09-25T05:01:27Z",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
     "source_check_result": "active-price-confirmed",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
-    "fx_rate": 48.854,
+    "fx_rate": 48.963,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-24T05:02:18Z",
-    "fx_quote_date": "2026-09-24",
+    "fx_checked_at": "2026-09-25T05:01:27Z",
+    "fx_quote_date": "2026-09-25",
     "price_history": [
       {
         "checked_at": "2026-09-19T05:02:54Z",
@@ -4298,6 +4464,17 @@
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-24",
         "source_url": "https://www.hepsiemlak.com/istanbul-kartal-atalar-satilik/daire/1985-3313"
+      },
+      {
+        "checked_at": "2026-09-25T05:01:27Z",
+        "price_try": 7250000,
+        "price_usd": 148071,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.963,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-25",
+        "source_url": "https://www.hepsiemlak.com/istanbul-kartal-atalar-satilik/daire/1985-3313"
       }
     ],
     "legal_status": "unknown",
@@ -4316,7 +4493,7 @@
         "source_url": "https://tr.wikipedia.org/wiki/Atalar_Tren_%C4%B0stasyonu"
       }
     },
-    "freshness_note": "Цена и активная карточка подтверждены 24.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
+    "freshness_note": "Цена и активная карточка подтверждены 25.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
     "source_check_evidence_url": "https://www.hepsiemlak.com/istanbul-kartal-atalar-satilik/daire/1985-3313"
   },
   {
@@ -4378,7 +4555,7 @@
     "photo_status": "verified",
     "data_checked": "2026-09-21",
     "source_checked_at": "2026-09-21T04:58:43Z",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
     "source_check_result": "source-error",
     "source_check_evidence_url": "https://www.emlakjet.com/ilan/merkez18-den-merkezi-konumda-21-85-daire-19872889",
     "price_currency": "TRY",
@@ -4427,7 +4604,7 @@
       }
     },
     "freshness_note": "Цена и активная карточка подтверждены 21.09.2026; юридическая, техническая и экономическая проверка не выполнена.",
-    "source_last_attempt_note": "24.09.2026 источник не позволил подтвердить свежую цену; прежние цена и дата сохранены, снятие не утверждается."
+    "source_last_attempt_note": "25.09.2026 источник не позволил подтвердить свежую цену; прежние цена и дата сохранены, снятие не утверждается."
   },
   {
     "id": "A10",
@@ -4437,10 +4614,10 @@
     "micro": "İçerenköy",
     "title": "İçerenköy — 2+1, 85/70 м², 2-й этаж",
     "price_try": 6250000,
-    "price_usd": 127932,
+    "price_usd": 127647,
     "gross": 85,
     "net": 70,
-    "sqm_usd": 1505,
+    "sqm_usd": 1502,
     "rooms": "2+1",
     "floor": "2",
     "age": "11–15 лет — по объявлению",
@@ -4486,17 +4663,17 @@
     ],
     "photo_source": "Оригинальное объявление",
     "photo_status": "verified",
-    "data_checked": "2026-09-24",
-    "source_checked_at": "2026-09-24T05:02:18Z",
-    "source_last_attempt_at": "2026-09-24T05:02:18Z",
+    "data_checked": "2026-09-25",
+    "source_checked_at": "2026-09-25T05:01:27Z",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
     "source_check_result": "active-price-confirmed",
     "source_check_evidence_url": "https://www.emlakjet.com/ilan/oryastan-atasehir-icerenkoyde-masrafsiz-85m2-21-arakat-daire-19719407",
     "price_currency": "TRY",
     "fx_pair": "USDTRY",
-    "fx_rate": 48.854,
+    "fx_rate": 48.963,
     "fx_source_url": "https://tradingeconomics.com/turkey/currency",
-    "fx_checked_at": "2026-09-24T05:02:18Z",
-    "fx_quote_date": "2026-09-24",
+    "fx_checked_at": "2026-09-25T05:01:27Z",
+    "fx_quote_date": "2026-09-25",
     "price_history": [
       {
         "checked_at": "2026-09-24T05:02:18Z",
@@ -4507,6 +4684,17 @@
         "fx_rate": 48.854,
         "fx_source_url": "https://tradingeconomics.com/turkey/currency",
         "fx_quote_date": "2026-09-24",
+        "source_url": "https://www.emlakjet.com/ilan/oryastan-atasehir-icerenkoyde-masrafsiz-85m2-21-arakat-daire-19719407"
+      },
+      {
+        "checked_at": "2026-09-25T05:01:27Z",
+        "price_try": 6250000,
+        "price_usd": 127647,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.963,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-25",
         "source_url": "https://www.emlakjet.com/ilan/oryastan-atasehir-icerenkoyde-masrafsiz-85m2-21-arakat-daire-19719407"
       }
     ],
@@ -4543,6 +4731,117 @@
         "source_url": "https://en.wikipedia.org/wiki/Göztepe_Park"
       }
     },
-    "freshness_note": "Цена и активная карточка подтверждены 24.09.2026; юридическая, техническая и экономическая проверка не выполнена."
+    "freshness_note": "Цена и активная карточка подтверждены 25.09.2026; юридическая, техническая и экономическая проверка не выполнена."
+  },
+  {
+    "id": "A11",
+    "country": "Турция",
+    "city": "Стамбул",
+    "district": "Ataşehir",
+    "micro": "Örnek",
+    "title": "Örnek — 2+1, 90/80 м², 1-й этаж",
+    "price_try": 8750000,
+    "price_usd": 178706,
+    "gross": 90,
+    "net": 80,
+    "sqm_usd": 1986,
+    "rooms": "2+1",
+    "floor": "1",
+    "age": "Новый, готов к заселению — по объявлению",
+    "decision": "WATCH",
+    "score": 0,
+    "growth": "Не проверено",
+    "liquidity": "Не проверено",
+    "seismic": "Новый возраст по объявлению не подтверждает безопасность здания. Требуются разрешительная документация, parcel/soil report и независимая конструктивная экспертиза.",
+    "transit": [
+      "M4 Yenisahra — около 1,1 км по прямой от portal pin",
+      "Пересадка на Marmaray через Ayrılık Çeşmesi — маршрутная возможность, не пешее расстояние",
+      "Bostancı İDO — около 4,5 км по прямой от portal pin"
+    ],
+    "route": "Пеший маршрут не рассчитан. Все численные расстояния — по прямой от приблизительного pin объявления, не от входа в здание.",
+    "parks": [
+      "Göztepe 60. Yıl Parkı — около 3,5 км по прямой от portal pin",
+      "Локальные парки Örnek — проверить от точного адреса"
+    ],
+    "poi": [
+      "M4 Yenisahra — 1,1 км по прямой",
+      "Ülker Sports Arena — 1,7 км по прямой",
+      "Bostancı İDO — 4,5 км по прямой; не пеший маршрут"
+    ],
+    "url": "https://www.emlakjet.com/ilan/istanbul-atasehir-ornek-mahlesi-cadde-uzeri-21-arakat-90-m2-satilik-19508325",
+    "source_url": "https://www.emlakjet.com/ilan/istanbul-atasehir-ornek-mahlesi-cadde-uzeri-21-arakat-90-m2-satilik-19508325",
+    "source_origin": "Emlakjet",
+    "source_type": "marketplace",
+    "seller_type": "agency",
+    "notes": "Бюджет, 2+1 и площадь соответствуют базовому профилю, но 1-й этаж вне предпочтительных этажей 2–6. Портал указывает новый готовый объект, закрытый паркинг, лифт, отдельную кухню и балкон, одновременно поле Tapu сообщает «Tapu Kaydı Yok». Документы, конструкция, экономика и заявленная аренда независимо не подтверждены — WATCH.",
+    "tapu": "Tapu Kaydı Yok — поле объявления; юридический статус и документы не проверены",
+    "parking": "Закрытый паркинг — по структурированному полю объявления, не проверено",
+    "status": "Активное объявление",
+    "map_query": "Örnek Mahallesi, Ataşehir, İstanbul",
+    "lat": 40.99302237940415,
+    "lon": 29.08477319248528,
+    "loc_accuracy": "Portal coordinate / mahalle-level approx",
+    "loc_note": "Портал раскрывает координату карты и район, но не подтверждает точный адрес или вход в здание; pin приблизительный.",
+    "coordinate_source_url": "https://www.emlakjet.com/ilan/istanbul-atasehir-ornek-mahlesi-cadde-uzeri-21-arakat-90-m2-satilik-19508325",
+    "photos": [
+      "https://imaj.emlakjet.com/resize/1200/0/listing/19508325/6B3CDF92272F624D2DF764A8C7CDD79019508325.jpg",
+      "https://imaj.emlakjet.com/resize/1200/0/listing/19508325/BDD2D0947FC56BA6416A21A807B414EB19508325.jpg",
+      "https://imaj.emlakjet.com/resize/1200/0/listing/19508325/0541EFFE84204FB3BE5DB68062219B4C19508325.jpg"
+    ],
+    "photo_source": "Оригинальное объявление",
+    "photo_status": "verified",
+    "data_checked": "2026-09-25",
+    "source_checked_at": "2026-09-25T05:01:27Z",
+    "source_last_attempt_at": "2026-09-25T05:01:27Z",
+    "source_check_result": "active-price-confirmed",
+    "source_check_evidence_url": "https://www.emlakjet.com/ilan/istanbul-atasehir-ornek-mahlesi-cadde-uzeri-21-arakat-90-m2-satilik-19508325",
+    "price_currency": "TRY",
+    "fx_pair": "USDTRY",
+    "fx_rate": 48.963,
+    "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+    "fx_checked_at": "2026-09-25T05:01:27Z",
+    "fx_quote_date": "2026-09-25",
+    "price_history": [
+      {
+        "checked_at": "2026-09-25T05:01:27Z",
+        "price_try": 8750000,
+        "price_usd": 178706,
+        "price_currency": "TRY",
+        "fx_pair": "USDTRY",
+        "fx_rate": 48.963,
+        "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+        "fx_quote_date": "2026-09-25",
+        "source_url": "https://www.emlakjet.com/ilan/istanbul-atasehir-ornek-mahlesi-cadde-uzeri-21-arakat-90-m2-satilik-19508325"
+      }
+    ],
+    "advertised_rent_try": 55000,
+    "advertised_rent_status": "seller-claimed-not-verified",
+    "legal_status": "unknown",
+    "structural_status": "unknown",
+    "economics_status": "unknown",
+    "developer_status": "unknown",
+    "source_distances": {
+      "yenisahra_m4_straight_line": {
+        "distance_m": 1070,
+        "method": "great-circle straight line from approximate portal pin; not a walking route",
+        "source_url": "https://en.wikipedia.org/wiki/Yenisahra_(Istanbul_Metro)"
+      },
+      "ulker_sports_arena_straight_line": {
+        "distance_m": 1651,
+        "method": "great-circle straight line from approximate portal pin; not a walking route",
+        "source_url": "https://en.wikipedia.org/wiki/Ülker_Sports_and_Event_Hall"
+      },
+      "goztepe_park_straight_line": {
+        "distance_m": 3465,
+        "method": "great-circle straight line from approximate portal pin; not a walking route",
+        "source_url": "https://en.wikipedia.org/wiki/Göztepe_Park"
+      },
+      "bostanci_ido_coast_reference": {
+        "distance_m": 4549,
+        "method": "great-circle distance to Bostancı İDO reference; not a walking route",
+        "source_url": "https://en.wikipedia.org/wiki/Bostancı_Ferry_Terminal"
+      }
+    },
+    "freshness_note": "Цена и активная карточка подтверждены 25.09.2026; юридическая, техническая и экономическая проверка не выполнена."
   }
 ]
