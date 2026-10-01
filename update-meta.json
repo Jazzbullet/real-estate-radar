@@ -1,27 +1,21 @@
 {
   "status": "partial",
-  "last_attempt_at": "2026-09-30T09:58:40+05:00",
-  "last_success_at": "2026-09-30T09:58:40+05:00",
-  "timezone": "Asia/Tashkent",
+  "last_attempt_at": "2026-10-01T09:55:06+05:00",
+  "last_success_at": "2026-10-01T09:55:06+05:00",
   "checked": 19,
-  "new": 0,
+  "new": 1,
   "changed": 19,
   "unavailable": 13,
   "price_changed": 0,
-  "archived": 1,
-  "sources_searched": [
-    "Sahibinden",
-    "Hepsiemlak",
-    "Emlakjet",
-    "official-developers",
-    "authorized-agencies"
-  ],
-  "developer_sources_checked": [
-    "Emlak Konut GYO",
-    "Sur Yapı",
-    "DAP Yapı",
-    "Nef",
-    "Teknik Yapı"
-  ],
-  "message": "Подтверждены 18 цен без изменения. A06 архивирован после подтверждённого HTTP 410 Gone. У 13 карточек свежая цена не подтверждена: прежние цены и даты сохранены. Курс USD/TRY 49,0127 за 30.09.2026. Новых подходящих лотов с проверяемой прямой страницей не найдено; официальные витрины застройщиков не дали лота с одновременно опубликованными ценой и наличием."
+  "archived": 0,
+  "catalog_total": 33,
+  "catalog_active": 32,
+  "catalog_archived_total": 1,
+  "reason": "18 existing prices and one new listing were confirmed on direct pages. Thirteen existing sources did not expose a reliable price; their prior successful timestamps were preserved and none were archived. K05 net area was corrected from 60 to 57 m² from the active listing.",
+  "fx_pair": "USDTRY",
+  "fx_rate": 49.0357,
+  "fx_source_url": "https://tradingeconomics.com/turkey/currency",
+  "fx_quote_date": "2026-10-01",
+  "profile_source": "Google Drive DEFAULT_PROFILE",
+  "notes": "K14 added as WATCH. No developer lot with both a directly published current price and current availability was verified. Interface, maps and POI schema were preserved."
 }
