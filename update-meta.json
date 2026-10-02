@@ -17,5 +17,5 @@
   "fx_source_url": "https://tradingeconomics.com/turkey/currency",
   "fx_quote_date": "2026-10-02",
   "profile_source": "Google Drive DEFAULT_PROFILE",
-  "notes": "M09 added as WATCH because title/structure/economics remain unverified and the portal shows no title-deed record. No developer lot with both a directly published current price and current availability was verified. Maltepe Marmaray and Sahil Park POIs were added; interface and existing map data were preserved."
+  "notes": "M09 added as PASS because the portal explicitly shows no title-deed record; structure and economics also remain unverified. No developer lot with both a directly published current price and current availability was verified. Maltepe Marmaray and Sahil Park POIs were added; interface and existing map data were preserved."
 }

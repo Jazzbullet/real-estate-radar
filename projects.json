@@ -6649,7 +6649,7 @@
     "rooms": "2+1",
     "floor": "3",
     "age": "0 (готово к заселению) — по объявлению",
-    "decision": "WATCH",
+    "decision": "PASS",
     "score": 0,
     "growth": "Не проверено",
     "liquidity": "Не проверено",
@@ -6674,7 +6674,7 @@
     "source_origin": "Emlakjet",
     "source_type": "marketplace",
     "seller_type": "agency",
-    "notes": "Соответствует бюджету, планировке, площади и этажу. Портал показывает «Tapu Kaydı Yok»; документы, конструкция, aidat, аренда, Fair Value и экономика независимо не подтверждены — WATCH.",
+    "notes": "Соответствует бюджету, планировке, площади и этажу, но портал прямо показывает «Tapu Kaydı Yok» — серьёзный юридический стоп-фактор. До появления и независимой проверки полноценного Tapu/Iskan — PASS; конструкция, aidat, аренда, Fair Value и экономика также не подтверждены.",
     "tapu": "Tapu Kaydı Yok — поле портала; требуется документальная проверка",
     "parking": "Открытый и закрытый — заявление объявления",
     "status": "Активное объявление",
@@ -6715,7 +6715,7 @@
         "source_url": "https://www.emlakjet.com/ilan/yatirim-dan-yali-sahilde-marmaraya-yakin-katta-bos-on-cephe-21-19901274"
       }
     ],
-    "legal_status": "unknown",
+    "legal_status": "failed",
     "structural_status": "unknown",
     "economics_status": "unknown",
     "developer_status": "unknown",
